@@ -5,14 +5,18 @@
  */
 package App;
 
+import Controller.Service.DiemService;
 import Controller.Service.GiaoVienService;
 import Controller.Service.HanhKiemService;
+import Controller.Service.HocService;
 import Controller.Service.HocSinhService;
 import Controller.Service.LoaiDiemService;
 import Controller.Service.LopService;
 import Controller.Service.MonHocService;
+import Controller.ServiceImpl.DiemServiceImpl;
 import Controller.ServiceImpl.GiaoVienServiceImpl;
 import Controller.ServiceImpl.HanhKiemServiceImpl;
+import Controller.ServiceImpl.HocServiceImpl;
 import Controller.ServiceImpl.HocSinhServiceImpl;
 import Controller.ServiceImpl.LoaiDiemServiceImpl;
 import Controller.ServiceImpl.LopServiceImpl;
@@ -27,6 +31,7 @@ import java.util.Date;
 import javax.swing.text.DateFormatter;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 /**
  *
@@ -37,7 +42,8 @@ public class TestApp {
     
     public static void main(String[] args) throws Exception {
     
-            System.out.println("Test App");
+           DiemService diemService = new DiemServiceImpl();
+           diemService.updateDiem("HS000002","TH7","HS12", "2020-2021",'I', 8.0f);
             
             
                

@@ -5,10 +5,21 @@
  */
 package Controller.Service;
 
+import Model.Hoc;
+import Model.HocSinh;
+import java.util.List;
+import java.util.Optional;
+
 /**
  *
  * @author leope
  */
 public interface HocService {
+    
+    public List<Hoc> findByLop(String tenLop, String namHoc);
+    
+    public Optional<Hoc> findHoc(String tenLop, String namHoc, String maHocSinh);
+    
+    public boolean addHoc(String tenLop, String namHoc, String maHocSinh);
     
 }

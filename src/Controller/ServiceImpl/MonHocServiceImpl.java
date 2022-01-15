@@ -11,6 +11,7 @@ import Model.MonHoc;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
+import java.util.Optional;
 
 /**
  *
@@ -39,7 +40,7 @@ public class MonHocServiceImpl implements MonHocService{
     }
 
     @Override
-    public List<MonHoc> findByTeMonHoc(String tenMonHoc) {
+    public List<MonHoc> findByTenMonHoc(String tenMonHoc) {
       List<MonHoc> listMonHocs = new ArrayList<>();
       String sql_query = "select * from mon_hoc \n"
               + "where ten_mon like concat('%',?,'%') and xoa =0";
@@ -57,6 +58,15 @@ public class MonHocServiceImpl implements MonHocService{
         }
         return listMonHocs;
     }
+
+    @Override
+    public Optional<MonHoc> findByMaMonHoc(String maMonHoc) {
+       List<MonHoc> listMonHoc = findAll();
+       Optional<MonHoc> monHocOptional = listMonHoc.stream().filter(mon -> mon.getMaMonHoc().equals(maMonHoc)).findAny();
+       return monHocOptional;
+    }
+    
+    
     
     
     

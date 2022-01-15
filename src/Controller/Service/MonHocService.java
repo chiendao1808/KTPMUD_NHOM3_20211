@@ -7,6 +7,7 @@ package Controller.Service;
 
 import Model.MonHoc;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -16,7 +17,10 @@ public interface MonHocService {
     
     public List<MonHoc>findAll();
     
-    public List<MonHoc> findByTeMonHoc(String tenMonHoc);
+    public List<MonHoc> findByTenMonHoc(String tenMonHoc);
+    
+    public Optional<MonHoc>findByMaMonHoc(String maMonHoc);
+    
     
     
     
