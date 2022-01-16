@@ -62,11 +62,13 @@ public class HocSinhServiceImpl implements HocSinhService {
 
     @Override
     public List<HocSinh> findByTenHocSinh(String tenHocSinh) {
-        String sql_query = "select * from hoc_sinh where hoc_sinh.ten_hoc_sinh like concat('%',?,'%') and hoc_sinh.xoa=0";
-        List<HocSinh> listHocSinh = null;
+        String sql_query = "select * from hoc_sinh \n"
+                + "where ten_hoc_sinh like concat('%',?,'%') and xoa=0";
+        List<HocSinh> listHocSinh = new ArrayList<>();
         try {
             //  conn =MySQLConnect.getConnection();
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            prst.setString(1, tenHocSinh);
             ResultSet rs = prst.executeQuery();
             while (rs.next()) {
                 listHocSinh.add(new HocSinh(rs.getString("ma_hoc_sinh"),

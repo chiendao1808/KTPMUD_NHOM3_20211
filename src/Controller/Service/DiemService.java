@@ -15,15 +15,15 @@ import java.util.Optional;
  */
 public interface DiemService {
     
-    public List<Diem>findAllDiemHocSinh(String maHocSinh, String namHoc, char hocKy);
+    public List<Diem>findAllDiemHocSinh(String maHocSinh, String namHoc, String hocKy);
     
-    public List<Diem> findByMonHoc(String maHocSinh, String maMonHoc, String namHoc, char hocKy);
+    public List<Diem> findByMonHoc(String maHocSinh, String maMonHoc, String namHoc, String hocKy);
     
-    public Optional<Diem> findDiemChiTiet(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, char hocKy);
+    public Optional<Diem> findDiemChiTiet(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, String hocKy);
     
-    public boolean addDiem (String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, char hocKy, float diemSo);
+    public boolean addDiem (String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, String hocKy, float diemSo);
     
-    public boolean updateDiem (String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, char hocKy, float diemSo);
+    public boolean updateDiem (String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, String hocKy, float diemSo);
     
     
     

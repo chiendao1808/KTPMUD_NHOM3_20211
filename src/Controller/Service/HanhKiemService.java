@@ -14,7 +14,7 @@ import java.util.Optional;
  */
 public interface HanhKiemService {
     
-    public Optional<HanhKiem> findHanhKiem(String maHocSinh, String namHoc, char hocKy);
+    public Optional<HanhKiem> findHanhKiem(String maHocSinh, String namHoc, String hocKy);
     
     public boolean addHanhKiem(HanhKiem hanhKiem);
     

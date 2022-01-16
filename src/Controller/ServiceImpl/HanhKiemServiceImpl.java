@@ -23,7 +23,7 @@ public class HanhKiemServiceImpl  implements HanhKiemService{
     
     
     @Override
-    public Optional<HanhKiem> findHanhKiem(String maHocSinh, String namHoc, char hocKy) {
+    public Optional<HanhKiem> findHanhKiem(String maHocSinh, String namHoc, String hocKy) {
             if(!hocSinhService.findByMaHocSinh(maHocSinh).isPresent()) return Optional.empty();
             String sql_query="select * from hanh_kiem \n"
                     + "where ma_hoc_sinh =? and nam_hoc =? and hoc_ky =? and xoa =0";
@@ -31,12 +31,12 @@ public class HanhKiemServiceImpl  implements HanhKiemService{
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
             prst.setString(1,maHocSinh);
             prst.setString(2, namHoc);
-            prst.setString(3,String.valueOf(hocKy));
+            prst.setString(3,hocKy);
             ResultSet rs = prst.executeQuery();
             if(!rs.next()) return Optional.empty();
            HocSinh hocSinh = hocSinhService.findByMaHocSinh(maHocSinh).get();
            Optional<HanhKiem>hanhKiemOptional = Optional.of(new HanhKiem(hocSinh,rs.getString("nam_hoc"),
-                        rs.getString("hoc_ky").charAt(0),
+                        rs.getString("hoc_ky"),
                         rs.getString("loi_vi_pham"),
                         rs.getInt("nghi_co_phep"),
                         rs.getInt("nghi_khong_phep"),
@@ -64,7 +64,7 @@ public class HanhKiemServiceImpl  implements HanhKiemService{
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
             prst.setString(1,hocSinhOptional.get().getMaHocSinh());
             prst.setString(2,hanhKiem.getNamHoc());
-            prst.setString(3, String.valueOf(hanhKiem.getHocKy())); 
+            prst.setString(3,hanhKiem.getHocKy()); 
             prst.setString(4, hanhKiem.getLoiViPham());
             prst.setInt(5, hanhKiem.getNghiCoPhep());
             prst.setInt(6, hanhKiem.getNghiKhongPhep());

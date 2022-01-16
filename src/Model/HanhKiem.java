@@ -21,7 +21,7 @@ public class HanhKiem {
     
     private String namHoc;
     
-    private char hocKy;
+    private String hocKy;
     
     private String loiViPham;
     

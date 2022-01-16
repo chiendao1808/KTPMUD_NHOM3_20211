@@ -1,8 +1,10 @@
 package View;
 
 import Controller.Service.GiaoVienService;
+import Controller.Service.HocService;
 import Controller.Service.HocSinhService;
 import Controller.ServiceImpl.GiaoVienServiceImpl;
+import Controller.ServiceImpl.HocServiceImpl;
 import Controller.ServiceImpl.HocSinhServiceImpl;
 import Controller.Validation.DateAndTimeUtils;
 import Model.GiaoVien;
@@ -49,6 +51,7 @@ public class HostFrame extends javax.swing.JFrame {
     private DefaultTableModel tab1_student_tableModel;
     private HocSinhService hocSinhService;
     private GiaoVienService giaoVienService;
+    private HocService hocService ;
     
     //
    
@@ -77,6 +80,7 @@ public class HostFrame extends javax.swing.JFrame {
         tab1_student_tableModel = (DefaultTableModel) tab1_student_table.getModel();
         hocSinhService = new HocSinhServiceImpl(); // injection
         giaoVienService = new GiaoVienServiceImpl(); // injection 
+        hocService= new HocServiceImpl(); // injection
         
 
         // set chức năng theo chức vụ giáo viên
@@ -179,7 +183,10 @@ public class HostFrame extends javax.swing.JFrame {
         tab1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab1_student_table = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tab1_searchAll_button = new javax.swing.JButton();
+        tab1_search_textField = new javax.swing.JTextField();
+        tab1_search_button = new javax.swing.JButton();
+        tab1_search_comboBox = new javax.swing.JComboBox<>();
         tab2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         tab3 = new javax.swing.JPanel();
@@ -521,34 +528,68 @@ public class HostFrame extends javax.swing.JFrame {
         tab1_student_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(tab1_student_table);
 
-        jButton1.setText("Tìm tất cả học sinh");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tab1_searchAll_button.setText("Tìm tất cả học sinh");
+        tab1_searchAll_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_searchAll_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                tab1_searchAll_buttonMouseClicked(evt);
             }
         });
+        tab1_searchAll_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_searchAll_buttonActionPerformed(evt);
+            }
+        });
+
+        tab1_search_textField.setText("Nhập tên hoặc mã học sinh");
+
+        tab1_search_button.setText("Tìm kiếm");
+        tab1_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab1_search_buttonMouseClicked(evt);
+            }
+        });
+
+        tab1_search_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo tên", "Theo mã học sinh" }));
 
         javax.swing.GroupLayout tab1Layout = new javax.swing.GroupLayout(tab1);
         tab1.setLayout(tab1Layout);
         tab1Layout.setHorizontalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1Layout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab1Layout.createSequentialGroup()
+                        .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(tab1_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(tab1Layout.createSequentialGroup()
+                        .addComponent(tab1_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(tab1Layout.createSequentialGroup()
                 .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tab1Layout.createSequentialGroup()
-                        .addGap(410, 410, 410)
-                        .addComponent(jButton1)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addGap(382, 382, 382)
+                        .addComponent(tab1_searchAll_button)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab1Layout.setVerticalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab1Layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(75, 75, 75)
+                .addGap(118, 118, 118)
+                .addComponent(tab1_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab1_search_button))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(tab1_searchAll_button)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -568,7 +609,7 @@ public class HostFrame extends javax.swing.JFrame {
             .addGroup(tab2Layout.createSequentialGroup()
                 .addGap(302, 302, 302)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         tab2Layout.setVerticalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -593,7 +634,7 @@ public class HostFrame extends javax.swing.JFrame {
             .addGroup(tab3Layout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         tab3Layout.setVerticalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -838,12 +879,41 @@ public class HostFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_infoTab_save_buttonActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void tab1_searchAll_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonMouseClicked
 
         List<HocSinh> listHocSinh = hocSinhService.findAll();
         showStudentInfo(listHocSinh);
 
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_tab1_searchAll_buttonMouseClicked
+
+    private void tab1_searchAll_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_searchAll_buttonActionPerformed
+
+    private void tab1_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_search_buttonMouseClicked
+        // TODO add your handling code here:
+        if(tab1_search_comboBox.getSelectedIndex() ==0 ) 
+            {
+                    if(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()).size() <=0 ) {
+                           new JOptionPane().showMessageDialog(null, "Không tìm thấy kết quả phù hợp");
+                    }                    
+                    else 
+                        showStudentInfo(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()));
+        }
+        else 
+            {
+                Optional<HocSinh> hocSinhOptional = hocSinhService.findByMaHocSinh(tab1_search_textField.getText());
+                if(hocSinhOptional.isPresent())  showStudentInfo(List.of(hocSinhOptional.get()));
+                else
+                    {
+                        new JOptionPane().showMessageDialog(null, "Không tìm thấy học sinh phù hợp");
+                        showStudentInfo(List.of());
+                    }                       
+            }
+        
+        
+        
+    }//GEN-LAST:event_tab1_search_buttonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -894,7 +964,6 @@ public class HostFrame extends javax.swing.JFrame {
     private javax.swing.JTextField infoTab_semeter_textField;
     private javax.swing.JLabel infoTab_sex_label;
     private javax.swing.JTextField infoTab_sex_textField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -908,6 +977,10 @@ public class HostFrame extends javax.swing.JFrame {
     private javax.swing.JButton logOut_btn;
     private javax.swing.JPanel sidepane;
     private javax.swing.JPanel tab1;
+    private javax.swing.JButton tab1_searchAll_button;
+    private javax.swing.JButton tab1_search_button;
+    private javax.swing.JComboBox<String> tab1_search_comboBox;
+    private javax.swing.JTextField tab1_search_textField;
     private javax.swing.JTable tab1_student_table;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;

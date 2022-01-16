@@ -23,7 +23,7 @@ public class Diem {
     
     private String namHoc;
     
-    private char hocKy;
+    private String hocKy;
     
     private float diemSo;
     

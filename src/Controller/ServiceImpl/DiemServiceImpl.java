@@ -27,7 +27,7 @@ public class DiemServiceImpl implements DiemService{
     private LoaiDiemService loaiDiemService =  new LoaiDiemServiceImpl();
 
     @Override
-    public List<Diem> findAllDiemHocSinh(String maHocSinh, String namHoc, char hocKy) { // tìm các điểm của học sinh trong một học kỳ
+    public List<Diem> findAllDiemHocSinh(String maHocSinh, String namHoc, String hocKy) { // tìm các điểm của học sinh trong một học kỳ
         if(!hocSinhService.findByMaHocSinh(maHocSinh).isPresent()) return List.of();
         List<Diem> listDiemHocSinh = new ArrayList<>();
         String sql_query ="select * from diem\n"
@@ -44,7 +44,7 @@ public class DiemServiceImpl implements DiemService{
                                                                             monHocService.findByMaMonHoc(rs.getString("ma_mon_hoc")).get(),
                                                                             loaiDiemService.findLoaiDiem(rs.getString("ma_loai_diem")).get(),
                                                                             rs.getString("nam_hoc"),
-                                                                            rs.getString("hoc_ky").charAt(0),
+                                                                            rs.getString("hoc_ky"),
                                                                             rs.getFloat("diem_so"),
                                                                             false));
                 }         
@@ -57,13 +57,13 @@ public class DiemServiceImpl implements DiemService{
     }
 
     @Override
-    public List<Diem> findByMonHoc(String maHocSinh,String maMonHoc, String namHoc, char hocKy) {
+    public List<Diem> findByMonHoc(String maHocSinh,String maMonHoc, String namHoc, String hocKy) {
         List<Diem> listDiemTheoMonHoc = findAllDiemHocSinh(maHocSinh, namHoc, hocKy).stream().filter(diem-> diem.getMonHoc().getMaMonHoc().equals(maMonHoc)).toList();
         return listDiemTheoMonHoc;
     }
 
     @Override
-    public Optional<Diem> findDiemChiTiet(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, char hocKy) {
+    public Optional<Diem> findDiemChiTiet(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, String hocKy) {
       Optional<Diem> diemOptional = findAllDiemHocSinh(maHocSinh, namHoc, hocKy).stream().filter((t) -> {
           return (t.getMonHoc().getMaMonHoc().equals(maMonHoc)  && t.getLoaiDiem().getMaLoaiDiem().equals(maLoaiDiem)); //To change body of generated lambdas, choose Tools | Templates.
       }).findAny();
@@ -73,7 +73,7 @@ public class DiemServiceImpl implements DiemService{
     
    
     @Override
-    public boolean addDiem(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, char hocKy,float diemSo) {     
+    public boolean addDiem(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, String hocKy,float diemSo) {     
         if(!hocSinhService.findByMaHocSinh(maHocSinh).isPresent() ||  !monHocService.findByMaMonHoc(maMonHoc).isPresent() || !loaiDiemService.findLoaiDiem(maLoaiDiem).isPresent())
            return false;
         else if (findDiemChiTiet(maHocSinh, maMonHoc, maLoaiDiem, namHoc, hocKy).isPresent()) return false;
@@ -86,7 +86,7 @@ public class DiemServiceImpl implements DiemService{
             prst.setString(2, maMonHoc);
             prst.setString(3, maLoaiDiem);
             prst.setString(4, namHoc);
-            prst.setString(5, String.valueOf(hocKy));
+            prst.setString(5, hocKy);
             prst.setFloat(6, diemSo);
             addCheck =prst .execute();
             prst.close();            
@@ -97,7 +97,7 @@ public class DiemServiceImpl implements DiemService{
     }
 
     @Override
-    public boolean updateDiem(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, char hocKy, float diemSo) {
+    public boolean updateDiem(String maHocSinh, String maMonHoc, String maLoaiDiem, String namHoc, String hocKy, float diemSo) {
        boolean updateCheck = false;
       Optional<Diem> diemChiTiet = findDiemChiTiet(maHocSinh, maMonHoc, maLoaiDiem, namHoc, hocKy);
       if(!diemChiTiet.isPresent()) return updateCheck;
@@ -111,7 +111,7 @@ public class DiemServiceImpl implements DiemService{
             prst.setString(3, maMonHoc);
             prst.setString(4, maLoaiDiem);
             prst.setString(5, namHoc);
-            prst.setString (6, String.valueOf(hocKy));
+            prst.setString (6, hocKy);
             updateCheck= prst.execute();
             prst.close();
         } catch (Exception e) {

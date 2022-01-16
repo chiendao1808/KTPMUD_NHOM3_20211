@@ -42,8 +42,9 @@ public class TestApp {
     
     public static void main(String[] args) throws Exception {
     
-           DiemService diemService = new DiemServiceImpl();
-           diemService.updateDiem("HS000002","TH7","HS12", "2020-2021",'I', 8.0f);
+       
+//        HocSinhService hocSinhService = new HocSinhServiceImpl();
+//        hocSinhService.findByTenHocSinh("Chiến").stream().forEach(System.out::println);
             
             
                

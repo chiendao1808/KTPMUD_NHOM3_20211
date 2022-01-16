@@ -52,10 +52,7 @@ public class MainApp {
 //   List<HocSinh> list = hsService.findAll();
 //   //list.stream().forEach(System.out::println);
 //        System.out.println(list);
-//     
-   
-        
-        
+//                 
     }
     
 }
