@@ -541,7 +541,7 @@ public class HostFrame extends javax.swing.JFrame {
                     .addGroup(tab1Layout.createSequentialGroup()
                         .addGap(410, 410, 410)
                         .addComponent(jButton1)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab1Layout.setVerticalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
