@@ -103,4 +103,22 @@ public class HocServiceImpl implements HocService {
         return addCheck;
     }
 
+    @Override
+    public boolean deleteHoc(Hoc hoc) {
+        boolean deleteCheck = false;
+        if(!findHoc(hoc.getLop().getTenLop(), hoc.getLop().getNamHoc(),hoc.getHocSinh().getMaHocSinh()).isPresent()) return deleteCheck;
+        String sql_query ="update hoc \n"
+                + "set xoa= 1 \n"
+                +" where ten_lop =? and nam_hoc =? and ma_hoc_sinh =?";
+        try {
+            PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            prst.setString(1, hoc.getLop().getTenLop());
+            prst.setString(2, hoc.getLop().getNamHoc());
+            prst.setString(3, hoc.getHocSinh().getMaHocSinh());
+            deleteCheck = prst.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return deleteCheck;
+    }
 }

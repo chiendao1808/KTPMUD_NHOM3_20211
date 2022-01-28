@@ -21,6 +21,8 @@ public interface MonHocService {
     
     public Optional<MonHoc>findByMaMonHoc(String maMonHoc);
     
+    public boolean addMonHoc(MonHoc monHoc);
+    
     
     
     

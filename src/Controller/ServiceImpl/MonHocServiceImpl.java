@@ -65,6 +65,27 @@ public class MonHocServiceImpl implements MonHocService{
        Optional<MonHoc> monHocOptional = listMonHoc.stream().filter(mon -> mon.getMaMonHoc().equals(maMonHoc)).findAny();
        return monHocOptional;
     }
+
+    @Override
+    public boolean addMonHoc(MonHoc monHoc) {
+        boolean addCheck = false;
+        if(findByMaMonHoc(monHoc.getMaMonHoc()).isPresent()) return addCheck;
+        String sql_query ="insert into mon_hoc (ma_mon_hoc,ten_mon, trong_so, khoi, xoa)\n"
+                + "values (?,?,?,?,0)";
+        try {
+            PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            prst.setString(1,monHoc.getMaMonHoc());
+            prst.setString(2, monHoc.getTenMon());
+            prst.setInt(3, monHoc.getTrongSo());
+            prst.setInt(4, monHoc.getKhoi());
+            addCheck =prst.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return addCheck;
+    }
+    
+    
     
     
     

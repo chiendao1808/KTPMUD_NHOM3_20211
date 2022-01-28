@@ -20,6 +20,8 @@ public interface HanhKiemService {
     
     public boolean updateHanhKiem(HanhKiem hanhKiem);
     
+    public String proccessHanhKiem(HanhKiem hanhKiem);
+    
     
     
 }

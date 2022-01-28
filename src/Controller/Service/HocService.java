@@ -22,4 +22,7 @@ public interface HocService {
     
     public boolean addHoc(String tenLop, String namHoc, String maHocSinh);
     
+    public boolean deleteHoc(Hoc hoc);
+    
+    
 }

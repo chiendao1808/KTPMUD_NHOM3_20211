@@ -12,6 +12,7 @@ import Model.HanhKiem;
 import Model.HocSinh;
 import java.util.Optional;
 import java.sql.*;
+import java.util.List;
 
 /**
  *
@@ -98,6 +99,72 @@ public class HanhKiemServiceImpl  implements HanhKiemService{
         return updateCheck;
         
     }
+
+    @Override
+    public String proccessHanhKiem(HanhKiem hanhKiem) {
+        if(!findHanhKiem(hanhKiem.getHocSinh().getMaHocSinh(), hanhKiem.getNamHoc(), hanhKiem.getHocKy()).isPresent()) return "Không tìm thấy ";       
+        String loiViPham  = hanhKiem.getLoiViPham();
+        String[] loiViPhamList = loiViPham.split(",");
+        int nghiCoPhep = hanhKiem.getNghiCoPhep();
+        int nghiKhongPhep = hanhKiem.getNghiKhongPhep();
+        int soLoiViPham = loiViPhamList.length;
+        System.out.println(soLoiViPham);
+         if (soLoiViPham == 0) {
+            if (nghiKhongPhep == 0)
+                return "Tốt";
+            if (nghiKhongPhep > 0 && nghiKhongPhep <= 1)
+                return "Khá";
+            if (nghiKhongPhep > 1 && nghiKhongPhep <= 2)
+                return "Trung bình";
+            if (nghiKhongPhep > 2)
+                return "Yếu";
+        }
+        if (soLoiViPham == 1) {
+            if (nghiKhongPhep == 0)
+                return "Khá";
+            if (nghiKhongPhep > 0 && nghiKhongPhep <= 1)
+                return "Khá";
+            if (nghiKhongPhep > 1 && nghiKhongPhep <= 2)
+                return "Trung bình";
+            if (nghiKhongPhep > 2)
+                return "Yếu";
+        }
+        if (soLoiViPham == 2) {
+            if (nghiKhongPhep == 0)
+                return "Khá";
+            if (nghiKhongPhep > 0 && nghiKhongPhep <= 1)
+                return "Khá";
+            if (nghiKhongPhep > 1 && nghiKhongPhep <= 2)
+                return "Trung bình";
+            if (nghiKhongPhep > 2)
+                return "Yếu";
+        }
+        if (soLoiViPham == 3) {
+            if (nghiKhongPhep == 0)
+                return "Trung bình";
+            if (nghiKhongPhep > 0 && nghiKhongPhep <= 1)
+                return "Trung bình";
+            if (nghiKhongPhep > 1 && nghiKhongPhep <= 2)
+                return "Trung bình";
+            if (nghiKhongPhep > 2)
+               return "Yếu";
+        }
+        if (soLoiViPham == 4) {
+            if (nghiKhongPhep == 0)
+                return "Trung bình";
+            if (nghiKhongPhep > 0 && nghiKhongPhep <= 1)
+                return "Trung bình";
+            if (nghiKhongPhep > 1 && nghiKhongPhep <= 2)
+                return "Trung bình";
+            if (nghiKhongPhep > 2)
+               return "Yếu";
+        }
+        if (soLoiViPham > 4) {
+            return "Yếu";
+        }
+        return "";        
+    }
+    
     
     
     
