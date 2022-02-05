@@ -8,6 +8,7 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.MouseListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +33,14 @@ public class TeacherFrame extends javax.swing.JFrame {
         choose1.setBackground(new Color(0, 153, 204));
         ImageIcon img = new ImageIcon("src\\View\\icons\\icons8_school_96px.png");
         this.setIconImage(img.getImage());
+        this.setAlwaysOnTop(true);
+        this.setResizable(true);
+        this.setVisible(true);
+        Toolkit tk= Toolkit.getDefaultToolkit();
+        int width = (int) tk.getScreenSize().getWidth();
+        int height =(int) tk.getScreenSize().getHeight();
+        this.setSize(width, height);
+                
         
        
     }
@@ -194,7 +203,7 @@ public class TeacherFrame extends javax.swing.JFrame {
         choose5.setText("Quản lý giao viên");
         sidepane.add(choose5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 220, 50));
 
-        getContentPane().add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 670));
+        getContentPane().add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 900));
 
         maintab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

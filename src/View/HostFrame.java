@@ -62,13 +62,8 @@ public class HostFrame extends javax.swing.JFrame {
      *
      */
     public HostFrame() {
-        try {
-            FlatIntelliJLaf.setup();
-            UIManager.setLookAndFeel("com.formdev.flatlaf.FlatIntelliJLaf");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         initComponents();
+        this.setResizable(false);
         infoTab.setVisible(true);
         tab1.setVisible(false);
         tab2.setVisible(false);
@@ -79,15 +74,10 @@ public class HostFrame extends javax.swing.JFrame {
        // ImageIcon img = new ImageIcon("src\\View\\icons\\icons8_school_96px.png");
         //this.setIconImage(new ImageIcon("src\\View\\icons\\icons8_school_96px.png").getImage());
         tab1_student_tableModel = (DefaultTableModel) tab1_student_table.getModel();
+        tab1_student_tableModel.setRowCount(0);
         hocSinhService = new HocSinhServiceImpl(); // injection
         giaoVienService = new GiaoVienServiceImpl(); // injection 
         hocService= new HocServiceImpl(); // injection
-        
-
-        // set chức năng theo chức vụ giáo viên
-//       this.setBounds(0, 0, 1280, 670);
-//       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//       this.setBounds(0,0,screenSize.width, screenSize.height);
     }
 
     public void getLoginInfo(String userName, String position) {
@@ -119,7 +109,7 @@ public class HostFrame extends javax.swing.JFrame {
                 tab1_student_tableModel.addRow(new Object[]{hs.getMaHocSinh(),
                     hs.getTenHocSinh(),
                     hs.getGioiTinh(),
-                    hs.getNgaySinh(),
+                    DateAndTimeUtils.convertDateToStr(hs.getNgaySinh()),
                     hs.getDiaChi(),
                     hs.getTenPhuHuynh(),
                     hs.getSoDienThoai()});
@@ -204,9 +194,9 @@ public class HostFrame extends javax.swing.JFrame {
         setTitle("Phần mềm quản lý đào tạo THCS");
         setIconImage(new ImageIcon("src\\View\\icons\\icons8_school_96px.png").getImage());
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(960, 670));
-        setPreferredSize(new java.awt.Dimension(1210, 720));
-        setSize(new java.awt.Dimension(1210, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 780));
+        setPreferredSize(new java.awt.Dimension(1280, 800));
+        setSize(new java.awt.Dimension(1280, 800));
         getContentPane().setLayout(null);
 
         sidepane.setBackground(new java.awt.Color(0, 204, 204));
@@ -332,7 +322,7 @@ public class HostFrame extends javax.swing.JFrame {
                 logOut_btnActionPerformed(evt);
             }
         });
-        sidepane.add(logOut_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 130, 60));
+        sidepane.add(logOut_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 130, 60));
 
         choose5.setBackground(new java.awt.Color(0, 204, 204));
         choose5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -354,7 +344,7 @@ public class HostFrame extends javax.swing.JFrame {
         sidepane.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 230, 10));
 
         getContentPane().add(sidepane);
-        sidepane.setBounds(0, 0, 270, 670);
+        sidepane.setBounds(0, 0, 270, 780);
 
         infoTab.setBackground(new java.awt.Color(255, 255, 255));
         infoTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -365,14 +355,14 @@ public class HostFrame extends javax.swing.JFrame {
         infoTabHeader.setText("Thông tin cá nhân");
         infoTab.add(infoTabHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 430, 100));
 
-        infoTab_name_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_name_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_name_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_name_label.setText("Họ  tên : ");
         infoTab.add(infoTab_name_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 80, 30));
 
         infoTab_sex_textField.setEditable(false);
         infoTab_sex_textField.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_sex_textField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_sex_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_sex_textField.setText("Nam");
         infoTab_sex_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab_sex_textField.addActionListener(new java.awt.event.ActionListener() {
@@ -382,26 +372,26 @@ public class HostFrame extends javax.swing.JFrame {
         });
         infoTab.add(infoTab_sex_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 180, 30));
 
-        infoTab_sex_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_sex_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_sex_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_sex_label.setText("Giới tính:");
         infoTab.add(infoTab_sex_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 80, 30));
 
         infoTab_name_textField.setEditable(false);
         infoTab_name_textField.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_name_textField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_name_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_name_textField.setText("Đào Huy Chiến");
         infoTab_name_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_name_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 180, 30));
 
-        infoTab_birthday_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_birthday_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_birthday_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_birthday_label.setText("Ngày sinh :");
-        infoTab.add(infoTab_birthday_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 80, 30));
+        infoTab.add(infoTab_birthday_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 100, 30));
 
         infoTab_birthday_textField.setEditable(false);
         infoTab_birthday_textField.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_birthday_textField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_birthday_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_birthday_textField.setText("18/08/2001");
         infoTab_birthday_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab_birthday_textField.addActionListener(new java.awt.event.ActionListener() {
@@ -411,38 +401,38 @@ public class HostFrame extends javax.swing.JFrame {
         });
         infoTab.add(infoTab_birthday_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 180, 30));
 
-        infoTab_phone_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_phone_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_phone_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_phone_label.setText("Số điện thoại:");
-        infoTab.add(infoTab_phone_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 100, 30));
+        infoTab.add(infoTab_phone_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 110, 30));
 
         infoTab_phone_textField.setEditable(false);
         infoTab_phone_textField.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_phone_textField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_phone_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_phone_textField.setText("0918394508");
         infoTab_phone_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_phone_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 120, 30));
 
-        infoTab_address_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_address_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_address_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_address_label.setText("Địa chỉ :");
         infoTab.add(infoTab_address_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 100, -1));
 
         infoTab_address_textField.setEditable(false);
         infoTab_address_textField.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_address_textField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_address_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_address_textField.setText("Gia Lâm - Hà Nội");
         infoTab_address_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_address_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 280, 30));
 
-        infoTab_position_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_position_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_position_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_position_label.setText("Chức vụ :");
-        infoTab.add(infoTab_position_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 70, 30));
+        infoTab.add(infoTab_position_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 90, 30));
 
         infoTab_position_Textfield.setEditable(false);
         infoTab_position_Textfield.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_position_Textfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_position_Textfield.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_position_Textfield.setText("Giáo viên giảng dạy");
         infoTab_position_Textfield.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_position_Textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 472, 210, 30));
@@ -460,25 +450,26 @@ public class HostFrame extends javax.swing.JFrame {
         infoTab.add(infoTab_edit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 200, 50));
 
         infoTab_schoolYear_label.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_schoolYear_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_schoolYear_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_schoolYear_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_schoolYear_label.setText("Năm học:");
         infoTab.add(infoTab_schoolYear_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 80, 30));
 
         infoTab_schoolYear_textField.setEditable(false);
         infoTab_schoolYear_textField.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_schoolYear_textField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_schoolYear_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_schoolYear_textField.setText("2021-2022");
         infoTab_schoolYear_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_schoolYear_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
-        infoTab_semester_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_semester_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_semester_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_semester_label.setText("Học kỳ :");
         infoTab.add(infoTab_semester_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
 
         infoTab_semeter_textField.setEditable(false);
         infoTab_semeter_textField.setBackground(new java.awt.Color(255, 255, 255));
+        infoTab_semeter_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_semeter_textField.setText("II");
         infoTab_semeter_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_semeter_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
@@ -496,20 +487,20 @@ public class HostFrame extends javax.swing.JFrame {
         infoTab.add(infoTab_save_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 200, 50));
 
         infoTab_id_label.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_id_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoTab_id_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_id_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_id_label.setText("Mã giáo viên: ");
         infoTab.add(infoTab_id_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, -1, -1));
 
         infoTab_id_textfield.setEditable(false);
         infoTab_id_textfield.setBackground(new java.awt.Color(255, 255, 255));
-        infoTab_id_textfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_id_textfield.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_id_textfield.setText("GV0001");
         infoTab_id_textfield.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_id_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, -1, -1));
 
         getContentPane().add(infoTab);
-        infoTab.setBounds(270, 0, 930, 670);
+        infoTab.setBounds(270, 0, 1000, 780);
 
         tab1.setBackground(new java.awt.Color(255, 255, 255));
         tab1.setPreferredSize(new java.awt.Dimension(702, 670));
@@ -522,7 +513,7 @@ public class HostFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã học sinh", "Tên học sinh", "Giới tính", "Ngày sinh", "Địa chỉ", "Tên phụ hyunh", "Số điện thoại"
+                "Mã học sinh", "Tên học sinh", "Giới tính", "Ngày sinh", "Địa chỉ", "Tên phụ huynh", "Số điện thoại"
             }
         ) {
             Class[] types = new Class [] {
@@ -534,7 +525,11 @@ public class HostFrame extends javax.swing.JFrame {
             }
         });
         tab1_student_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tab1_student_table.setGridColor(new java.awt.Color(204, 204, 204));
+        tab1_student_table.setShowGrid(true);
+        tab1_student_table.getTableHeader().setResizingAllowed(false);
         jScrollPane1.setViewportView(tab1_student_table);
+        tab1_student_table.getAccessibleContext().setAccessibleParent(tab1_student_table);
 
         tab1_searchAll_button.setText("Tìm tất cả học sinh");
         tab1_searchAll_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -571,23 +566,21 @@ public class HostFrame extends javax.swing.JFrame {
         tab1Layout.setHorizontalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(tab1_Header, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(tab1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tab1_search_textField)
+                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab1Layout.createSequentialGroup()
-                        .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addGap(19, 19, 19)
+                        .addComponent(tab1_Header, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
                         .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tab1_searchAll_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(tab1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+                            .addComponent(tab1_search_textField)
+                            .addGroup(tab1Layout.createSequentialGroup()
+                                .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tab1_searchAll_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE))
                 .addContainerGap())
         );
         tab1Layout.setVerticalGroup(
@@ -595,7 +588,7 @@ public class HostFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tab1_Header)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(73, 73, 73)
                 .addComponent(tab1_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -604,12 +597,12 @@ public class HostFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tab1_searchAll_button)
                 .addGap(66, 66, 66)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab1);
-        tab1.setBounds(270, 0, 930, 670);
+        tab1.setBounds(270, 0, 1000, 780);
 
         tab2.setBackground(new java.awt.Color(255, 255, 255));
         tab2.setPreferredSize(new java.awt.Dimension(702, 670));
@@ -623,18 +616,18 @@ public class HostFrame extends javax.swing.JFrame {
             .addGroup(tab2Layout.createSequentialGroup()
                 .addGap(302, 302, 302)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
         tab2Layout.setVerticalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab2Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addComponent(jLabel4)
-                .addContainerGap(559, Short.MAX_VALUE))
+                .addContainerGap(669, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab2);
-        tab2.setBounds(270, 0, 930, 670);
+        tab2.setBounds(270, 0, 1000, 780);
 
         tab3.setBackground(new java.awt.Color(255, 255, 255));
         tab3.setPreferredSize(new java.awt.Dimension(702, 670));
@@ -648,18 +641,18 @@ public class HostFrame extends javax.swing.JFrame {
             .addGroup(tab3Layout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(626, Short.MAX_VALUE))
         );
         tab3Layout.setVerticalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab3Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(jLabel7)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addContainerGap(684, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab3);
-        tab3.setBounds(270, 0, 930, 670);
+        tab3.setBounds(270, 0, 1000, 780);
 
         tab4.setBackground(new java.awt.Color(255, 255, 255));
         tab4.setPreferredSize(new java.awt.Dimension(702, 670));
@@ -678,7 +671,7 @@ public class HostFrame extends javax.swing.JFrame {
             .addGroup(tab4Layout.createSequentialGroup()
                 .addGap(284, 284, 284)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
         tab4Layout.setVerticalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -689,7 +682,7 @@ public class HostFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(tab4);
-        tab4.setBounds(270, 0, 930, 670);
+        tab4.setBounds(270, 0, 1000, 780);
 
         tab5.setBackground(new java.awt.Color(255, 255, 255));
         tab5.setPreferredSize(new java.awt.Dimension(702, 670));
@@ -700,21 +693,21 @@ public class HostFrame extends javax.swing.JFrame {
         tab5.setLayout(tab5Layout);
         tab5Layout.setHorizontalGroup(
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
-                .addContainerGap(665, Short.MAX_VALUE)
+            .addGroup(tab5Layout.createSequentialGroup()
+                .addGap(215, 215, 215)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
+                .addContainerGap(589, Short.MAX_VALUE))
         );
         tab5Layout.setVerticalGroup(
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
-                .addContainerGap(540, Short.MAX_VALUE)
+            .addGroup(tab5Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
                 .addComponent(jLabel6)
-                .addGap(114, 114, 114))
+                .addContainerGap(697, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab5);
-        tab5.setBounds(270, 0, 930, 670);
+        tab5.setBounds(270, 0, 1000, 780);
 
         pack();
         setLocationRelativeTo(null);
@@ -732,8 +725,6 @@ public class HostFrame extends javax.swing.JFrame {
         tab4.setVisible(false);
         tab5.setVisible(false);
         infoTab.setVisible(false);
-
-
     }//GEN-LAST:event_choose1MouseClicked
 
     private void choose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose2MouseClicked
@@ -748,7 +739,6 @@ public class HostFrame extends javax.swing.JFrame {
         tab4.setVisible(false);
         tab5.setVisible(false);
         infoTab.setVisible(false);
-
     }//GEN-LAST:event_choose2MouseClicked
 
     private void choose3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose3MouseClicked
@@ -763,7 +753,6 @@ public class HostFrame extends javax.swing.JFrame {
         tab4.setVisible(false);
         tab5.setVisible(false);
         infoTab.setVisible(false);
-
     }//GEN-LAST:event_choose3MouseClicked
 
     private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
@@ -783,7 +772,6 @@ public class HostFrame extends javax.swing.JFrame {
         tab4.setVisible(true);
         tab5.setVisible(false);
         infoTab.setVisible(false);
-
     }//GEN-LAST:event_choose4MouseClicked
 
     private void logOut_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_btnActionPerformed
@@ -845,9 +833,6 @@ public class HostFrame extends javax.swing.JFrame {
         infoTab_phone_textField.setEditable(true);
         infoTab_address_textField.setBorder(new FlatTextBorder());
         infoTab_address_textField.setEditable(true);  
-        
-                
-        
     }//GEN-LAST:event_infoTab_edit_buttonActionPerformed
 
     private void infoTab_save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoTab_save_buttonActionPerformed
@@ -892,17 +877,16 @@ public class HostFrame extends javax.swing.JFrame {
             infoTab_saving_Option.showMessageDialog(null, "Vui lòng xác nhận lại","Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }     
         infoTab_edit_button.setVisible(true);
-      
-
     }//GEN-LAST:event_infoTab_save_buttonActionPerformed
 
     private void tab1_searchAll_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonMouseClicked
-    List<HocSinh> listHocSinh = hocSinhService.findAll();
+        List<HocSinh> listHocSinh = hocSinhService.findAll();
         showStudentInfo(listHocSinh);
     }//GEN-LAST:event_tab1_searchAll_buttonMouseClicked
 
     private void tab1_searchAll_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonActionPerformed
-        // TODO add your handling code here:
+     List<HocSinh> listHocSinh = hocSinhService.findAll();
+        showStudentInfo(listHocSinh);
     }//GEN-LAST:event_tab1_searchAll_buttonActionPerformed
 
     private void tab1_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_search_buttonMouseClicked

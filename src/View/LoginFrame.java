@@ -39,14 +39,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
      * 
      * 
      */
-    public LoginFrame() {
-        try {
-            FlatIntelliJLaf.setup();
-            UIManager.setLookAndFeel("com.formdev.flatlaf.FlatIntelliJLaf");
-            UIManager.put(this, this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public LoginFrame() {      
         initComponents();      
         giaoVienService = new GiaoVienServiceImpl(); // injection       
 
@@ -274,7 +267,6 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             new TeacherFrame().setVisible(true);       
         }
-
     }//GEN-LAST:event_formKeyPressed
 
     private void LoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMouseClicked
@@ -292,10 +284,6 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
         }
       else
           new JOptionPane().showMessageDialog(null, "Tài khoản hoặc mật khẩu không đúng ! Vui lòng kiểm tra lại.");
-      
-        
-
-
     }//GEN-LAST:event_LoginButtonMouseClicked
 
     private void mainLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mainLoginKeyPressed
