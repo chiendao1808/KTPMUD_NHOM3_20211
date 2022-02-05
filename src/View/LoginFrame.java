@@ -14,6 +14,7 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -70,11 +71,12 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
         userNameLabel = new javax.swing.JLabel();
         userNameTextField = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
+        passWordLabel = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         passWordField = new javax.swing.JPasswordField();
         LoginButton = new javax.swing.JButton();
         copyRight_label = new javax.swing.JLabel();
+        showPasswordBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,6 +90,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainLogin.setBackground(new java.awt.Color(255, 255, 255));
+        mainLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mainLogin.addKeyListener(this);
 
         loginLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -107,12 +110,12 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
 
         jSeparator1.setForeground(new java.awt.Color(0, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel1.setText("Mật khẩu:");
-        jLabel1.setMaximumSize(new java.awt.Dimension(106, 20));
-        jLabel1.setMinimumSize(new java.awt.Dimension(106, 20));
-        jLabel1.setPreferredSize(new java.awt.Dimension(106, 20));
+        passWordLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        passWordLabel.setForeground(new java.awt.Color(0, 204, 204));
+        passWordLabel.setText("Mật khẩu:");
+        passWordLabel.setMaximumSize(new java.awt.Dimension(106, 20));
+        passWordLabel.setMinimumSize(new java.awt.Dimension(106, 20));
+        passWordLabel.setPreferredSize(new java.awt.Dimension(106, 20));
 
         jSeparator2.setForeground(new java.awt.Color(0, 204, 204));
 
@@ -133,6 +136,12 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
         copyRight_label.setText("© Nhóm 3 - KTPMUD -129211");
         copyRight_label.setToolTipText("");
 
+        showPasswordBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_eye_24px.png"))); // NOI18N
+        showPasswordBtn.setToolTipText("Hiển thị mật khẩu");
+        showPasswordBtn.setBorder(null);
+        showPasswordBtn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_invisible_24px.png"))); // NOI18N
+        showPasswordBtn.addMouseListener(this);
+
         javax.swing.GroupLayout mainLoginLayout = new javax.swing.GroupLayout(mainLogin);
         mainLogin.setLayout(mainLoginLayout);
         mainLoginLayout.setHorizontalGroup(
@@ -142,18 +151,23 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
                     .addGroup(mainLoginLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(mainLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(passWordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(userNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator2)
-                            .addComponent(passWordField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                        .addGroup(mainLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1)
-                            .addComponent(userNameTextField)))
+                            .addComponent(jSeparator2)
+                            .addGroup(mainLoginLayout.createSequentialGroup()
+                                .addComponent(userNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(mainLoginLayout.createSequentialGroup()
+                                .addComponent(passWordField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(showPasswordBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(mainLoginLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(copyRight_label, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLoginLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(mainLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,16 +191,20 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
                     .addGroup(mainLoginLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(mainLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(mainLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainLoginLayout.createSequentialGroup()
-                        .addComponent(passWordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(passWordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainLoginLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(mainLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passWordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showPasswordBtn))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
                 .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(copyRight_label)
                 .addGap(15, 15, 15))
         );
@@ -230,9 +248,15 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
     }
 
     public void mouseEntered(java.awt.event.MouseEvent evt) {
+        if (evt.getSource() == showPasswordBtn) {
+            LoginFrame.this.showPasswordBtnMouseEntered(evt);
+        }
     }
 
     public void mouseExited(java.awt.event.MouseEvent evt) {
+        if (evt.getSource() == showPasswordBtn) {
+            LoginFrame.this.showPasswordBtnMouseExited(evt);
+        }
     }
 
     public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -281,6 +305,17 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
 
     }//GEN-LAST:event_mainLoginKeyPressed
 
+    private void showPasswordBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showPasswordBtnMouseExited
+        passWordField.setEchoChar('\u2022');
+    }//GEN-LAST:event_showPasswordBtnMouseExited
+
+    private void showPasswordBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showPasswordBtnMouseEntered
+       if(passWordField.getPassword().length!=0)
+           {
+            passWordField.setEchoChar((char)0); 
+           }
+    }//GEN-LAST:event_showPasswordBtnMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -310,13 +345,14 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel copyRight_label;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JPanel mainLogin;
     private javax.swing.JPasswordField passWordField;
+    private javax.swing.JLabel passWordLabel;
+    private javax.swing.JButton showPasswordBtn;
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JTextField userNameTextField;
     // End of variables declaration//GEN-END:variables

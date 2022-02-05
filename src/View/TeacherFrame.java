@@ -68,6 +68,7 @@ public class TeacherFrame extends javax.swing.JFrame {
         maintab = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         tab1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         tab2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         tab3 = new javax.swing.JPanel();
@@ -205,15 +206,23 @@ public class TeacherFrame extends javax.swing.JFrame {
         tab1.setBackground(new java.awt.Color(255, 255, 255));
         tab1.setPreferredSize(new java.awt.Dimension(702, 2467));
 
+        jLabel2.setText("Tab1");
+
         javax.swing.GroupLayout tab1Layout = new javax.swing.GroupLayout(tab1);
         tab1.setLayout(tab1Layout);
         tab1Layout.setHorizontalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
+            .addGroup(tab1Layout.createSequentialGroup()
+                .addGap(483, 483, 483)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         tab1Layout.setVerticalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGroup(tab1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(458, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1010, 670));
@@ -398,6 +407,7 @@ public class TeacherFrame extends javax.swing.JFrame {
     private javax.swing.JLabel choose4;
     private javax.swing.JLabel choose5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;

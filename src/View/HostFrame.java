@@ -17,6 +17,7 @@ import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import com.formdev.flatlaf.ui.FlatTextBorder;
 import com.sun.jdi.connect.spi.Connection;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -106,6 +107,7 @@ public class HostFrame extends javax.swing.JFrame {
     public void componentModify() {
 
     }
+    
 
     public void showStudentInfo(List<HocSinh> listHocSinh) {
         Optional listHocSinhOptional = Optional.ofNullable(listHocSinh);
@@ -134,6 +136,7 @@ public class HostFrame extends javax.swing.JFrame {
         infoTab_birthday_textField.setText(DateAndTimeUtils.convertDateToStr(giaoVien.getNgaySinh()));
         infoTab_phone_textField.setText(giaoVien.getSoDienThoai());
         infoTab_position_Textfield.setText(giaoVien.getChucVu());
+        infoTab_label.setText(giaoVien.getTenGiaoVien());
     }
 
     /**
@@ -187,6 +190,7 @@ public class HostFrame extends javax.swing.JFrame {
         tab1_search_textField = new javax.swing.JTextField();
         tab1_search_button = new javax.swing.JButton();
         tab1_search_comboBox = new javax.swing.JComboBox<>();
+        tab1_Header = new javax.swing.JLabel();
         tab2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         tab3 = new javax.swing.JPanel();
@@ -197,12 +201,12 @@ public class HostFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Phần mềm quản lý đào tạo");
+        setTitle("Phần mềm quản lý đào tạo THCS");
         setIconImage(new ImageIcon("src\\View\\icons\\icons8_school_96px.png").getImage());
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(960, 670));
-        setPreferredSize(new java.awt.Dimension(1200, 720));
-        setSize(new java.awt.Dimension(1200, 720));
+        setPreferredSize(new java.awt.Dimension(1210, 720));
+        setSize(new java.awt.Dimension(1210, 720));
         getContentPane().setLayout(null);
 
         sidepane.setBackground(new java.awt.Color(0, 204, 204));
@@ -223,13 +227,13 @@ public class HostFrame extends javax.swing.JFrame {
                 choose4MouseClicked(evt);
             }
         });
-        sidepane.add(choose4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 230, 60));
+        sidepane.add(choose4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 230, 60));
 
         jSeparator1.setBackground(new java.awt.Color(0, 204, 204));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator1.setOpaque(true);
-        sidepane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 230, 10));
+        sidepane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 230, 10));
 
         choose1.setBackground(new java.awt.Color(0, 204, 204));
         choose1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -245,12 +249,12 @@ public class HostFrame extends javax.swing.JFrame {
                 choose1MouseClicked(evt);
             }
         });
-        sidepane.add(choose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 230, 59));
+        sidepane.add(choose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 230, 60));
 
         jSeparator2.setBackground(new java.awt.Color(0, 204, 204));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator2.setOpaque(true);
-        sidepane.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 230, 10));
+        sidepane.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 230, 10));
 
         choose2.setBackground(new java.awt.Color(0, 204, 204));
         choose2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -267,12 +271,12 @@ public class HostFrame extends javax.swing.JFrame {
                 choose2MouseClicked(evt);
             }
         });
-        sidepane.add(choose2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, 59));
+        sidepane.add(choose2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 230, 59));
 
         jSeparator3.setBackground(new java.awt.Color(0, 204, 204));
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator3.setOpaque(true);
-        sidepane.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 230, 10));
+        sidepane.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 230, 10));
 
         choose3.setBackground(new java.awt.Color(0, 204, 204));
         choose3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -289,12 +293,12 @@ public class HostFrame extends javax.swing.JFrame {
                 choose3MouseClicked(evt);
             }
         });
-        sidepane.add(choose3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 230, 60));
+        sidepane.add(choose3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 230, 60));
 
         jSeparator4.setBackground(new java.awt.Color(0, 204, 204));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator4.setOpaque(true);
-        sidepane.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 230, 10));
+        sidepane.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 230, 10));
 
         infoTab_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         infoTab_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,7 +315,7 @@ public class HostFrame extends javax.swing.JFrame {
                 infoTab_labelMouseClicked(evt);
             }
         });
-        sidepane.add(infoTab_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 120));
+        sidepane.add(infoTab_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 130));
 
         logOut_btn.setBackground(new java.awt.Color(0, 204, 204));
         logOut_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -344,10 +348,10 @@ public class HostFrame extends javax.swing.JFrame {
                 choose5MouseClicked(evt);
             }
         });
-        sidepane.add(choose5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 230, 60));
+        sidepane.add(choose5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 230, 60));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        sidepane.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 230, 10));
+        sidepane.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 230, 10));
 
         getContentPane().add(sidepane);
         sidepane.setBounds(0, 0, 270, 670);
@@ -444,14 +448,16 @@ public class HostFrame extends javax.swing.JFrame {
         infoTab.add(infoTab_position_Textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 472, 210, 30));
 
         infoTab_edit_button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_edit_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_edit_24px.png"))); // NOI18N
         infoTab_edit_button.setText("Chỉnh sửa thông tin");
+        infoTab_edit_button.setToolTipText("Chỉnh sửa thông tin cá nhân");
         infoTab_edit_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         infoTab_edit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infoTab_edit_buttonActionPerformed(evt);
             }
         });
-        infoTab.add(infoTab_edit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 200, -1));
+        infoTab.add(infoTab_edit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 200, 50));
 
         infoTab_schoolYear_label.setBackground(new java.awt.Color(255, 255, 255));
         infoTab_schoolYear_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -478,14 +484,16 @@ public class HostFrame extends javax.swing.JFrame {
         infoTab.add(infoTab_semeter_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
 
         infoTab_save_button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        infoTab_save_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_save_24px.png"))); // NOI18N
         infoTab_save_button.setText("Lưu thông tin");
+        infoTab_save_button.setToolTipText("Lưu các thông tin chỉnh sửa");
         infoTab_save_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         infoTab_save_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infoTab_save_buttonActionPerformed(evt);
             }
         });
-        infoTab.add(infoTab_save_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 580, 200, -1));
+        infoTab.add(infoTab_save_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 200, 50));
 
         infoTab_id_label.setBackground(new java.awt.Color(255, 255, 255));
         infoTab_id_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -553,45 +561,51 @@ public class HostFrame extends javax.swing.JFrame {
 
         tab1_search_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo tên", "Theo mã học sinh" }));
 
+        tab1_Header.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        tab1_Header.setForeground(new java.awt.Color(0, 204, 204));
+        tab1_Header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_search_100px.png"))); // NOI18N
+        tab1_Header.setText("Tìm kiếm");
+
         javax.swing.GroupLayout tab1Layout = new javax.swing.GroupLayout(tab1);
         tab1.setLayout(tab1Layout);
         tab1Layout.setHorizontalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(tab1_Header, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(tab1Layout.createSequentialGroup()
                 .addGap(108, 108, 108)
-                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tab1_search_textField)
                     .addGroup(tab1Layout.createSequentialGroup()
                         .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(tab1_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(tab1Layout.createSequentialGroup()
-                        .addComponent(tab1_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tab1_searchAll_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(tab1Layout.createSequentialGroup()
-                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tab1Layout.createSequentialGroup()
-                        .addGap(382, 382, 382)
-                        .addComponent(tab1_searchAll_button)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+                .addContainerGap())
         );
         tab1Layout.setVerticalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab1Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addContainerGap()
+                .addComponent(tab1_Header)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(tab1_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tab1_search_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tab1_searchAll_button)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(66, 66, 66)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getContentPane().add(tab1);
@@ -819,6 +833,7 @@ public class HostFrame extends javax.swing.JFrame {
 
     private void infoTab_edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoTab_edit_buttonActionPerformed
         // TODO add your handling code here:
+        infoTab_edit_button.setVisible(false);
         infoTab_save_button.setVisible(true);
         infoTab_name_textField.setBorder(new FlatTextBorder());
         infoTab_name_textField.setEditable(true);
@@ -836,7 +851,7 @@ public class HostFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_infoTab_edit_buttonActionPerformed
 
     private void infoTab_save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoTab_save_buttonActionPerformed
-        // TODO add your handling code here:
+         infoTab_save_button.setVisible(false);
         JOptionPane infoTab_saving_Option = new JOptionPane();
         int chooseOption = infoTab_saving_Option.showConfirmDialog(null, "Bạn có muốn các thông tin cá nhân ?", "Xác nhận", JOptionPane.YES_NO_OPTION);
         if (chooseOption == 0) {
@@ -866,24 +881,24 @@ public class HostFrame extends javax.swing.JFrame {
                       ex.printStackTrace();
                   }
               }
+              else 
+                  {
+                      infoTab_saving_Option.showMessageDialog(null,"Vui lòng nhập đúng định dạng ngày sinh theo định dạng(Ngày/Tháng/Năm)!","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+                      showTeacherInfoTab();
+                  }
           }
-          
-          
-          
-          
-         
+         giaoVienService.updateGiaoVien(giaoVienUpdate);
         } else {
-            infoTab_saving_Option.showMessageDialog(null, "Vui lòng xác nhận lại");
-        }   
-        infoTab_save_button.setVisible(false);
+            infoTab_saving_Option.showMessageDialog(null, "Vui lòng xác nhận lại","Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }     
+        infoTab_edit_button.setVisible(true);
+      
 
     }//GEN-LAST:event_infoTab_save_buttonActionPerformed
 
     private void tab1_searchAll_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonMouseClicked
-
-        List<HocSinh> listHocSinh = hocSinhService.findAll();
+    List<HocSinh> listHocSinh = hocSinhService.findAll();
         showStudentInfo(listHocSinh);
-
     }//GEN-LAST:event_tab1_searchAll_buttonMouseClicked
 
     private void tab1_searchAll_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonActionPerformed
@@ -895,24 +910,21 @@ public class HostFrame extends javax.swing.JFrame {
         if(tab1_search_comboBox.getSelectedIndex() ==0 ) 
             {
                     if(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()).size() <=0 ) {
-                           new JOptionPane().showMessageDialog(null, "Không tìm thấy kết quả phù hợp");
+                           new JOptionPane().showMessageDialog(null, "Không tìm thấy kết quả phù hợp","Thông báo",JOptionPane.INFORMATION_MESSAGE);
                     }                    
                     else 
                         showStudentInfo(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()));
-        }
+             }
         else 
             {
                 Optional<HocSinh> hocSinhOptional = hocSinhService.findByMaHocSinh(tab1_search_textField.getText());
                 if(hocSinhOptional.isPresent())  showStudentInfo(List.of(hocSinhOptional.get()));
                 else
                     {
-                        new JOptionPane().showMessageDialog(null, "Không tìm thấy học sinh phù hợp");
+                        new JOptionPane().showMessageDialog(null, "Không tìm thấy học sinh phù hợp","Cảnh báo",JOptionPane.INFORMATION_MESSAGE);                  
                         showStudentInfo(List.of());
                     }                       
             }
-        
-        
-        
     }//GEN-LAST:event_tab1_search_buttonMouseClicked
 
     /**
@@ -922,7 +934,6 @@ public class HostFrame extends javax.swing.JFrame {
         try {
             FlatIntelliJLaf.setup();
             UIManager.setLookAndFeel("com.formdev.flatlaf.FlatIntelliJLaf");
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -977,6 +988,7 @@ public class HostFrame extends javax.swing.JFrame {
     private javax.swing.JButton logOut_btn;
     private javax.swing.JPanel sidepane;
     private javax.swing.JPanel tab1;
+    private javax.swing.JLabel tab1_Header;
     private javax.swing.JButton tab1_searchAll_button;
     private javax.swing.JButton tab1_search_button;
     private javax.swing.JComboBox<String> tab1_search_comboBox;
