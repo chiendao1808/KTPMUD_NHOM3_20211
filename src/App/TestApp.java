@@ -53,6 +53,7 @@ public class TestApp {
         System.out.println(diemService.processDiemTBHocKy("HS000001","2020-2021","I"));
        String hocluc = diemService.processDanhGiaHocLuc("HS000001","2020-2021","I");
         System.out.println(hocluc);
+        //asdf
         
           
             
