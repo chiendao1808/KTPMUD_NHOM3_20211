@@ -182,11 +182,85 @@ public class HostFrame extends javax.swing.JFrame {
         tab1_search_comboBox = new javax.swing.JComboBox<>();
         tab1_Header = new javax.swing.JLabel();
         tab2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        thongtintab2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        tab2_search_button1 = new javax.swing.JButton();
+        tab2_search_comboBox1 = new javax.swing.JComboBox<>();
+        tab2_search_textField1 = new javax.swing.JTextField();
+        ten = new javax.swing.JLabel();
+        tab2_search_textField2 = new javax.swing.JTextField();
+        tab2_search_textField3 = new javax.swing.JTextField();
+        datetab2 = new javax.swing.JLabel();
+        tab2_search_textField4 = new javax.swing.JTextField();
+        gioiTinhtab2 = new javax.swing.JLabel();
+        tab2_search_textField5 = new javax.swing.JTextField();
+        addresstab2 = new javax.swing.JLabel();
+        tab2_search_textField6 = new javax.swing.JTextField();
+        phuhuynhtab2 = new javax.swing.JLabel();
+        tab2_search_textField7 = new javax.swing.JTextField();
+        sdttab2 = new javax.swing.JLabel();
+        tab1_search_button2 = new javax.swing.JButton();
+        TAB2 = new javax.swing.JLabel();
+        addtab2 = new javax.swing.JLabel();
+        tab2_search_textField8 = new javax.swing.JTextField();
+        sdttab3 = new javax.swing.JLabel();
+        tab1_search_button3 = new javax.swing.JButton();
+        tab1_search_button4 = new javax.swing.JButton();
+        tab2_search_textField9 = new javax.swing.JTextField();
+        sdttab4 = new javax.swing.JLabel();
+        tab2_search_comboBox2 = new javax.swing.JComboBox<>();
         tab3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        tab2_search_textField10 = new javax.swing.JTextField();
+        tab2_search_textField11 = new javax.swing.JTextField();
+        ten1 = new javax.swing.JLabel();
+        sdttab5 = new javax.swing.JLabel();
+        tab2_search_textField12 = new javax.swing.JTextField();
+        tab2_search_textField13 = new javax.swing.JTextField();
+        thongtintab3 = new javax.swing.JLabel();
+        datetab3 = new javax.swing.JLabel();
+        tab2_search_textField15 = new javax.swing.JTextField();
+        addresstab3 = new javax.swing.JLabel();
+        tab2_search_textField16 = new javax.swing.JTextField();
+        phuhuynhtab3 = new javax.swing.JLabel();
+        tab2_search_textField17 = new javax.swing.JTextField();
+        sdttab6 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        tab1_search_button5 = new javax.swing.JButton();
+        TAB3 = new javax.swing.JLabel();
+        tab2_search_button2 = new javax.swing.JButton();
+        tab1_search_button6 = new javax.swing.JButton();
+        thongtintab4 = new javax.swing.JLabel();
+        tab2_search_comboBox3 = new javax.swing.JComboBox<>();
+        tab2_search_comboBox4 = new javax.swing.JComboBox<>();
+        tab2_search_comboBox5 = new javax.swing.JComboBox<>();
         tab4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        tab2_search_textField18 = new javax.swing.JTextField();
+        tab2_search_comboBox6 = new javax.swing.JComboBox<>();
+        tab2_search_textField14 = new javax.swing.JTextField();
+        phuhuynhtab4 = new javax.swing.JLabel();
+        tab2_search_textField19 = new javax.swing.JTextField();
+        tab2_search_comboBox7 = new javax.swing.JComboBox<>();
+        tab2_search_comboBox8 = new javax.swing.JComboBox<>();
+        tab2_search_textField20 = new javax.swing.JTextField();
+        ten2 = new javax.swing.JLabel();
+        sdttab7 = new javax.swing.JLabel();
+        sdttab8 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        tab2_search_textField21 = new javax.swing.JTextField();
+        tab2_search_textField22 = new javax.swing.JTextField();
+        tab1_search_button7 = new javax.swing.JButton();
+        thongtintab5 = new javax.swing.JLabel();
+        datetab4 = new javax.swing.JLabel();
+        tab2_search_button3 = new javax.swing.JButton();
+        tab2_search_textField23 = new javax.swing.JTextField();
+        tab1_search_button8 = new javax.swing.JButton();
+        addresstab4 = new javax.swing.JLabel();
+        thongtintab6 = new javax.swing.JLabel();
         tab5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -554,7 +628,7 @@ public class HostFrame extends javax.swing.JFrame {
             }
         });
 
-        tab1_search_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo tên", "Theo mã học sinh" }));
+        tab1_search_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo tên", "Theo mã học sinh", "Theo lớp" }));
 
         tab1_Header.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         tab1_Header.setForeground(new java.awt.Color(0, 204, 204));
@@ -580,7 +654,7 @@ public class HostFrame extends javax.swing.JFrame {
                                 .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tab1_searchAll_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE))
                 .addContainerGap())
         );
         tab1Layout.setVerticalGroup(
@@ -596,9 +670,9 @@ public class HostFrame extends javax.swing.JFrame {
                     .addComponent(tab1_search_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tab1_searchAll_button)
-                .addGap(66, 66, 66)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab1);
@@ -607,23 +681,309 @@ public class HostFrame extends javax.swing.JFrame {
         tab2.setBackground(new java.awt.Color(255, 255, 255));
         tab2.setPreferredSize(new java.awt.Dimension(702, 670));
 
-        jLabel4.setText("Đây là tab thứ 2");
+        thongtintab2.setText("Thông tin tìm kiếm");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Họ và tên", "Ngày sinh", "Giới tính", "Địa chỉ", "Họ tên PH", "SĐT", "Lớp", "Mã HS"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Long.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(7).setHeaderValue("Học kỳ");
+        }
+
+        tab2_search_button1.setText("Tìm kiếm");
+        tab2_search_button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab2_search_button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_button1ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_comboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo tên", "Theo mã học sinh" }));
+        tab2_search_comboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox1ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField1.setText("Nhập tên");
+        tab2_search_textField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField1ActionPerformed(evt);
+            }
+        });
+
+        ten.setText("Họ và tên:");
+
+        tab2_search_textField2.setText("Nhập tên, mã HS, hoặc lớp");
+        tab2_search_textField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField2ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField3.setText("Ngày tháng năm sinh");
+        tab2_search_textField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField3ActionPerformed(evt);
+            }
+        });
+
+        datetab2.setText("Ngày sinh:");
+
+        tab2_search_textField4.setText("Nam/nữ");
+        tab2_search_textField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField4ActionPerformed(evt);
+            }
+        });
+
+        gioiTinhtab2.setText("Giới tính:");
+
+        tab2_search_textField5.setText("Nhập địa chỉ");
+        tab2_search_textField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField5ActionPerformed(evt);
+            }
+        });
+
+        addresstab2.setText("Địa chỉ:");
+
+        tab2_search_textField6.setText("Nhập họ tên cha/mẹ");
+        tab2_search_textField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField6ActionPerformed(evt);
+            }
+        });
+
+        phuhuynhtab2.setText("Họ tên phụ huynh:");
+
+        tab2_search_textField7.setText("SĐT cha/mẹ");
+        tab2_search_textField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField7ActionPerformed(evt);
+            }
+        });
+
+        sdttab2.setText("SĐT liên lạc:");
+
+        tab1_search_button2.setText("Thêm học sinh");
+        tab1_search_button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_search_button2ActionPerformed(evt);
+            }
+        });
+
+        TAB2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        TAB2.setForeground(new java.awt.Color(0, 204, 204));
+        TAB2.setText("QUẢN LÝ HỌC SINH");
+
+        addtab2.setText("Thông tin học sinh");
+
+        tab2_search_textField8.setText("Nhập mã học sinh");
+        tab2_search_textField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField8ActionPerformed(evt);
+            }
+        });
+
+        sdttab3.setText("Mã học sinh");
+
+        tab1_search_button3.setText("Cập nhật thông tin");
+        tab1_search_button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_search_button3ActionPerformed(evt);
+            }
+        });
+
+        tab1_search_button4.setText("Xóa học sinh");
+        tab1_search_button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_search_button4ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField9.setText("Nhập lớp");
+        tab2_search_textField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField9ActionPerformed(evt);
+            }
+        });
+
+        sdttab4.setText("Lớp");
+
+        tab2_search_comboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024", " " }));
+        tab2_search_comboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tab2Layout = new javax.swing.GroupLayout(tab2);
         tab2.setLayout(tab2Layout);
         tab2Layout.setHorizontalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab2Layout.createSequentialGroup()
-                .addGap(302, 302, 302)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(526, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(addtab2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(171, 171, 171))
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tab2Layout.createSequentialGroup()
+                                        .addComponent(addresstab2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tab2_search_textField5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(tab2Layout.createSequentialGroup()
+                                        .addComponent(gioiTinhtab2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tab2_search_textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(9, 9, 9))
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tab2Layout.createSequentialGroup()
+                                        .addComponent(sdttab2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(tab2_search_textField7, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(tab2Layout.createSequentialGroup()
+                                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(tab2Layout.createSequentialGroup()
+                                                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(datetab2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(ten, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(38, 38, 38))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
+                                                .addComponent(phuhuynhtab2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(tab2_search_textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_search_textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_search_textField6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(tab2Layout.createSequentialGroup()
+                                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(sdttab3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(sdttab4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(30, 30, 30)
+                                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tab2_search_textField9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_search_textField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(32, 32, 32)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(219, 219, 219))
+            .addGroup(tab2Layout.createSequentialGroup()
+                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addComponent(tab2_search_textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(131, 131, 131)
+                                .addComponent(TAB2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addComponent(tab2_search_comboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tab2_search_comboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87)
+                                .addComponent(tab2_search_button1))))
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(tab1_search_button4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addComponent(tab1_search_button2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tab1_search_button3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(thongtintab2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(424, 424, 424))
         );
         tab2Layout.setVerticalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab2Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel4)
-                .addContainerGap(669, Short.MAX_VALUE))
+                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(tab2_search_textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(TAB2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tab2_search_comboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab2_search_button1)
+                    .addComponent(tab2_search_comboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(thongtintab2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(addtab2)
+                        .addGap(20, 20, 20)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ten)
+                            .addComponent(tab2_search_textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(datetab2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_search_textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gioiTinhtab2)
+                            .addComponent(tab2_search_textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addresstab2)
+                            .addComponent(tab2_search_textField5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phuhuynhtab2)
+                            .addComponent(tab2_search_textField6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sdttab2)
+                            .addComponent(tab2_search_textField7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_textField9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sdttab4))
+                        .addGap(12, 12, 12)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_textField8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sdttab3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab1_search_button2)
+                            .addComponent(tab1_search_button3))
+                        .addGap(18, 18, 18)
+                        .addComponent(tab1_search_button4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab2);
@@ -632,23 +992,269 @@ public class HostFrame extends javax.swing.JFrame {
         tab3.setBackground(new java.awt.Color(255, 255, 255));
         tab3.setPreferredSize(new java.awt.Dimension(702, 670));
 
-        jLabel7.setText("đây là tab thứ 3");
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel7.setText("QUẢN LÝ ĐIỂM");
+
+        tab2_search_textField10.setText("Nhập tên");
+        tab2_search_textField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField10ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField11.setText("TB môn học");
+        tab2_search_textField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField11ActionPerformed(evt);
+            }
+        });
+
+        ten1.setText("Họ và tên:");
+
+        sdttab5.setText("TB môn học");
+
+        tab2_search_textField12.setText("Nhập lớp");
+        tab2_search_textField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField12ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField13.setText("Nhập mã HS");
+        tab2_search_textField13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField13ActionPerformed(evt);
+            }
+        });
+
+        thongtintab3.setText("Nhập thông tin về điểm");
+
+        datetab3.setText("Mã HS:");
+
+        tab2_search_textField15.setText("Nhập điểm HS 1");
+        tab2_search_textField15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField15ActionPerformed(evt);
+            }
+        });
+
+        addresstab3.setText("Điểm hệ số 1:");
+
+        tab2_search_textField16.setText("Nhập điểm HS 2");
+        tab2_search_textField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField16ActionPerformed(evt);
+            }
+        });
+
+        phuhuynhtab3.setText("Điểm hệ số 2:");
+
+        tab2_search_textField17.setText("Nhập điểm HS 3");
+        tab2_search_textField17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField17ActionPerformed(evt);
+            }
+        });
+
+        sdttab6.setText("Điểm hệ số 3:");
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Họ và tên", "Mã HS", "Môn học", "Điểm HS 1", "Điểm HS 2", "Điểm HS 3", "TB môn học"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Long.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(6).setHeaderValue("TB môn học");
+        }
+
+        tab1_search_button5.setText("Thêm điểm");
+        tab1_search_button5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_search_button5ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_button2.setText("TÌM KIẾM KẾT QUẢ HỌC TẬP");
+        tab2_search_button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab2_search_button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_button2ActionPerformed(evt);
+            }
+        });
+
+        tab1_search_button6.setText("Cập nhật thông tin điểm");
+        tab1_search_button6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_search_button6ActionPerformed(evt);
+            }
+        });
+
+        thongtintab4.setText("Thông tin tìm kiếm");
+
+        tab2_search_comboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024" }));
+        tab2_search_comboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox3ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_comboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo học kỳ", "Học kỳ I", "Học kỳ II" }));
+        tab2_search_comboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox4ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_comboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo môn", " " }));
+        tab2_search_comboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tab3Layout = new javax.swing.GroupLayout(tab3);
         tab3.setLayout(tab3Layout);
         tab3Layout.setHorizontalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab3Layout.createSequentialGroup()
-                .addGap(227, 227, 227)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(626, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addComponent(sdttab6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tab2_search_textField17, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ten1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(datetab3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tab2_search_textField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_search_textField13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addComponent(addresstab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(tab2_search_textField15, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(phuhuynhtab3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tab2_search_textField16, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addComponent(sdttab5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tab2_search_textField11, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(342, 342, 342))
+            .addGroup(tab3Layout.createSequentialGroup()
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TAB3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tab3Layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(thongtintab3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(376, 376, 376)
+                                .addComponent(thongtintab4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tab1_search_button5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(tab1_search_button6, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGap(392, 392, 392)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab3Layout.createSequentialGroup()
+                                .addComponent(tab2_search_button2)
+                                .addGap(70, 70, 70)
+                                .addComponent(tab2_search_comboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab3Layout.createSequentialGroup()
+                                .addComponent(tab2_search_textField12, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tab2_search_comboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tab2_search_comboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab3Layout.setVerticalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab3Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(684, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(TAB3)
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_comboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_search_comboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_search_textField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tab2_search_button2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tab2_search_comboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(thongtintab4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(thongtintab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_textField10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ten1))
+                        .addGap(34, 34, 34)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_textField13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(datetab3))
+                        .addGap(32, 32, 32)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_textField15, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addresstab3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phuhuynhtab3)
+                            .addComponent(tab2_search_textField16, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_textField17, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sdttab6))
+                        .addGap(29, 29, 29)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_search_textField11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sdttab5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab1_search_button5)
+                            .addComponent(tab1_search_button6))
+                        .addGap(122, 122, 122))))
         );
 
         getContentPane().add(tab3);
@@ -662,23 +1268,268 @@ public class HostFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Đây là tab thứ 4");
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel8.setText("QUẢN LÝ HẠNH KIỂM");
+
+        tab2_search_textField18.setText("Nhập số buổi nghỉ có phép");
+        tab2_search_textField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField18ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_comboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024" }));
+        tab2_search_comboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox6ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField14.setText("Nhập tên");
+        tab2_search_textField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField14ActionPerformed(evt);
+            }
+        });
+
+        phuhuynhtab4.setText("Có phép:");
+
+        tab2_search_textField19.setText("Nhập xếp loại HK");
+        tab2_search_textField19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField19ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_comboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo học kỳ", "Học kỳ I", "Học kỳ II" }));
+        tab2_search_comboBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox7ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_comboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo môn", " " }));
+        tab2_search_comboBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_comboBox8ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField20.setText("Nhập số buổi nghỉ không phép");
+        tab2_search_textField20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField20ActionPerformed(evt);
+            }
+        });
+
+        ten2.setText("Họ và tên:");
+
+        sdttab7.setText("Không phép:");
+
+        sdttab8.setText("Hạnh kiểm:");
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Họ và tên", "Mã HS", "Số lỗi vi phạm", "Có phép", "Không phép", "HK"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Long.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTable4);
+
+        tab2_search_textField21.setText("Nhập lớp");
+        tab2_search_textField21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField21ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField22.setText("Nhập mã HS");
+        tab2_search_textField22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField22ActionPerformed(evt);
+            }
+        });
+
+        tab1_search_button7.setText("Thêm thông tin HK");
+        tab1_search_button7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_search_button7ActionPerformed(evt);
+            }
+        });
+
+        thongtintab5.setText("Nhập thông tin về hạnh kiểm");
+
+        datetab4.setText("Mã HS:");
+
+        tab2_search_button3.setText("TÌM KIẾM KẾT QUẢ HỌC TẬP");
+        tab2_search_button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab2_search_button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_button3ActionPerformed(evt);
+            }
+        });
+
+        tab2_search_textField23.setText("Nhập số lỗi vi phạm");
+        tab2_search_textField23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_search_textField23ActionPerformed(evt);
+            }
+        });
+
+        tab1_search_button8.setText("Cập nhật thông tin HK");
+        tab1_search_button8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab1_search_button8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab1_search_button8ActionPerformed(evt);
+            }
+        });
+
+        addresstab4.setText("Số lỗi vi phạm:");
+
+        thongtintab6.setText("Thông tin tìm kiếm");
 
         javax.swing.GroupLayout tab4Layout = new javax.swing.GroupLayout(tab4);
         tab4.setLayout(tab4Layout);
         tab4Layout.setHorizontalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab4Layout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab4Layout.createSequentialGroup()
+                                .addComponent(ten2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(tab2_search_textField14, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab4Layout.createSequentialGroup()
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addresstab4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(datetab4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tab4Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tab2_search_textField23, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_search_textField18, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_search_textField20, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_search_textField19, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(tab4Layout.createSequentialGroup()
+                                        .addComponent(tab2_search_textField22, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE))
+                    .addGroup(tab4Layout.createSequentialGroup()
+                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(tab1_search_button7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(phuhuynhtab4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(sdttab7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(sdttab8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(thongtintab5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(thongtintab6, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(199, 199, 199))
+            .addGroup(tab4Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tab1_search_button8, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tab4Layout.createSequentialGroup()
+                        .addComponent(tab2_search_button3)
+                        .addGap(60, 60, 60)
+                        .addComponent(tab2_search_comboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(245, 245, 245))
+            .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tab4Layout.createSequentialGroup()
+                    .addGap(37, 37, 37)
+                    .addComponent(tab2_search_textField21, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(tab2_search_comboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(tab2_search_comboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(472, Short.MAX_VALUE)))
         );
         tab4Layout.setVerticalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab4Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jLabel5)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(117, 117, 117)
+                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tab2_search_button3)
+                    .addComponent(tab2_search_comboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab4Layout.createSequentialGroup()
+                        .addComponent(thongtintab5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tab4Layout.createSequentialGroup()
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ten2)
+                                    .addComponent(tab2_search_textField14, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(datetab4)
+                                    .addComponent(tab2_search_textField22, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab2_search_textField23, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addresstab4))
+                                .addGap(35, 35, 35)
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(phuhuynhtab4)
+                                    .addComponent(tab2_search_textField18, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27)
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(sdttab7)
+                                    .addComponent(tab2_search_textField20, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(sdttab8)
+                                    .addComponent(tab2_search_textField19, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(39, 39, 39)
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab1_search_button8)
+                                    .addComponent(tab1_search_button7)))))
+                    .addComponent(thongtintab6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tab4Layout.createSequentialGroup()
+                    .addGap(105, 105, 105)
+                    .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tab2_search_comboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tab2_search_comboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tab2_search_textField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(588, Short.MAX_VALUE)))
         );
 
         getContentPane().add(tab4);
@@ -696,14 +1547,14 @@ public class HostFrame extends javax.swing.JFrame {
             .addGroup(tab5Layout.createSequentialGroup()
                 .addGap(215, 215, 215)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(589, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         tab5Layout.setVerticalGroup(
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab5Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel6)
-                .addContainerGap(697, Short.MAX_VALUE))
+                .addContainerGap(587, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab5);
@@ -754,10 +1605,6 @@ public class HostFrame extends javax.swing.JFrame {
         tab5.setVisible(false);
         infoTab.setVisible(false);
     }//GEN-LAST:event_choose3MouseClicked
-
-    private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
-
-    }//GEN-LAST:event_tab4MouseClicked
 
     private void choose4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose4MouseClicked
         // TODO add your handling code here:
@@ -911,6 +1758,174 @@ public class HostFrame extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_tab1_search_buttonMouseClicked
 
+    private void tab2_search_textField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField9ActionPerformed
+
+    private void tab1_search_button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_search_button4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_search_button4ActionPerformed
+
+    private void tab1_search_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_search_button3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_search_button3ActionPerformed
+
+    private void tab2_search_textField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField8ActionPerformed
+
+    private void tab1_search_button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_search_button2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_search_button2ActionPerformed
+
+    private void tab2_search_textField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField7ActionPerformed
+
+    private void tab2_search_textField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField6ActionPerformed
+
+    private void tab2_search_textField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField5ActionPerformed
+
+    private void tab2_search_textField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField4ActionPerformed
+
+    private void tab2_search_textField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField3ActionPerformed
+
+    private void tab2_search_textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField2ActionPerformed
+
+    private void tab2_search_textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField1ActionPerformed
+
+    private void tab2_search_comboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox1ActionPerformed
+
+    private void tab2_search_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_button1ActionPerformed
+
+    private void tab1_search_button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_search_button6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_search_button6ActionPerformed
+
+    private void tab2_search_button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_button2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_button2ActionPerformed
+
+    private void tab1_search_button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_search_button5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_search_button5ActionPerformed
+
+    private void tab2_search_textField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField17ActionPerformed
+
+    private void tab2_search_textField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField16ActionPerformed
+
+    private void tab2_search_textField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField15ActionPerformed
+
+    private void tab2_search_textField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField13ActionPerformed
+
+    private void tab2_search_textField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField12ActionPerformed
+
+    private void tab2_search_textField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField11ActionPerformed
+
+    private void tab2_search_textField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField10ActionPerformed
+
+    private void tab2_search_comboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox3ActionPerformed
+
+    private void tab2_search_comboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox4ActionPerformed
+
+    private void tab2_search_comboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox5ActionPerformed
+
+    private void tab2_search_comboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox2ActionPerformed
+
+    private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
+
+    }//GEN-LAST:event_tab4MouseClicked
+
+    private void tab1_search_button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_search_button8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_search_button8ActionPerformed
+
+    private void tab2_search_textField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField23ActionPerformed
+
+    private void tab2_search_button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_button3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_button3ActionPerformed
+
+    private void tab1_search_button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_search_button7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab1_search_button7ActionPerformed
+
+    private void tab2_search_textField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField22ActionPerformed
+
+    private void tab2_search_textField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField21ActionPerformed
+
+    private void tab2_search_textField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField20ActionPerformed
+
+    private void tab2_search_comboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox8ActionPerformed
+
+    private void tab2_search_comboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox7ActionPerformed
+
+    private void tab2_search_textField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField19ActionPerformed
+
+    private void tab2_search_textField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField14ActionPerformed
+
+    private void tab2_search_comboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_comboBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_comboBox6ActionPerformed
+
+    private void tab2_search_textField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_textField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2_search_textField18ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -931,11 +1946,21 @@ public class HostFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel TAB2;
+    private javax.swing.JLabel TAB3;
+    private javax.swing.JLabel addresstab2;
+    private javax.swing.JLabel addresstab3;
+    private javax.swing.JLabel addresstab4;
+    private javax.swing.JLabel addtab2;
     private javax.swing.JLabel choose1;
     private javax.swing.JLabel choose2;
     private javax.swing.JLabel choose3;
     private javax.swing.JLabel choose4;
     private javax.swing.JLabel choose5;
+    private javax.swing.JLabel datetab2;
+    private javax.swing.JLabel datetab3;
+    private javax.swing.JLabel datetab4;
+    private javax.swing.JLabel gioiTinhtab2;
     private javax.swing.JPanel infoTab;
     private javax.swing.JLabel infoTabHeader;
     private javax.swing.JLabel infoTab_address_label;
@@ -959,28 +1984,92 @@ public class HostFrame extends javax.swing.JFrame {
     private javax.swing.JTextField infoTab_semeter_textField;
     private javax.swing.JLabel infoTab_sex_label;
     private javax.swing.JTextField infoTab_sex_textField;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     private javax.swing.JButton logOut_btn;
+    private javax.swing.JLabel phuhuynhtab2;
+    private javax.swing.JLabel phuhuynhtab3;
+    private javax.swing.JLabel phuhuynhtab4;
+    private javax.swing.JLabel sdttab2;
+    private javax.swing.JLabel sdttab3;
+    private javax.swing.JLabel sdttab4;
+    private javax.swing.JLabel sdttab5;
+    private javax.swing.JLabel sdttab6;
+    private javax.swing.JLabel sdttab7;
+    private javax.swing.JLabel sdttab8;
     private javax.swing.JPanel sidepane;
     private javax.swing.JPanel tab1;
     private javax.swing.JLabel tab1_Header;
     private javax.swing.JButton tab1_searchAll_button;
     private javax.swing.JButton tab1_search_button;
+    private javax.swing.JButton tab1_search_button2;
+    private javax.swing.JButton tab1_search_button3;
+    private javax.swing.JButton tab1_search_button4;
+    private javax.swing.JButton tab1_search_button5;
+    private javax.swing.JButton tab1_search_button6;
+    private javax.swing.JButton tab1_search_button7;
+    private javax.swing.JButton tab1_search_button8;
     private javax.swing.JComboBox<String> tab1_search_comboBox;
     private javax.swing.JTextField tab1_search_textField;
     private javax.swing.JTable tab1_student_table;
     private javax.swing.JPanel tab2;
+    private javax.swing.JButton tab2_search_button1;
+    private javax.swing.JButton tab2_search_button2;
+    private javax.swing.JButton tab2_search_button3;
+    private javax.swing.JComboBox<String> tab2_search_comboBox1;
+    private javax.swing.JComboBox<String> tab2_search_comboBox2;
+    private javax.swing.JComboBox<String> tab2_search_comboBox3;
+    private javax.swing.JComboBox<String> tab2_search_comboBox4;
+    private javax.swing.JComboBox<String> tab2_search_comboBox5;
+    private javax.swing.JComboBox<String> tab2_search_comboBox6;
+    private javax.swing.JComboBox<String> tab2_search_comboBox7;
+    private javax.swing.JComboBox<String> tab2_search_comboBox8;
+    private javax.swing.JTextField tab2_search_textField1;
+    private javax.swing.JTextField tab2_search_textField10;
+    private javax.swing.JTextField tab2_search_textField11;
+    private javax.swing.JTextField tab2_search_textField12;
+    private javax.swing.JTextField tab2_search_textField13;
+    private javax.swing.JTextField tab2_search_textField14;
+    private javax.swing.JTextField tab2_search_textField15;
+    private javax.swing.JTextField tab2_search_textField16;
+    private javax.swing.JTextField tab2_search_textField17;
+    private javax.swing.JTextField tab2_search_textField18;
+    private javax.swing.JTextField tab2_search_textField19;
+    private javax.swing.JTextField tab2_search_textField2;
+    private javax.swing.JTextField tab2_search_textField20;
+    private javax.swing.JTextField tab2_search_textField21;
+    private javax.swing.JTextField tab2_search_textField22;
+    private javax.swing.JTextField tab2_search_textField23;
+    private javax.swing.JTextField tab2_search_textField3;
+    private javax.swing.JTextField tab2_search_textField4;
+    private javax.swing.JTextField tab2_search_textField5;
+    private javax.swing.JTextField tab2_search_textField6;
+    private javax.swing.JTextField tab2_search_textField7;
+    private javax.swing.JTextField tab2_search_textField8;
+    private javax.swing.JTextField tab2_search_textField9;
     private javax.swing.JPanel tab3;
     private javax.swing.JPanel tab4;
     private javax.swing.JPanel tab5;
+    private javax.swing.JLabel ten;
+    private javax.swing.JLabel ten1;
+    private javax.swing.JLabel ten2;
+    private javax.swing.JLabel thongtintab2;
+    private javax.swing.JLabel thongtintab3;
+    private javax.swing.JLabel thongtintab4;
+    private javax.swing.JLabel thongtintab5;
+    private javax.swing.JLabel thongtintab6;
     // End of variables declaration//GEN-END:variables
 }
