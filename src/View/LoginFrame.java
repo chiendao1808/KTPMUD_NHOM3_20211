@@ -40,6 +40,12 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
      * 
      */
     public LoginFrame() {      
+            try {
+            FlatIntelliJLaf.setup();
+            UIManager.setLookAndFeel("com.formdev.flatlaf.FlatIntelliJLaf");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         initComponents();      
         giaoVienService = new GiaoVienServiceImpl(); // injection       
 

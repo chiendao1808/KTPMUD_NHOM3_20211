@@ -25,7 +25,9 @@ public interface GiaoVienService {
     
     public boolean addGiaoVien(GiaoVien giaoVien, String tenDangNhap,String matKhau);
     
-    public List<Lop> findAllLopDay(String maGiaoVien);
+    public List<Lop> findAllLopDay(String maGiaoVien, String namHoc );
+    
+    public Optional<Lop> findAllLopChuNhiem(String maGiaoVien, String namHoc);
     
     public boolean updateGiaoVien(GiaoVien giaoVien);
     

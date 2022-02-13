@@ -47,12 +47,28 @@ public class TestApp {
 
 //        HocSinhService hocSinhService = new HocSinhServiceImpl();
 //        hocSinhService.findByTenHocSinh("Chiến").stream().forEach(System.out::println);
-            DiemService diemService = new DiemServiceImpl();
+//            DiemService diemService = new DiemServiceImpl();
 //      List<Diem> listDiemMon = diemService.findByMonHoc("HS000001","TH7", "2020-2021", "I");
 //        System.out.println(diemService.processDiemMon(listDiemMon));      
-        System.out.println(diemService.processDiemTBHocKy("HS000001","2020-2021","I"));
-       String hocluc = diemService.processDanhGiaHocLuc("HS000001","2020-2021","I");
-        System.out.println(hocluc);
+//        System.out.println(diemService.processDiemTBHocKy("HS000001","2020-2021","I"));
+//       String hocluc = diemService.processDanhGiaHocLuc("HS000001","2020-2021","I");
+//        System.out.println(hocluc);
+//            HocSinhService  hocSinhService = new HocSinhServiceImpl();
+//            HocSinh hocSinh= new HocSinh();
+//            hocSinh.setMaHocSinh("HS000004");
+//            hocSinh.setTenHocSinh("Nguyễn Văn A");
+////            hocSinh.setGioiTinh("Nam");
+////            hocSinh.setNgaySinh((Date)DateAndTimeUtils.convertStrToDate("19/07/2001"));
+////            hocSinh.setDiaChi("Hà Nội");
+////            hocSinh.setTenPhuHuynh("Nguyễn Văn B");
+////            hocSinh.setSoDienThoai("0937123983");
+////            hocSinh.setXoa(false);
+//          
+                HanhKiemService hanhKiemService = new HanhKiemServiceImpl();
+                HanhKiem  hanhKiemFind  = hanhKiemService.findHanhKiem("HS000003","2020-2021","I").get();
+                System.out.println(hanhKiemService.proccessHanhKiem(hanhKiemFind));
+            
+            
         //asdf
         
           

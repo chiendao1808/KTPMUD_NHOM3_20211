@@ -75,7 +75,8 @@ public class TeacherFrame extends javax.swing.JFrame {
         logOut_btn = new javax.swing.JButton();
         choose5 = new javax.swing.JLabel();
         maintab = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         tab1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         tab2 = new javax.swing.JPanel();
@@ -207,8 +208,25 @@ public class TeacherFrame extends javax.swing.JFrame {
 
         maintab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setText("Đây là tab 1");
-        maintab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 270, -1));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Chiến", "Đào", null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        maintab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         getContentPane().add(maintab, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1010, 670));
 
@@ -368,6 +386,10 @@ public class TeacherFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_logOut_btnFocusGained
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+     
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -418,11 +440,12 @@ public class TeacherFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton logOut_btn;
     private javax.swing.JPanel maintab;
     private javax.swing.JPanel sidepane;

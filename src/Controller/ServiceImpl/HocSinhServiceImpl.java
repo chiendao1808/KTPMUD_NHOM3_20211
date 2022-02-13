@@ -97,7 +97,7 @@ public class HocSinhServiceImpl implements HocSinhService {
             return listHocSinh;
         }
         String sql_query = " select hoc.ma_hoc_sinh from hoc"
-                + " where hoc.ten_lop =? and hoc.nien_khoa =? and hoc.nam_hoc =? and xoa=0";
+                + " where hoc.ten_lop =? and hoc.nam_hoc =? and xoa=0";
         try {
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
             prst.setString(1, lop.getTenLop());
@@ -121,10 +121,10 @@ public class HocSinhServiceImpl implements HocSinhService {
         if (hocSinhOptional.isPresent()) {
             return false;
         }
-        String sql_query = "insert into hoc_sinh values (?,?,?,?,?,?,?,0)";
+        String sql_query = "insert into hoc_sinh(ma_hoc_sinh,ten_hoc_sinh,gioi_tinh,ngay_sinh,dia_chi,ten_phu_huynh,so_dien_thoai,xoa)"
+                + " values (?,?,?,?,?,?,?,0)";
         boolean checkUpdate = false;
         try {
-
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
             prst.setString(1, hocSinh.getMaHocSinh());
             prst.setString(2, hocSinh.getTenHocSinh());
@@ -133,9 +133,7 @@ public class HocSinhServiceImpl implements HocSinhService {
             prst.setString(5, hocSinh.getDiaChi());
             prst.setString(6, hocSinh.getTenPhuHuynh());
             prst.setString(7, hocSinh.getSoDienThoai());
-            if (prst.execute()) {
-                checkUpdate = true;
-            }
+            checkUpdate= prst.execute();
             prst.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -178,18 +176,18 @@ public class HocSinhServiceImpl implements HocSinhService {
     }
 
     @Override
-    public boolean deleteHocSinh(HocSinh hocSinh) {
+    public boolean deleteHocSinh(String maHocSinh) {
         boolean deleteCheck = false;
-        Optional<HocSinh> hocSinhOptional = findByMaHocSinh(hocSinh.getMaHocSinh());
+        Optional<HocSinh> hocSinhOptional = findByMaHocSinh(maHocSinh);
         if (!hocSinhOptional.isPresent()) {
             return deleteCheck;
         }
         String sql_query = "update hoc_sinh \n"
                 + "set xoa = 1 \n"
-                + "where ma_hoc_sinh  =? ";
+                + "where ma_hoc_sinh  =?";
         try {
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
-            prst.setString(1, hocSinh.getMaHocSinh());
+            prst.setString(1, maHocSinh);
             deleteCheck = prst.execute();
             prst.close();
         } catch (Exception e) {

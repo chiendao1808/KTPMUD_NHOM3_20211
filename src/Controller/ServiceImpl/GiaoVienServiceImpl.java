@@ -175,10 +175,31 @@ public class GiaoVienServiceImpl implements GiaoVienService {
     }
 
     @Override
-    public List<Lop> findAllLopDay(String maGiaoVien) {
+    public List<Lop> findAllLopDay(String maGiaoVien, String namHoc) {    
         return List.of();
+        }
+
+    @Override
+    public Optional<Lop> findAllLopChuNhiem(String maGiaoVien, String namHoc) {
+            Optional<GiaoVien> giaoVienOptional = findByMaGiaoVien(maGiaoVien);
+            Optional<Lop> lopOptional = Optional.empty();
+            if(!giaoVienOptional.isPresent()) return Optional.empty();
+            String sql_query ="select ten_lop , nam_hoc from lop \n"
+                    + "where ma_gv_chu_nhiem = ? and xoa =0";
+            try {
+            PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            prst.setString(1, maGiaoVien);
+            ResultSet rs = prst.executeQuery();
+            if(rs.next()) lopOptional= Optional.ofNullable(new Lop(rs.getString("ten_lop"),rs.getString("nam_hoc"),0,findByMaGiaoVien(maGiaoVien).get(), false));
+            prst.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            return lopOptional;
     }
 
+    
     @Override
     public boolean deleteGiaoVien(GiaoVien giaoVien) {
         boolean deleteCheck = false;

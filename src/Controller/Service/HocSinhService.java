@@ -28,7 +28,7 @@ public interface HocSinhService {
     
     public boolean  updateHocSinh(HocSinh hocSinh);
     
-    public boolean deleteHocSinh (HocSinh hocSinh);
+    public boolean deleteHocSinh (String maHocSinh);
     
     
     

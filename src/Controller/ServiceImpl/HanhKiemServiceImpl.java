@@ -104,10 +104,11 @@ public class HanhKiemServiceImpl  implements HanhKiemService{
     public String proccessHanhKiem(HanhKiem hanhKiem) {
         if(!findHanhKiem(hanhKiem.getHocSinh().getMaHocSinh(), hanhKiem.getNamHoc(), hanhKiem.getHocKy()).isPresent()) return "Không tìm thấy ";       
         String loiViPham  = hanhKiem.getLoiViPham();
-        String[] loiViPhamList = loiViPham.split(",");
         int nghiCoPhep = hanhKiem.getNghiCoPhep();
         int nghiKhongPhep = hanhKiem.getNghiKhongPhep();
-        int soLoiViPham = loiViPhamList.length;
+        int soLoiViPham =0;
+        String[] loiViPhamList = loiViPham.split(",");
+        if(!loiViPham.equals("")) soLoiViPham =loiViPhamList.length;
         System.out.println(soLoiViPham);
          if (soLoiViPham == 0) {
             if (nghiKhongPhep == 0)
