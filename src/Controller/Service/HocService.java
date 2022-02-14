@@ -20,6 +20,8 @@ public interface HocService {
     
     public Optional<Hoc> findHoc(String tenLop, String namHoc, String maHocSinh);
     
+    public Optional<Hoc> findByYearHoc(String maHocSinh, String namHoc);
+    
     public boolean addHoc(String tenLop, String namHoc, String maHocSinh);
     
     public boolean deleteHoc(Hoc hoc);

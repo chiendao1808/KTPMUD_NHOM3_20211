@@ -26,6 +26,7 @@ import com.sun.jdi.connect.spi.Connection;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -137,25 +138,32 @@ public class HostFrame extends javax.swing.JFrame  {
         } else {
             tableModel.setRowCount(0);
             for (HocSinh hs : listHocSinh) {
+                String lopHoc = "";
+                if (hocService.findByYearHoc(hs.getMaHocSinh(), tab1_year_comboBox.getSelectedItem().toString()).isPresent())
+                    lopHoc = hocService.findByYearHoc(hs.getMaHocSinh(), tab1_year_comboBox.getSelectedItem().toString()).get().getLop().getTenLop();
                tableModel.addRow(new Object[]{hs.getMaHocSinh(),
                                                                             hs.getTenHocSinh(),
                                                                             hs.getGioiTinh(),
                                                                             DateAndTimeUtils.convertDateToStr(hs.getNgaySinh()),
                                                                             hs.getDiaChi(),
                                                                             hs.getTenPhuHuynh(),
-                                                                            hs.getSoDienThoai()});
+                                                                            hs.getSoDienThoai(),
+                                                                            lopHoc });
             }
         }
     }
     
     public void showTeacherInfo(List<GiaoVien> listGiaoVien, DefaultTableModel tableModel)
             {
-                Optional listGiaoVienOptional = Optional.ofNullable(listGiaoVien);              
+                Optional listGiaoVienOptional = Optional.ofNullable(listGiaoVien);    
                 if(listGiaoVien.isEmpty() || !listGiaoVienOptional.isPresent()) return;
                 else{
                     tableModel.setRowCount(0);
                     for(GiaoVien gv : listGiaoVien)
                         {     
+                            String lopChuNhiem ="";
+                            Optional<Lop>lopOptional = giaoVienService.findAllLopChuNhiem(gv.getMaGiaoVien(),tab5_year_comboBox.getSelectedItem().toString());
+                            if(lopOptional.isPresent())  lopChuNhiem = lopOptional.get().getTenLop();
                             tableModel.addRow(new Object[]{gv.getMaGiaoVien(),
                                                                                         gv.getTenGiaoVien(),
                                                                                         DateAndTimeUtils.convertDateToStr(gv.getNgaySinh()),
@@ -163,7 +171,7 @@ public class HostFrame extends javax.swing.JFrame  {
                                                                                         gv.getDiaChi(),
                                                                                         gv.getChucVu(),
                                                                                         gv.getSoDienThoai(),
-                                                                                        "7A3"});                                                    
+                                                                                        lopChuNhiem});                                                    
                         }
                 }               
             }
@@ -249,17 +257,16 @@ public class HostFrame extends javax.swing.JFrame  {
         tab1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab1_student_table = new javax.swing.JTable();
-        tab1_searchAll_button = new javax.swing.JButton();
         tab1_search_textField = new javax.swing.JTextField();
         tab1_search_button = new javax.swing.JButton();
         tab1_search_comboBox = new javax.swing.JComboBox<>();
         tab1_Header = new javax.swing.JLabel();
+        tab1_year_comboBox = new javax.swing.JComboBox<>();
         tab2 = new javax.swing.JPanel();
         tab2_table_label = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tab2_table = new javax.swing.JTable();
         tab2_search_button = new javax.swing.JButton();
-        tab2_condition_comboBox = new javax.swing.JComboBox<>();
         tab2_name_textField = new javax.swing.JTextField();
         tab2_name_label = new javax.swing.JLabel();
         tab2_search_textField = new javax.swing.JTextField();
@@ -281,6 +288,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab2_delete_button = new javax.swing.JButton();
         tab2_year_comboBox = new javax.swing.JComboBox<>();
         tab2_sex_comboBox = new javax.swing.JComboBox<>();
+        tab2_reset_button = new javax.swing.JButton();
         tab3 = new javax.swing.JPanel();
         tab3_head_label = new javax.swing.JLabel();
         tab3_name_textField = new javax.swing.JTextField();
@@ -326,6 +334,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab4_update_button = new javax.swing.JButton();
         tab4_fault_label = new javax.swing.JLabel();
         tab4_table_label = new javax.swing.JLabel();
+        tab4_reset_button = new javax.swing.JButton();
         tab5 = new javax.swing.JPanel();
         tab5_add_button = new javax.swing.JButton();
         tab5_head_label = new javax.swing.JLabel();
@@ -355,6 +364,10 @@ public class HostFrame extends javax.swing.JFrame  {
         tab5_delete_button = new javax.swing.JButton();
         tab5_sex_comboBox = new javax.swing.JComboBox<>();
         tab5_year_comboBox = new javax.swing.JComboBox<>();
+        tab5_account_label = new javax.swing.JLabel();
+        tab5_account_textField = new javax.swing.JTextField();
+        tab5_password_label = new javax.swing.JLabel();
+        tab5_password_passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Phần mềm quản lý đào tạo THCS");
@@ -369,7 +382,7 @@ public class HostFrame extends javax.swing.JFrame  {
         sidepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         choose4.setBackground(new java.awt.Color(0, 204, 204));
-        choose4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        choose4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         choose4.setForeground(new java.awt.Color(255, 255, 255));
         choose4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_report_card_48px_2.png"))); // NOI18N
         choose4.setText("Quản lý hạnh kiểm");
@@ -382,6 +395,12 @@ public class HostFrame extends javax.swing.JFrame  {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 choose4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                choose4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                choose4MouseExited(evt);
+            }
         });
         sidepane.add(choose4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 230, 60));
 
@@ -392,7 +411,7 @@ public class HostFrame extends javax.swing.JFrame  {
         sidepane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 230, 10));
 
         choose1.setBackground(new java.awt.Color(0, 204, 204));
-        choose1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        choose1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         choose1.setForeground(new java.awt.Color(255, 255, 255));
         choose1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/search_48px.png"))); // NOI18N
         choose1.setText("Tìm kiếm");
@@ -404,6 +423,12 @@ public class HostFrame extends javax.swing.JFrame  {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 choose1MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                choose1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                choose1MouseExited(evt);
+            }
         });
         sidepane.add(choose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 230, 60));
 
@@ -413,7 +438,7 @@ public class HostFrame extends javax.swing.JFrame  {
         sidepane.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 230, 10));
 
         choose2.setBackground(new java.awt.Color(0, 204, 204));
-        choose2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        choose2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         choose2.setForeground(new java.awt.Color(255, 255, 255));
         choose2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_student_male_48px.png"))); // NOI18N
         choose2.setText("Quản lý học sinh");
@@ -426,6 +451,12 @@ public class HostFrame extends javax.swing.JFrame  {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 choose2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                choose2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                choose2MouseExited(evt);
+            }
         });
         sidepane.add(choose2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 230, 59));
 
@@ -435,7 +466,7 @@ public class HostFrame extends javax.swing.JFrame  {
         sidepane.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 230, 10));
 
         choose3.setBackground(new java.awt.Color(0, 204, 204));
-        choose3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        choose3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         choose3.setForeground(new java.awt.Color(255, 255, 255));
         choose3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_scorecard_48px.png"))); // NOI18N
         choose3.setText("Quản lý điểm");
@@ -447,6 +478,12 @@ public class HostFrame extends javax.swing.JFrame  {
         choose3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 choose3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                choose3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                choose3MouseExited(evt);
             }
         });
         sidepane.add(choose3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 230, 60));
@@ -491,7 +528,7 @@ public class HostFrame extends javax.swing.JFrame  {
         sidepane.add(logOut_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 130, 60));
 
         choose5.setBackground(new java.awt.Color(0, 204, 204));
-        choose5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        choose5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         choose5.setForeground(new java.awt.Color(255, 255, 255));
         choose5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_teacher_60px_1.png"))); // NOI18N
         choose5.setText("Quản lý giáo viên");
@@ -502,6 +539,12 @@ public class HostFrame extends javax.swing.JFrame  {
         choose5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 choose5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                choose5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                choose5MouseExited(evt);
             }
         });
         sidepane.add(choose5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 230, 60));
@@ -636,7 +679,7 @@ public class HostFrame extends javax.swing.JFrame  {
         infoTab_semeter_textField.setEditable(false);
         infoTab_semeter_textField.setBackground(new java.awt.Color(255, 255, 255));
         infoTab_semeter_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        infoTab_semeter_textField.setText("II");
+        infoTab_semeter_textField.setText("I");
         infoTab_semeter_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_semeter_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
 
@@ -676,14 +719,14 @@ public class HostFrame extends javax.swing.JFrame  {
 
             },
             new String [] {
-                "Mã học sinh", "Tên học sinh", "Giới tính", "Ngày sinh", "Địa chỉ", "Tên phụ huynh", "Số điện thoại"
+                "Mã học sinh", "Tên học sinh", "Giới tính", "Ngày sinh", "Địa chỉ", "Tên phụ huynh", "Số điện thoại", "Lớp"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -695,27 +738,15 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
         tab1_student_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tab1_student_table.setGridColor(new java.awt.Color(204, 204, 204));
+        tab1_student_table.setGridColor(new java.awt.Color(51, 51, 51));
         tab1_student_table.setShowGrid(true);
         tab1_student_table.getTableHeader().setResizingAllowed(false);
         jScrollPane1.setViewportView(tab1_student_table);
         tab1_student_table.getAccessibleContext().setAccessibleParent(tab1_student_table);
 
-        tab1_searchAll_button.setText("Tìm tất cả học sinh");
-        tab1_searchAll_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tab1_searchAll_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tab1_searchAll_buttonMouseClicked(evt);
-            }
-        });
-        tab1_searchAll_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tab1_searchAll_buttonActionPerformed(evt);
-            }
-        });
-
         tab1_search_textField.setText("Nhập tên hoặc mã học sinh");
 
+        tab1_search_button.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tab1_search_button.setText("Tìm kiếm");
         tab1_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab1_search_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -724,12 +755,14 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
 
-        tab1_search_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo tên", "Theo mã học sinh", "Theo lớp" }));
+        tab1_search_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tìm tất cả học sinh", "Theo tên", "Theo mã học sinh" }));
 
         tab1_Header.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         tab1_Header.setForeground(new java.awt.Color(0, 204, 204));
         tab1_Header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_search_100px.png"))); // NOI18N
         tab1_Header.setText("Tìm kiếm");
+
+        tab1_year_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024" }));
 
         javax.swing.GroupLayout tab1Layout = new javax.swing.GroupLayout(tab1);
         tab1.setLayout(tab1Layout);
@@ -743,14 +776,14 @@ public class HostFrame extends javax.swing.JFrame  {
                     .addGroup(tab1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tab1_search_textField)
+                            .addComponent(tab1_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(tab1Layout.createSequentialGroup()
-                                .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
                                 .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tab1_searchAll_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE))
+                                    .addComponent(tab1_search_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tab1_year_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE))
                 .addContainerGap())
         );
         tab1Layout.setVerticalGroup(
@@ -761,11 +794,12 @@ public class HostFrame extends javax.swing.JFrame  {
                 .addGap(73, 73, 73)
                 .addComponent(tab1_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tab1_search_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tab1_searchAll_button)
+                .addGroup(tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(tab1Layout.createSequentialGroup()
+                        .addComponent(tab1_search_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tab1_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -791,7 +825,7 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
@@ -805,6 +839,8 @@ public class HostFrame extends javax.swing.JFrame  {
                 return canEdit [columnIndex];
             }
         });
+        tab2_table.setGridColor(new java.awt.Color(51, 51, 51));
+        tab2_table.setShowGrid(true);
         tab2_table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tab2_tableMouseClicked(evt);
@@ -815,17 +851,20 @@ public class HostFrame extends javax.swing.JFrame  {
         tab2_search_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab2_search_button.setText("Tìm kiếm");
         tab2_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab2_search_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab2_search_buttonMouseClicked(evt);
+            }
+        });
         tab2_search_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tab2_search_buttonActionPerformed(evt);
             }
         });
 
-        tab2_condition_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo tên", "Theo mã học sinh", "Theo lớp" }));
-
         tab2_name_label.setText("Họ và tên:");
 
-        tab2_search_textField.setText("Nhập tên, mã HS, hoặc lớp");
+        tab2_search_textField.setText("Nhập lớp");
         tab2_search_textField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tab2_search_textFieldMouseClicked(evt);
@@ -869,48 +908,47 @@ public class HostFrame extends javax.swing.JFrame  {
         tab2_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab2_update_button.setText("Cập nhật thông tin");
         tab2_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tab2_update_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tab2_update_buttonMouseClicked(evt);
+        tab2_update_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_update_buttonActionPerformed(evt);
             }
         });
 
         tab2_delete_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab2_delete_button.setText("Xóa học sinh");
         tab2_delete_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tab2_delete_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tab2_delete_buttonMouseClicked(evt);
+        tab2_delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2_delete_buttonActionPerformed(evt);
             }
         });
 
         tab2_year_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024", " " }));
+        tab2_year_comboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         tab2_sex_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
         tab2_sex_comboBox.setToolTipText("");
+
+        tab2_reset_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab2_reset_button.setText("Đặt lại");
+        tab2_reset_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab2_reset_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab2_reset_buttonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout tab2Layout = new javax.swing.GroupLayout(tab2);
         tab2.setLayout(tab2Layout);
         tab2Layout.setHorizontalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab2Layout.createSequentialGroup()
-                        .addComponent(tab2_condition_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tab2_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tab2_search_button))
-                    .addComponent(tab2_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(tab2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab2Layout.createSequentialGroup()
                         .addComponent(tab2_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(tab2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab2Layout.createSequentialGroup()
                                 .addComponent(tab2_sex_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -923,7 +961,7 @@ public class HostFrame extends javax.swing.JFrame  {
                                             .addComponent(tab2_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(28, 28, 28)
                                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(tab2_phone_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(tab2_parent_textField)
                                             .addComponent(tab2_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -937,26 +975,34 @@ public class HostFrame extends javax.swing.JFrame  {
                                             .addComponent(tab2_birthday_textField, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(tab2_name_textField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)))
                                     .addComponent(tab2_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab2_parent_label)
-                                    .addGroup(tab2Layout.createSequentialGroup()
-                                        .addGap(78, 78, 78)
-                                        .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tab2_parent_label))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(tab2_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(553, 553, 553))))
             .addGroup(tab2Layout.createSequentialGroup()
-                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab2Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(tab2_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(410, 410, 410)
-                        .addComponent(tab2_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tab2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(93, 93, 93)
+                .addComponent(tab2_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(410, 410, 410)
+                .addComponent(tab2_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(tab2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tab2_search_textField)
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addComponent(tab2_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tab2_search_button)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tab2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tab2_address_textField, tab2_birthday_textField, tab2_name_textField, tab2_parent_textField, tab2_phone_textField, tab2_sex_comboBox, tab2_stdID_textField});
@@ -968,12 +1014,11 @@ public class HostFrame extends javax.swing.JFrame  {
                 .addComponent(tab2_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tab2_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tab2_condition_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tab2_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tab2_search_button))
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tab2_info_label)
                     .addComponent(tab2_table_label))
@@ -989,33 +1034,39 @@ public class HostFrame extends javax.swing.JFrame  {
                             .addComponent(tab2_birthday_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tab2_sex_comboBox)
+                            .addComponent(tab2_sex_comboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                             .addComponent(tab2_sex_label))
-                        .addGap(21, 21, 21)
-                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_address_label)
-                            .addComponent(tab2_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_parent_label)
-                            .addComponent(tab2_parent_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(tab2_address_label))
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(tab2_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(tab2_parent_label))
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(tab2_parent_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab2_phone_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab2_phone_label))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab2_stdID_label))
+                        .addGap(313, 313, 313))
+                    .addGroup(tab2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(226, 226, 226))
-                    .addGroup(tab2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -1079,6 +1130,8 @@ public class HostFrame extends javax.swing.JFrame  {
                 return canEdit [columnIndex];
             }
         });
+        tab3_table.setGridColor(new java.awt.Color(51, 51, 51));
+        tab3_table.setShowGrid(true);
         tab3_table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tab3_tableMouseClicked(evt);
@@ -1089,7 +1142,8 @@ public class HostFrame extends javax.swing.JFrame  {
         tab3_add_button.setText("Thêm điểm");
         tab3_add_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        tab3_search_button.setText("TÌM KIẾM KẾT QUẢ HỌC TẬP");
+        tab3_search_button.setText("Tìm kiếm");
+        tab3_search_button.setToolTipText("");
         tab3_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab3_search_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1178,10 +1232,11 @@ public class HostFrame extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(tab3_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tab3_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tab3_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tab3_search_textField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tab3_search_textField12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tab3_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tab3_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tab3_search_button)
@@ -1263,6 +1318,8 @@ public class HostFrame extends javax.swing.JFrame  {
                 return canEdit [columnIndex];
             }
         });
+        tab4_table.setGridColor(new java.awt.Color(51, 51, 51));
+        tab4_table.setShowGrid(true);
         tab4_table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tab4_tableMouseClicked(evt);
@@ -1272,6 +1329,7 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab4_class_textField.setText("Nhập lớp");
 
+        tab4_add_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab4_add_button.setText("Thêm thông tin HK");
         tab4_add_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab4_add_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1286,7 +1344,8 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab4_stdID_label.setText("Mã HS:");
 
-        tab4_search_button.setText("TÌM KIẾM KẾT QUẢ HẠNH KIỂM");
+        tab4_search_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab4_search_button.setText("Tìm kiếm");
         tab4_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab4_search_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1294,6 +1353,7 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
 
+        tab4_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab4_update_button.setText("Cập nhật thông tin HK");
         tab4_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab4_update_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1308,45 +1368,61 @@ public class HostFrame extends javax.swing.JFrame  {
         tab4_table_label.setForeground(new java.awt.Color(0, 204, 204));
         tab4_table_label.setText("Thông tin tìm kiếm");
 
+        tab4_reset_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab4_reset_button.setText("Đặt lại");
+        tab4_reset_button.setToolTipText("");
+        tab4_reset_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab4_reset_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab4_reset_buttonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout tab4Layout = new javax.swing.GroupLayout(tab4);
         tab4.setLayout(tab4Layout);
         tab4Layout.setHorizontalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab4Layout.createSequentialGroup()
-                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab4Layout.createSequentialGroup()
-                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(tab4Layout.createSequentialGroup()
                                 .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(tab4Layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(tab4_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tab4_numAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tab4_stdID_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(tab4_fault_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(18, 18, 18))
+                                            .addGroup(tab4Layout.createSequentialGroup()
+                                                .addGap(17, 17, 17)
+                                                .addComponent(tab4_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(tab4_numAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(tab4_stdID_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(tab4_fault_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(tab4Layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(tab4_numNotAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tab4_fault_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tab4_numAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tab4_numNotAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tab4_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab4_name_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(tab4Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(tab4_numNotAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tab4_fault_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tab4_numAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tab4_numNotAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tab4_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab4_name_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tab4_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tab4_update_button)))
+                        .addGap(38, 38, 38))
                     .addGroup(tab4Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(tab4_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tab4_update_button)))
-                .addGap(38, 38, 38)
+                        .addGap(110, 110, 110)
+                        .addComponent(tab4_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
             .addGroup(tab4Layout.createSequentialGroup()
@@ -1404,7 +1480,9 @@ public class HostFrame extends javax.swing.JFrame  {
                         .addGap(27, 27, 27)
                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab4_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab4_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tab4_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(tab4_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tab4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(tab4_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1420,7 +1498,7 @@ public class HostFrame extends javax.swing.JFrame  {
                             .addComponent(tab4_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab4);
@@ -1429,6 +1507,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab5.setBackground(new java.awt.Color(255, 255, 255));
         tab5.setPreferredSize(new java.awt.Dimension(702, 670));
 
+        tab5_add_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab5_add_button.setText("Thêm giáo viên");
         tab5_add_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -1439,6 +1518,12 @@ public class HostFrame extends javax.swing.JFrame  {
         tab5_info_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tab5_info_label.setForeground(new java.awt.Color(0, 204, 204));
         tab5_info_label.setText("Thông tin Giáo viên");
+
+        tab5_teacherID_textField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab5_teacherID_textFieldActionPerformed(evt);
+            }
+        });
 
         tab5_table_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tab5_table_label.setForeground(new java.awt.Color(0, 204, 204));
@@ -1467,6 +1552,8 @@ public class HostFrame extends javax.swing.JFrame  {
                 return canEdit [columnIndex];
             }
         });
+        tab5_table.setGridColor(new java.awt.Color(51, 51, 51));
+        tab5_table.setShowGrid(true);
         tab5_table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tab5_tableMouseClicked(evt);
@@ -1474,11 +1561,13 @@ public class HostFrame extends javax.swing.JFrame  {
         });
         jScrollPane3.setViewportView(tab5_table);
 
-        tab5_teacherID_label.setText("Mã GV");
+        tab5_teacherID_label.setText("Mã giáo viên");
 
+        tab5_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab5_update_button.setText("Cập nhật thông tin");
         tab5_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        tab5_search_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab5_search_button.setText("Tìm kiếm");
         tab5_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab5_search_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1487,7 +1576,6 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
 
-        tab5_mainClass_textfield.setText("Nhập lớp chủ nhiệm");
         tab5_mainClass_textfield.setToolTipText("");
 
         tab5_searchMethod_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tìm tất cả giáo viên", "Theo tên", "Theo mã GV" }));
@@ -1508,6 +1596,7 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab5_phone_label.setText("SĐT liên lạc:");
 
+        tab5_delete_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab5_delete_button.setText("Xóa giáo viên");
         tab5_delete_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -1515,14 +1604,14 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab5_year_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024" }));
 
+        tab5_account_label.setText("Tài khoản:");
+
+        tab5_password_label.setText("Mật khẩu:");
+
         javax.swing.GroupLayout tab5Layout = new javax.swing.GroupLayout(tab5);
         tab5.setLayout(tab5Layout);
         tab5Layout.setHorizontalGroup(
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab5Layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(tab5_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(tab5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1532,14 +1621,20 @@ public class HostFrame extends javax.swing.JFrame  {
                         .addGap(620, 620, 620))
                     .addGroup(tab5Layout.createSequentialGroup()
                         .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tab5_searchMethod_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab5_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab5Layout.createSequentialGroup()
-                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tab5_phone_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab5_mainClass_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30)
-                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tab5_phone_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                    .addComponent(tab5_mainClass_textfield)))
+                                .addGap(9, 9, 9)
+                                .addComponent(tab5_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab5Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tab5_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tab5_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(295, 295, 295))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tab5_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(tab5Layout.createSequentialGroup()
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1555,37 +1650,35 @@ public class HostFrame extends javax.swing.JFrame  {
                                         .addComponent(tab5_role_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                                         .addComponent(tab5_address_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                                         .addComponent(tab5_sex_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
-                                .addComponent(tab5_teacherID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tab5_teacherID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab5Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(tab5_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(tab5Layout.createSequentialGroup()
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tab5_searchMethod_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab5_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tab5_phone_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_mainClass_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_teacherID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_account_label, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(tab5Layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(tab5_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(tab5_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(tab5Layout.createSequentialGroup()
+                                    .addComponent(tab5_teacherID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                    .addComponent(tab5_mainClass_textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                    .addComponent(tab5_phone_textField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tab5_account_textField)
+                                    .addComponent(tab5_password_passwordField))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                         .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab5Layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
                                 .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tab5Layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(tab5_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(316, 316, 316)
-                                .addComponent(tab5_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(51, 51, 51)
+                                .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(tab5_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(101, 101, 101))))))
         );
         tab5Layout.setVerticalGroup(
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1594,11 +1687,6 @@ public class HostFrame extends javax.swing.JFrame  {
                 .addComponent(tab5_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tab5Layout.createSequentialGroup()
-                        .addComponent(tab5_table_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))
                     .addGroup(tab5Layout.createSequentialGroup()
                         .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(tab5_search_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
@@ -1637,17 +1725,31 @@ public class HostFrame extends javax.swing.JFrame  {
                         .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab5_mainClass_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab5_mainClass_label))
-                        .addGap(40, 40, 40)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_teacherID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab5_teacherID_label))
-                        .addGap(18, 18, 18)))
+                        .addGap(132, 132, 132))
+                    .addGroup(tab5Layout.createSequentialGroup()
+                        .addComponent(tab5_table_label)
+                        .addGap(18, 18, 18)
+                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tab5Layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                                .addGap(381, 381, 381)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_teacherID_label)
+                                    .addComponent(tab5_teacherID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_account_label)
+                                    .addComponent(tab5_account_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)))))
                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tab5_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tab5_password_label)
+                    .addComponent(tab5_password_passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab5);
@@ -1658,6 +1760,7 @@ public class HostFrame extends javax.swing.JFrame  {
     }// </editor-fold>//GEN-END:initComponents
 
     private void choose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose1MouseClicked
+        choose1.setFont(new Font("Segoe UI",Font.BOLD,18));
         choose1.setBackground(new Color(0, 153, 204));
         choose2.setBackground(new Color(0, 204, 204));
         choose3.setBackground(new Color(0, 204, 204));
@@ -1672,6 +1775,7 @@ public class HostFrame extends javax.swing.JFrame  {
     }//GEN-LAST:event_choose1MouseClicked
 
     private void choose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose2MouseClicked
+         choose2.setFont(new Font("Segoe UI",Font.BOLD,18));
         choose2.setBackground(new Color(0, 153, 204));
         choose1.setBackground(new Color(0, 204, 204));
         choose3.setBackground(new Color(0, 204, 204));
@@ -1686,6 +1790,7 @@ public class HostFrame extends javax.swing.JFrame  {
     }//GEN-LAST:event_choose2MouseClicked
 
     private void choose3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose3MouseClicked
+         choose3.setFont(new Font("Segoe UI",Font.BOLD,18));
         choose3.setBackground(new Color(0, 153, 204));
         choose1.setBackground(new Color(0, 204, 204));
         choose2.setBackground(new Color(0, 204, 204));
@@ -1701,6 +1806,7 @@ public class HostFrame extends javax.swing.JFrame  {
 
     private void choose4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose4MouseClicked
         // TODO add your handling code here:
+        choose4.setFont(new Font("Segoe UI",Font.BOLD,18));
         choose4.setBackground(new Color(0, 153, 204));
         choose1.setBackground(new Color(0, 204, 204));
         choose2.setBackground(new Color(0, 204, 204));
@@ -1721,7 +1827,7 @@ public class HostFrame extends javax.swing.JFrame  {
     }//GEN-LAST:event_logOut_btnActionPerformed
 
     private void choose5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose5MouseClicked
-        // TODO add your handling code here:
+         choose5.setFont(new Font("Segoe UI",Font.BOLD,18));
         choose5.setBackground(new Color(0, 153, 204));
         choose1.setBackground(new Color(0, 204, 204));
         choose2.setBackground(new Color(0, 204, 204));
@@ -1776,7 +1882,7 @@ public class HostFrame extends javax.swing.JFrame  {
     }//GEN-LAST:event_infoTab_edit_buttonActionPerformed
 
     private void infoTab_save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoTab_save_buttonActionPerformed
-         infoTab_save_button.setVisible(false);
+        infoTab_save_button.setVisible(false);
         JOptionPane infoTab_saving_Option = new JOptionPane();
         int chooseOption = infoTab_saving_Option.showConfirmDialog(null, "Bạn có muốn các thông tin cá nhân ?", "Xác nhận", JOptionPane.YES_NO_OPTION);
         if (chooseOption == 0) {
@@ -1790,89 +1896,79 @@ public class HostFrame extends javax.swing.JFrame  {
             infoTab_phone_textField.setBorder(BorderFactory.createEmptyBorder());
             infoTab_phone_textField.setEditable(false);
             infoTab_address_textField.setBorder(BorderFactory.createEmptyBorder());
-            infoTab_address_textField.setEditable(false); 
-          //  infoTab_saving_Option.showMessageDialog(null, "Bạn đã lưu thông tin thành công !");
-          GiaoVien giaoVienUpdate = giaoVienService.findByTenDangNhap(tenDangNhap).get();
-          if(!infoTab_name_textField.equals("")) giaoVienUpdate.setTenGiaoVien(infoTab_name_textField.getText());
-          if(!infoTab_sex_textField.equals("")) giaoVienUpdate.setGioiTinh(infoTab_sex_textField.getText());
-          if(!infoTab_birthday_textField.equals("")) 
-          {
-              String birthday =infoTab_birthday_textField.getText();
-              if(Controller.Validation.Validator.dateValidator2(birthday))
-              {
-                  try {
-                      giaoVienUpdate.setNgaySinh(DateAndTimeUtils.convertStrToDate(birthday));
-                  } catch (Exception ex) {
-                      ex.printStackTrace();
-                  }
-              }
-              else 
-                  {
-                      infoTab_saving_Option.showMessageDialog(null,"Vui lòng nhập đúng định dạng ngày sinh theo định dạng(Ngày/Tháng/Năm)!","Cảnh báo",JOptionPane.WARNING_MESSAGE);
-                      showTeacherInfoTab();
-                  }
-          }
-         giaoVienService.updateGiaoVien(giaoVienUpdate);
+            infoTab_address_textField.setEditable(false);
+            //  infoTab_saving_Option.showMessageDialog(null, "Bạn đã lưu thông tin thành công !");
+            GiaoVien giaoVienUpdate = giaoVienService.findByTenDangNhap(tenDangNhap).get();
+            if (!infoTab_name_textField.equals("")) {
+                giaoVienUpdate.setTenGiaoVien(infoTab_name_textField.getText());
+            }
+            if (!infoTab_sex_textField.equals("")) {
+                giaoVienUpdate.setGioiTinh(infoTab_sex_textField.getText());
+            }
+            if (!infoTab_birthday_textField.equals("")) {
+                String birthday = infoTab_birthday_textField.getText();
+                if (Controller.Validation.Validator.dateValidator2(birthday)) {
+                    try {
+                        giaoVienUpdate.setNgaySinh(DateAndTimeUtils.convertStrToDate(birthday));
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    infoTab_saving_Option.showMessageDialog(null, "Vui lòng nhập đúng định dạng ngày sinh theo định dạng(Ngày/Tháng/Năm)!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+                    showTeacherInfoTab();
+                }
+            }
+            giaoVienService.updateGiaoVien(giaoVienUpdate);
         } else {
-            infoTab_saving_Option.showMessageDialog(null, "Vui lòng xác nhận lại","Thông báo", JOptionPane.INFORMATION_MESSAGE);
-        }     
+            infoTab_saving_Option.showMessageDialog(null, "Vui lòng xác nhận lại", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
         infoTab_edit_button.setVisible(true);
     }//GEN-LAST:event_infoTab_save_buttonActionPerformed
 
-    private void tab1_searchAll_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonMouseClicked
-        List<HocSinh> listHocSinh = hocSinhService.findAll();
-        showStudentInfo(listHocSinh,tab1_student_tableModel);
-    }//GEN-LAST:event_tab1_searchAll_buttonMouseClicked
-
-    private void tab1_searchAll_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab1_searchAll_buttonActionPerformed
-     List<HocSinh> listHocSinh = hocSinhService.findAll();
-        showStudentInfo(listHocSinh, tab1_student_tableModel);
-    }//GEN-LAST:event_tab1_searchAll_buttonActionPerformed
-
     private void tab1_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_search_buttonMouseClicked
-        // TODO add your handling code here:
-        if(tab1_search_comboBox.getSelectedIndex() ==0 ) 
-            {
-                    if(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()).size() <=0 ) {
-                           new JOptionPane().showMessageDialog(null, "Không tìm thấy kết quả phù hợp","Thông báo",JOptionPane.INFORMATION_MESSAGE);
-                    }                    
-                    else 
-                        showStudentInfo(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()),tab1_student_tableModel);
-             }
-        else 
-            {
+        if (tab1_year_comboBox.getSelectedIndex() != 0) {
+            if (tab1_search_comboBox.getSelectedIndex() == 0) {
+                showStudentInfo(hocSinhService.findAll(), tab1_student_tableModel);
+            } else if (tab1_search_comboBox.getSelectedIndex() == 1) {
+                if (hocSinhService.findByTenHocSinh(tab1_search_textField.getText()).size() <= 0) {
+                    new JOptionPane().showMessageDialog(null, "Không tìm thấy kết quả phù hợp", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    showStudentInfo(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()), tab1_student_tableModel);
+                }
+            } else {
                 Optional<HocSinh> hocSinhOptional = hocSinhService.findByMaHocSinh(tab1_search_textField.getText());
-                if(hocSinhOptional.isPresent())  showStudentInfo(List.of(hocSinhOptional.get()),tab1_student_tableModel);
-                else
-                    {
-                        new JOptionPane().showMessageDialog(null, "Không tìm thấy học sinh phù hợp","Cảnh báo",JOptionPane.INFORMATION_MESSAGE);                  
-                        showStudentInfo(List.of(),tab1_student_tableModel);
-                    }                       
+                if (hocSinhOptional.isPresent()) {
+                    showStudentInfo(List.of(hocSinhOptional.get()), tab1_student_tableModel);
+                } else {
+                    new JOptionPane().showMessageDialog(null, "Không tìm thấy học sinh phù hợp", "Cảnh báo", JOptionPane.INFORMATION_MESSAGE);
+                    showStudentInfo(List.of(), tab1_student_tableModel);
+                }
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn năm học", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_tab1_search_buttonMouseClicked
 
     private void tab2_search_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_search_buttonActionPerformed
-        if(tab2_condition_comboBox.getSelectedIndex()==0) 
-            {
-                showStudentInfo(hocSinhService.findByTenHocSinh(tab2_search_textField.getText()), tab2_tableModel);         
-            }
-        else if(tab2_condition_comboBox.getSelectedIndex()==1) {
-            Optional<HocSinh> hocSinhOptional  = hocSinhService.findByMaHocSinh(tab2_search_textField.getText());
-            if(hocSinhOptional.isPresent())
-            showStudentInfo(List.of(hocSinhOptional.get()), tab2_tableModel);
-            else new JOptionPane().showMessageDialog(null, "Không tìm thấy học sinh nào !");
+        String lopHoc = "";
+        String namHoc = "";
+        if (!tab2_search_textField.equals("")) {
+            lopHoc = tab2_search_textField.getText();
+        } else {
+            new JOptionPane().showMessageDialog(null, "Vui lòng nhập tên lớp", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
-        else {
-            String tenLop = tab2_search_textField.getText();
-            String namHoc = tab2_year_comboBox.getSelectedItem().toString();          
-            if(!namHoc.equals("Theo năm học"))
-                {
-                    Optional<Lop> lopOptional = lopService.findLop(tenLop, namHoc);
-                    if(lopOptional.isPresent()) 
-                    showStudentInfo(hocSinhService.findByLop(lopOptional.get()),tab2_tableModel);
-                    else new JOptionPane().showMessageDialog(null,"Không tìm thấy lớp !");
-                }
-            else new JOptionPane().showMessageDialog(null, "Vui lòng chọn năm học !");           
+        if (tab2_year_comboBox.getSelectedIndex() != 0) {
+            namHoc = tab2_year_comboBox.getSelectedItem().toString();
+        } else {
+            new JOptionPane().showMessageDialog(null, "Vui lòng chọn năm học", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        Optional<Lop> lopHocOptional = lopService.findLop(lopHoc, namHoc);
+        if (lopHocOptional.isPresent()) {
+            showStudentInfo(hocSinhService.findByLop(lopHocOptional.get()), tab2_tableModel);
+        } else {
+            new JOptionPane().showMessageDialog(null, "Không tìm thấy lớp ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            tab2_tableModel.setRowCount(0);
         }
     }//GEN-LAST:event_tab2_search_buttonActionPerformed
 
@@ -1885,81 +1981,80 @@ public class HostFrame extends javax.swing.JFrame  {
     }//GEN-LAST:event_tab2_search_textFieldMouseReleased
 
     private void tab2_add_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2_add_buttonMouseClicked
-          HocSinh hocSinh = new HocSinh();
-          String maHocSinh =tab2_stdID_textField.getText();
-          String tenHocSinh = tab2_name_textField.getText();
-          String ngaySinh = tab2_birthday_textField.getText();
-          String gioiTinh = tab2_sex_comboBox.getSelectedItem().toString();
-          String diaChi    = tab2_address_textField.getText();
-          String tenPhuHuynh = tab2_parent_textField.getText();
-          String soDienThoai  = tab2_phone_textField.getText();
-          boolean infoCheck = true;
-          boolean addCheck= true;
-          if(!maHocSinh.equals(""))
-              {
-                  if(hocSinhService.findByMaHocSinh(maHocSinh).isPresent())
-                      new JOptionPane().showMessageDialog(null,"Học sinh đã tồn tại !");
-                  else
-                      {
-                          hocSinh.setMaHocSinh(maHocSinh);
-                          if (!tenHocSinh.equals("")) 
-                              hocSinh.setTenHocSinh(tenHocSinh);
-                          else infoCheck = false;
-                          if(!ngaySinh.equals(""))
-                              {
-                                  if(Controller.Validation.Validator.dateValidator2(ngaySinh)){
-                                      try {
-                                      hocSinh.setNgaySinh(DateAndTimeUtils.convertStrToDate(ngaySinh));
-                                  } catch (Exception e) {
-                                      e.printStackTrace();
-                                  }
-                                  } else {
-                                      new JOptionPane().showMessageDialog(null,"Vui lòng nhập đúng định dạng ngày tháng (dd/MM/YYYY)");
-                                              addCheck=false;
-                                  }
-                              } else infoCheck =false;
-                          hocSinh.setGioiTinh(gioiTinh);
-                          if(!diaChi.equals("")) 
-                              hocSinh.setDiaChi(diaChi);
-                          else infoCheck=false;
-                          if(!tenPhuHuynh.equals("")) hocSinh.setTenPhuHuynh(tenPhuHuynh);
-                          else infoCheck =false;
-                          if(!soDienThoai.equals(""))
-                              {
-                                  if(Controller.Validation.Validator.phoneValidator(soDienThoai))
-                                      hocSinh.setSoDienThoai(soDienThoai);
-                                  else {
-                                      new JOptionPane().showMessageDialog(null,"Số điện thoại không hợp lệ vui lòng nhập lại");
-                                      addCheck=false;
-                                  }                            
-                              }
-                          else infoCheck=false;
-                      }
-              } else infoCheck =false ;
-              if(infoCheck ==false)  new JOptionPane().showMessageDialog(null,"Vui lòng nhập đủ thông tin học sinh !");
-              else {
-                  if(addCheck==true){
-                     new JOptionPane().showMessageDialog(null, "Thêm thành công học sinh "+tenHocSinh);
-                       hocSinhService.addHocSinh(hocSinh); 
-                       showStudentInfo(hocSinhService.findAll(), tab2_tableModel);
-                  }
-                  }
-    }//GEN-LAST:event_tab2_add_buttonMouseClicked
-
-    private void tab2_delete_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2_delete_buttonMouseClicked
-        if(tab2_table.getSelectedRowCount()!=1)
-            new JOptionPane().showMessageDialog(null,"Vui lòng chọn một học sinh muốn xóa");
-        else {
-            int selectedRow = tab2_table.getSelectedRow();
-            String maHocSinh = tab2_table.getValueAt(selectedRow, 0).toString();
-            boolean deleteCheck = hocSinhService.deleteHocSinh(maHocSinh);   
-            System.out.println(deleteCheck);
-            if(deleteCheck==true) {
-            new JOptionPane().showMessageDialog(null,"Xóa thành công!");
-            showStudentInfo(hocSinhService.findAll(), tab2_tableModel);
+        HocSinh hocSinh = new HocSinh();
+        String maHocSinh = tab2_stdID_textField.getText();
+        String tenHocSinh = tab2_name_textField.getText();
+        String ngaySinh = tab2_birthday_textField.getText();
+        String gioiTinh = tab2_sex_comboBox.getSelectedItem().toString();
+        String diaChi = tab2_address_textField.getText();
+        String tenPhuHuynh = tab2_parent_textField.getText();
+        String soDienThoai = tab2_phone_textField.getText();
+        boolean infoCheck = true;
+        boolean addCheck = true;
+        if (!maHocSinh.equals("")) {
+            if (hocSinhService.findByMaHocSinh(maHocSinh).isPresent()) {
+                new JOptionPane().showMessageDialog(null, "Học sinh đã tồn tại !");
+            } else {
+                hocSinh.setMaHocSinh(maHocSinh);
+                if (!tenHocSinh.equals("")) {
+                    hocSinh.setTenHocSinh(tenHocSinh);
+                } else {
+                    infoCheck = false;
+                }
+                if (!ngaySinh.equals("")) {
+                    if (Controller.Validation.Validator.dateValidator2(ngaySinh)) {
+                        try {
+                            hocSinh.setNgaySinh(DateAndTimeUtils.convertStrToDate(ngaySinh));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        new JOptionPane().showMessageDialog(null, "Vui lòng nhập đúng định dạng ngày tháng (dd/MM/YYYY)");
+                        addCheck = false;
+                    }
+                } else {
+                    infoCheck = false;
+                }
+                hocSinh.setGioiTinh(gioiTinh);
+                if (!diaChi.equals("")) {
+                    hocSinh.setDiaChi(diaChi);
+                } else {
+                    infoCheck = false;
+                }
+                if (!tenPhuHuynh.equals("")) {
+                    hocSinh.setTenPhuHuynh(tenPhuHuynh);
+                } else {
+                    infoCheck = false;
+                }
+                if (!soDienThoai.equals("")) {
+                    if (Controller.Validation.Validator.phoneValidator(soDienThoai)) {
+                        hocSinh.setSoDienThoai(soDienThoai);
+                    } else {
+                        new JOptionPane().showMessageDialog(null, "Số điện thoại không hợp lệ vui lòng nhập lại");
+                        addCheck = false;
+                    }
+                } else {
+                    infoCheck = false;
+                }
             }
-       }
-    }//GEN-LAST:event_tab2_delete_buttonMouseClicked
+        } else {
+            infoCheck = false;
+        }
+        if (infoCheck == false)
+            new JOptionPane().showMessageDialog(null, "Vui lòng nhập đủ thông tin học sinh !");
+        else {
+            if (addCheck == true) {
+                if (lopService.findLop(tab2_search_textField.getText(), tab2_year_comboBox.getSelectedItem().toString()).isPresent()) {
+                    new JOptionPane().showMessageDialog(null, "Thêm thành công học sinh " + tenHocSinh);
+                    hocSinhService.addHocSinh(hocSinh);
+                    hocService.addHoc(tab2_search_textField.getText(), tab2_year_comboBox.getSelectedItem().toString(), hocSinh.getMaHocSinh());
+                } else {
+                    new JOptionPane().showMessageDialog(null, "Không tìm thấy lớp", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                }
+                tab2_search_buttonMouseClicked(evt);
+            }
+        }
+    }//GEN-LAST:event_tab2_add_buttonMouseClicked
 
     private void tab2_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2_tableMouseClicked
         if(tab2_table.getSelectedRowCount()==1)
@@ -1976,12 +2071,6 @@ public class HostFrame extends javax.swing.JFrame  {
                 tab2_stdID_textField.setText(hocSinhSelected.getMaHocSinh());                                         
             }
     }//GEN-LAST:event_tab2_tableMouseClicked
-
-    private void tab2_update_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2_update_buttonMouseClicked
-        HocSinh hocSinhUpdate = new HocSinh();
-        
-        
-    }//GEN-LAST:event_tab2_update_buttonMouseClicked
 
     private void tab3_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3_search_buttonMouseClicked
         
@@ -2015,12 +2104,31 @@ public class HostFrame extends javax.swing.JFrame  {
               tab5_sex_comboBox.setSelectedIndex(giaoVienSelected.getGioiTinh().equals("Nam")?0:1);
               tab5_address_textField.setText(giaoVienSelected.getDiaChi());
               tab5_phone_textField.setText(giaoVienSelected.getSoDienThoai());
-              tab5_role_textField.setText(giaoVienSelected.getChucVu());            
+              tab5_role_textField.setText(giaoVienSelected.getChucVu());   
+              tab5_mainClass_textfield.setText(tab5_table.getValueAt(selectedRow,7).toString());
           }
     }//GEN-LAST:event_tab5_tableMouseClicked
 
     private void tab5_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab5_search_buttonMouseClicked
-       
+             if(tab5_year_comboBox.getSelectedIndex()!=0)
+                 {
+                     if(tab5_searchMethod_comboBox.getSelectedIndex()==0)
+                         {
+                             if(giaoVienService.findAllGiaoVien().isEmpty()) new JOptionPane().showMessageDialog(null,"Không tìm thấy giáo viên nào!","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+                             showTeacherInfo(giaoVienService.findAllGiaoVien(), tab5_tableModel);
+                         }
+                     else if(tab5_searchMethod_comboBox.getSelectedIndex()==1)
+                         {
+                             if(!tab5_search_textField.getText().equals(""))
+                             showTeacherInfo(giaoVienService.findByTenGiaoVien(tab5_search_textField.getText()), tab5_tableModel);
+                             else JOptionPane.showMessageDialog(null, "Vui lòng nhập tên giáo viên cần tìm");
+                         }
+                     else {
+                         if(!tab5_search_textField.getText().equals(""))
+                             showTeacherInfo(List.of(giaoVienService.findByMaGiaoVien(tab5_search_textField.getText()).get()), tab5_tableModel);
+                         else new JOptionPane().showMessageDialog(null,"Vui lòng nhập mã giáo viên!","Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                     }
+                 } else new JOptionPane().showMessageDialog(null,"Vui lòng chọn năm học !","Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_tab5_search_buttonMouseClicked
 
     // không lỗi
@@ -2157,6 +2265,139 @@ public class HostFrame extends javax.swing.JFrame  {
         tab4_search_buttonMouseClicked(evt);
     }//GEN-LAST:event_tab4_update_buttonMouseClicked
 
+    private void tab5_teacherID_textFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab5_teacherID_textFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab5_teacherID_textFieldActionPerformed
+
+    private void tab2_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_update_buttonActionPerformed
+         if(tab2_table.getSelectedRowCount()!=1)
+            {
+                new JOptionPane().showMessageDialog(null, "Vui lòng chọn một học sinh để cập nhật ");
+            }
+        else {
+            int selectedRow = tab2_table.getSelectedRow();
+            String maHocSinh = tab2_table.getValueAt(selectedRow,0).toString();
+            HocSinh hocSinhUpdate = hocSinhService.findByMaHocSinh(maHocSinh).get();
+            if(!tab2_name_textField.getText().equals("")) hocSinhUpdate.setTenHocSinh(tab2_name_textField.getText());
+            if(!tab2_birthday_textField.equals("")) {
+                if(!Controller.Validation.Validator.dateValidator2(tab2_birthday_textField.getText()))
+                    new JOptionPane().showMessageDialog(null,"Vui lòng kiểm tra lại ngày sinh (dd/MM/yyyy)");
+                else 
+                    try {
+                    hocSinhUpdate.setNgaySinh(DateAndTimeUtils.convertStrToDate(tab2_birthday_textField.getText()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }   
+            }
+            hocSinhUpdate.setGioiTinh(tab2_sex_comboBox.getSelectedItem().toString());
+            if(!tab2_address_textField.getText().equals("")) hocSinhUpdate.setDiaChi(tab2_address_textField.getText());
+            if(!tab2_parent_textField.getText().equals("")) hocSinhUpdate.setTenPhuHuynh(tab2_parent_textField.getText());
+            if(!tab2_phone_textField.getText().equals(""))
+                {
+                    if(Controller.Validation.Validator.phoneValidator(tab2_phone_textField.getText()))
+                        hocSinhUpdate.setSoDienThoai(tab2_phone_textField.getText());
+                    else new JOptionPane().showMessageDialog(null,"Vui lòng kiểm tra lại định dạng số điện thoại");
+                }
+            if(!tab2_stdID_textField.equals("")  && hocSinhService.findByMaHocSinh(tab2_stdID_textField.getText()).isPresent())
+                hocSinhUpdate.setMaHocSinh(tab2_stdID_textField.getText());
+            else new JOptionPane().showMessageDialog(null, "Mã học sinh không hợp lệ chưa tổn tại !");
+             hocSinhService.updateHocSinh(hocSinhUpdate);
+             }
+         tab2_search_buttonActionPerformed(evt);
+    }//GEN-LAST:event_tab2_update_buttonActionPerformed
+
+    private void tab2_reset_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2_reset_buttonMouseClicked
+        tab2_name_textField.setText("");
+        tab2_birthday_textField.setText("");
+        tab2_address_textField.setText("");
+        tab2_parent_textField.setText("");
+        tab2_stdID_textField.setText("");
+        tab2_phone_textField.setText("");
+        
+    }//GEN-LAST:event_tab2_reset_buttonMouseClicked
+
+    private void tab4_reset_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4_reset_buttonMouseClicked
+        tab4_name_textField.setText("");
+        tab4_stdID_textField.setText("");
+        tab4_fault_textField.setText("");
+        tab4_numAllow_textField.setText("");
+        tab4_numNotAllow_textField.setText("");
+    }//GEN-LAST:event_tab4_reset_buttonMouseClicked
+
+    private void tab2_delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2_delete_buttonActionPerformed
+       if(tab2_table.getSelectedRowCount()!=1)
+            new JOptionPane().showMessageDialog(null,"Vui lòng chọn một học sinh muốn xóa");
+        else {
+            int selectedRow = tab2_table.getSelectedRow();
+            String maHocSinh = tab2_table.getValueAt(selectedRow, 0).toString();
+            Optional<Hoc> hocOptional = hocService.findHoc(tab2_search_textField.getText(),tab2_year_comboBox.getSelectedItem().toString(), maHocSinh);
+            if(!hocOptional.isPresent()) new JOptionPane().showMessageDialog(null, "Học sinh đã chọn không học lớp này");
+            else hocService.deleteHoc(hocOptional.get());
+            boolean deleteCheck = hocSinhService.deleteHocSinh(maHocSinh);   
+            System.out.println(deleteCheck);          
+            new JOptionPane().showMessageDialog(null,"Xóa thành công!");    
+            tab2_search_buttonActionPerformed(evt);
+       }
+    }//GEN-LAST:event_tab2_delete_buttonActionPerformed
+
+    private void tab2_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2_search_buttonMouseClicked
+         String lopHoc ="";
+        String namHoc ="";
+        if(!tab2_search_textField.equals("")) lopHoc =tab2_search_textField.getText();
+        else new JOptionPane().showMessageDialog(null,"Vui lòng nhập tên lớp","Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        if(tab2_year_comboBox.getSelectedIndex()!=0)  namHoc =tab2_year_comboBox.getSelectedItem().toString();
+        else new JOptionPane().showMessageDialog(null,"Vui lòng chọn năm học","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+        Optional<Lop> lopHocOptional = lopService.findLop(lopHoc,namHoc);
+        if(lopHocOptional.isPresent())
+            {
+                showStudentInfo(hocSinhService.findByLop(lopHocOptional.get()), tab2_tableModel);
+            }
+        else {
+            new JOptionPane().showMessageDialog(null,"Không tìm thấy lớp ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            tab2_tableModel.setRowCount(0);
+        }
+    }//GEN-LAST:event_tab2_search_buttonMouseClicked
+
+    private void choose4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose4MouseEntered
+       choose4.setFont(new Font("Segoe UI",Font.BOLD,18));
+    }//GEN-LAST:event_choose4MouseEntered
+
+    private void choose1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose1MouseEntered
+       choose1.setFont(new Font("Segoe UI",Font.BOLD,18));
+    }//GEN-LAST:event_choose1MouseEntered
+
+    private void choose2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose2MouseEntered
+        choose2.setFont(new Font("Segoe UI",Font.BOLD,18));
+    }//GEN-LAST:event_choose2MouseEntered
+
+    private void choose3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose3MouseEntered
+        choose3.setFont(new Font("Segoe UI",Font.BOLD,18));
+    }//GEN-LAST:event_choose3MouseEntered
+
+    private void choose5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose5MouseEntered
+        choose5.setFont(new Font("Segoe UI",Font.BOLD,18));
+    }//GEN-LAST:event_choose5MouseEntered
+
+    private void choose4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose4MouseExited
+        choose4.setFont(new Font("Segoe UI",Font.PLAIN,20));
+    }//GEN-LAST:event_choose4MouseExited
+
+    private void choose1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose1MouseExited
+        choose1.setFont(new Font("Segoe UI",Font.PLAIN,20));
+    }//GEN-LAST:event_choose1MouseExited
+
+    private void choose2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose2MouseExited
+        choose2.setFont(new Font("Segoe UI",Font.PLAIN,20));
+    }//GEN-LAST:event_choose2MouseExited
+
+    private void choose3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose3MouseExited
+        choose3.setFont(new Font("Segoe UI",Font.PLAIN,20));
+    }//GEN-LAST:event_choose3MouseExited
+
+    private void choose5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choose5MouseExited
+        choose5.setFont(new Font("Segoe UI",Font.PLAIN,20));
+    }//GEN-LAST:event_choose5MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -2219,18 +2460,17 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JPanel sidepane;
     private javax.swing.JPanel tab1;
     private javax.swing.JLabel tab1_Header;
-    private javax.swing.JButton tab1_searchAll_button;
     private javax.swing.JButton tab1_search_button;
     private javax.swing.JComboBox<String> tab1_search_comboBox;
     private javax.swing.JTextField tab1_search_textField;
     private javax.swing.JTable tab1_student_table;
+    private javax.swing.JComboBox<String> tab1_year_comboBox;
     private javax.swing.JPanel tab2;
     private javax.swing.JButton tab2_add_button;
     private javax.swing.JLabel tab2_address_label;
     private javax.swing.JTextField tab2_address_textField;
     private javax.swing.JLabel tab2_birthday_label;
     private javax.swing.JTextField tab2_birthday_textField;
-    private javax.swing.JComboBox<String> tab2_condition_comboBox;
     private javax.swing.JButton tab2_delete_button;
     private javax.swing.JLabel tab2_head_label;
     private javax.swing.JLabel tab2_info_label;
@@ -2240,6 +2480,7 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JTextField tab2_parent_textField;
     private javax.swing.JLabel tab2_phone_label;
     private javax.swing.JTextField tab2_phone_textField;
+    private javax.swing.JButton tab2_reset_button;
     private javax.swing.JButton tab2_search_button;
     private javax.swing.JTextField tab2_search_textField;
     private javax.swing.JComboBox<String> tab2_sex_comboBox;
@@ -2285,6 +2526,7 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JTextField tab4_numAllow_textField;
     private javax.swing.JLabel tab4_numNotAllow_label;
     private javax.swing.JTextField tab4_numNotAllow_textField;
+    private javax.swing.JButton tab4_reset_button;
     private javax.swing.JButton tab4_search_button;
     private javax.swing.JComboBox<String> tab4_semester_comboBox;
     private javax.swing.JLabel tab4_stdID_label;
@@ -2294,6 +2536,8 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JButton tab4_update_button;
     private javax.swing.JComboBox<String> tab4_year_comboBox;
     private javax.swing.JPanel tab5;
+    private javax.swing.JLabel tab5_account_label;
+    private javax.swing.JTextField tab5_account_textField;
     private javax.swing.JButton tab5_add_button;
     private javax.swing.JLabel tab5_address_label;
     private javax.swing.JTextField tab5_address_textField;
@@ -2306,6 +2550,8 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JTextField tab5_mainClass_textfield;
     private javax.swing.JLabel tab5_name_label;
     private javax.swing.JTextField tab5_name_textField;
+    private javax.swing.JLabel tab5_password_label;
+    private javax.swing.JPasswordField tab5_password_passwordField;
     private javax.swing.JLabel tab5_phone_label;
     private javax.swing.JTextField tab5_phone_textField;
     private javax.swing.JLabel tab5_role_label;

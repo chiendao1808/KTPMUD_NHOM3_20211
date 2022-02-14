@@ -24,7 +24,7 @@ import java.util.stream.Stream;
  */
 public class HocSinhServiceImpl implements HocSinhService {
 
-    private final LopService lopService = new LopServiceImpl();
+    private  LopService lopService = new LopServiceImpl();
 
     @Override
     public List<HocSinh> findAll() {

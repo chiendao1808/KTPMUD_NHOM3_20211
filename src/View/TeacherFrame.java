@@ -77,6 +77,7 @@ public class TeacherFrame extends javax.swing.JFrame {
         maintab = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         tab1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         tab2 = new javax.swing.JPanel();
@@ -228,6 +229,14 @@ public class TeacherFrame extends javax.swing.JFrame {
 
         maintab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        maintab.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, -1, -1));
+
         getContentPane().add(maintab, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1010, 670));
 
         tab1.setBackground(new java.awt.Color(255, 255, 255));
@@ -354,6 +363,7 @@ public class TeacherFrame extends javax.swing.JFrame {
         tab2.setVisible(false);
         tab3.setVisible(true);
         tab4.setVisible(false);
+        new JOptionPane().showInputDialog(null,"Bạn có muốn cập nhật ?");
 
 
     }//GEN-LAST:event_choose3MouseClicked
@@ -389,6 +399,10 @@ public class TeacherFrame extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
      
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        new JOptionPane().showConfirmDialog(null,"Bạn có chắc không?");
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -437,6 +451,7 @@ public class TeacherFrame extends javax.swing.JFrame {
     private javax.swing.JLabel choose3;
     private javax.swing.JLabel choose4;
     private javax.swing.JLabel choose5;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

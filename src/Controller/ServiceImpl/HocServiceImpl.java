@@ -83,6 +83,25 @@ public class HocServiceImpl implements HocService {
     }
 
     @Override
+    public Optional<Hoc> findByYearHoc(String maHocSinh, String namHoc) {
+        if(!hocSinhService.findByMaHocSinh(maHocSinh).isPresent())
+            return Optional.empty();
+        String sql_query ="select ten_lop, nam_hoc, ma_hoc_sinh from hoc\n"
+                + "where ma_hoc_sinh =? and nam_hoc =? and xoa =0";
+        try {
+            PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            prst.setString(1,maHocSinh);
+            prst.setString(2, namHoc);
+            ResultSet rs = prst.executeQuery();
+            if(rs.next()) return findHoc(rs.getString("ten_lop"),rs.getString("nam_hoc"),rs.getString("ma_hoc_sinh"));     
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    
+    @Override
     public boolean addHoc(String tenLop, String namHoc, String maHocSinh) {
         boolean addCheck = false;
         if (findHoc(tenLop, namHoc, maHocSinh).isPresent()) {

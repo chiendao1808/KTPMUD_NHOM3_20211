@@ -185,10 +185,11 @@ public class GiaoVienServiceImpl implements GiaoVienService {
             Optional<Lop> lopOptional = Optional.empty();
             if(!giaoVienOptional.isPresent()) return Optional.empty();
             String sql_query ="select ten_lop , nam_hoc from lop \n"
-                    + "where ma_gv_chu_nhiem = ? and xoa =0";
+                    + "where ma_gv_chu_nhiem = ? and nam_hoc =? and xoa =0";
             try {
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
             prst.setString(1, maGiaoVien);
+            prst.setString(2, namHoc);
             ResultSet rs = prst.executeQuery();
             if(rs.next()) lopOptional= Optional.ofNullable(new Lop(rs.getString("ten_lop"),rs.getString("nam_hoc"),0,findByMaGiaoVien(maGiaoVien).get(), false));
             prst.close();
