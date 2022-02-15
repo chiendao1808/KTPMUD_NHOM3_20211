@@ -34,7 +34,7 @@ public class DayServiceImpl  implements DayService{
         try {
             PreparedStatement prst =MainApp.getConnection().prepareCall(sql_query);
             ResultSet rs =prst.executeQuery();
-            while(!rs.next())
+            while(rs.next())
                 {
                     listDay.add(new Day (giaoVienService.findByMaGiaoVien(rs.getString("ma_giao_vien")).get(),
                                                           monHocService.findByMaMonHoc(rs.getString("ma_mon_hoc")).get(),

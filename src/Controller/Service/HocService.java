@@ -16,6 +16,8 @@ import java.util.Optional;
  */
 public interface HocService {
     
+     public List<Hoc> findAllHoc ();
+    
     public List<Hoc> findByLop(String tenLop, String namHoc);
     
     public Optional<Hoc> findHoc(String tenLop, String namHoc, String maHocSinh);

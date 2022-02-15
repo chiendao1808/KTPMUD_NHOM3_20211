@@ -26,7 +26,7 @@ import java.util.stream.Stream;
 public class GiaoVienServiceImpl implements GiaoVienService {
 
     //injection
-   private DayService dayService = new DayServiceImpl();
+   
     
     @Override
     public List<GiaoVien> findAllGiaoVien() {
@@ -202,14 +202,15 @@ public class GiaoVienServiceImpl implements GiaoVienService {
 
     @Override
     public List<Lop> findAllLopDay(String maGiaoVien, String namHoc) {    
-        List<Day> listDay  = dayService.findAll();
-        List<Lop> lopDay = new ArrayList<>();
+       DayService dayService =new DayServiceImpl();
+       List<Day> listDay  = dayService.findAll();
+       List<Lop> lopDay = new ArrayList<>();
         for(Day day: listDay)
             {
                 if(day.getGiaoVien().getMaGiaoVien().equals(maGiaoVien) && day.getLop().getNamHoc().equals(namHoc))
                     lopDay.add(day.getLop());
             }
-        return lopDay;
+     return lopDay;
         }
 
     @Override

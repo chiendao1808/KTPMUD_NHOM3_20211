@@ -27,6 +27,27 @@ public class HocServiceImpl implements HocService {
     private HocSinhService hocSinhService = new HocSinhServiceImpl();
 
     @Override
+    public List<Hoc> findAllHoc() {
+      List<Hoc> listHoc =new ArrayList<>();
+      String sql_query ="select * from hoc ";
+        try {
+            PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            ResultSet rs = prst.executeQuery();
+            while(rs.next())
+                {
+                    listHoc.add(new Hoc(hocSinhService.findByMaHocSinh(rs.getString("ma_hoc_sinh")).get(),lopService.findLop(rs.getString("ten_lop"),rs.getString("nam_hoc")).get(), false));
+                }
+            prst.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listHoc;
+    }
+    
+    
+
+    @Override
     public List<Hoc> findByLop(String tenLop, String namHoc) {
         List<Hoc> listHocSinhLop = new ArrayList<>();
         Optional<Lop> lopOptional = lopService.findLop(tenLop, namHoc);

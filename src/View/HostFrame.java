@@ -57,7 +57,7 @@ import javax.swing.table.DefaultTableModel;
 public class HostFrame extends javax.swing.JFrame  {
 
     private String tenDangNhap;
-    private GiaoVien giaoVien;
+    //private GiaoVien giaoVien;
     private String chucVu;
     private DefaultTableModel tab1_student_tableModel;
     private DefaultTableModel tab2_tableModel;
@@ -1975,11 +1975,20 @@ public class HostFrame extends javax.swing.JFrame  {
 
     private void tab1_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1_search_buttonMouseClicked
         if (tab1_year_comboBox.getSelectedIndex() != 0) {
-            if (tab1_search_comboBox.getSelectedIndex() == 0) {
-                showStudentInfo(hocSinhService.findAll(), tab1_student_tableModel);
+            if (tab1_search_comboBox.getSelectedIndex() == 0) {       
+               List<HocSinh> listHocSinh = hocService.findAllHoc().stream()
+                                                                                     .filter(hoc -> hoc.getLop().getNamHoc().equals(tab1_year_comboBox.getSelectedItem().toString()))
+                                                                                     .map(hoc -> hoc.getHocSinh()).toList();
+               if(listHocSinh.size()<=0)
+                   {
+                  new JOptionPane().showMessageDialog(null, "Không tìm thấy kết quả phù hợp", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                  tab1_student_tableModel.setRowCount(0);
+                  }
+                showStudentInfo(listHocSinh, tab1_student_tableModel);
             } else if (tab1_search_comboBox.getSelectedIndex() == 1) {
                 if (hocSinhService.findByTenHocSinh(tab1_search_textField.getText()).size() <= 0) {
                     new JOptionPane().showMessageDialog(null, "Không tìm thấy kết quả phù hợp", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                    tab1_student_tableModel.setRowCount(0);
                 } else {
                     showStudentInfo(hocSinhService.findByTenHocSinh(tab1_search_textField.getText()), tab1_student_tableModel);
                 }
@@ -1989,7 +1998,7 @@ public class HostFrame extends javax.swing.JFrame  {
                     showStudentInfo(List.of(hocSinhOptional.get()), tab1_student_tableModel);
                 } else {
                     new JOptionPane().showMessageDialog(null, "Không tìm thấy học sinh phù hợp", "Cảnh báo", JOptionPane.INFORMATION_MESSAGE);
-                    showStudentInfo(List.of(), tab1_student_tableModel);
+                    tab1_student_tableModel.setRowCount(0);
                 }
             }
         } else {
