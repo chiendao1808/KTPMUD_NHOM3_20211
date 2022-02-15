@@ -1060,8 +1060,7 @@ public class HostFrame extends javax.swing.JFrame  {
                         .addGap(18, 18, 18)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_stdID_label))
-                        .addGap(313, 313, 313))
+                            .addComponent(tab2_stdID_label)))
                     .addGroup(tab2Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1069,8 +1068,8 @@ public class HostFrame extends javax.swing.JFrame  {
                             .addComponent(tab2_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab2);
@@ -2532,12 +2531,12 @@ public class HostFrame extends javax.swing.JFrame  {
                 Optional<Lop> lopOptional = lopService.findLop(tab5_mainClass_textfield.getText(), tab5_year_comboBox.getSelectedItem().toString());
                 if (lopOptional.isPresent()) {
                     Lop lopToUpdate = lopOptional.get();
-                    if (giaoVienService.findByMaGiaoVien(lopOptional.get().getGiaoVienChuNhiem().getMaGiaoVien()).isEmpty()) {
+                    if (!giaoVienService.findByMaGiaoVien(lopOptional.get().getGiaoVienChuNhiem().getMaGiaoVien()).isPresent()) {
                         lopToUpdate.setGiaoVienChuNhiem(giaoVien);
+                        lopService.updateLop(lopToUpdate);
                     } else {
                         new JOptionPane().showMessageDialog(null, "Lớp đã có giáo viên chủ nhiệm", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                     }
-
                 } else {
                     lopService.addLop(new Lop(tab5_mainClass_textfield.getText(),
                             tab5_year_comboBox.getSelectedItem().toString(),
