@@ -115,6 +115,28 @@ public class GiaoVienServiceImpl implements GiaoVienService {
         return Optional.empty();
 
     }
+    
+    
+     @Override
+    public Optional<Lop> findAllLopChuNhiem(String maGiaoVien, String namHoc) {
+            Optional<GiaoVien> giaoVienOptional = findByMaGiaoVien(maGiaoVien);
+            Optional<Lop> lopOptional = Optional.empty();
+            if(!giaoVienOptional.isPresent()) return Optional.empty();
+            String sql_query ="select ten_lop , nam_hoc, si_so from lop \n"
+                    + "where ma_gv_chu_nhiem = ? and nam_hoc =? and xoa =0";
+            try {
+            PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            prst.setString(1, maGiaoVien);
+            prst.setString(2, namHoc);
+            ResultSet rs = prst.executeQuery();
+            if(rs.next()) lopOptional= Optional.ofNullable(new Lop(rs.getString("ten_lop"),rs.getString("nam_hoc"),rs.getInt("si_so"),findByMaGiaoVien(maGiaoVien).get(), false));
+            prst.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            return lopOptional;
+    }
 
     @Override
     public boolean addGiaoVien(GiaoVien giaoVien, String tenDangNhap, String matKhau) {
@@ -180,26 +202,43 @@ public class GiaoVienServiceImpl implements GiaoVienService {
         }
 
     @Override
-    public Optional<Lop> findAllLopChuNhiem(String maGiaoVien, String namHoc) {
-            Optional<GiaoVien> giaoVienOptional = findByMaGiaoVien(maGiaoVien);
-            Optional<Lop> lopOptional = Optional.empty();
-            if(!giaoVienOptional.isPresent()) return Optional.empty();
-            String sql_query ="select ten_lop , nam_hoc from lop \n"
-                    + "where ma_gv_chu_nhiem = ? and nam_hoc =? and xoa =0";
-            try {
+    public List<String> getTaiKhoanGiaoVien(String maGiaoVien) {
+       List<String> taiKhoan = new ArrayList<>();
+       if(!findByMaGiaoVien(maGiaoVien).isPresent()) return taiKhoan;
+       String sql_query ="select ma_giao_vien,ten_dang_nhap, mat_khau from giao_vien \n"
+               + "where ma_giao_vien =? and xoa =0";
+        try {
             PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
             prst.setString(1, maGiaoVien);
-            prst.setString(2, namHoc);
             ResultSet rs = prst.executeQuery();
-            if(rs.next()) lopOptional= Optional.ofNullable(new Lop(rs.getString("ten_lop"),rs.getString("nam_hoc"),0,findByMaGiaoVien(maGiaoVien).get(), false));
+            if(rs.next()) {
+                taiKhoan.add(rs.getString("ten_dang_nhap"));
+                taiKhoan.add(rs.getString("mat_khau")); 
+            }     
+        } catch (Exception e) {
+        }
+        return taiKhoan;
+    }
+  
+    @Override
+    public boolean updateMatKhauGiaoVien(String maGiaoVien, String matKhau) {
+        boolean setCheck =true;
+        if(findByMaGiaoVien(maGiaoVien).isEmpty()) return setCheck;
+        String sql_query ="update giao_vien \n"
+                + "set mat_khau=? \n"
+                + "where ma_giao_vien =? and xoa=0";
+        try {
+            PreparedStatement prst = MainApp.getConnection().prepareCall(sql_query);
+            prst.setString(1, matKhau);
+            prst.setString(2, maGiaoVien);
+            setCheck = prst.execute();
             prst.close();
-            rs.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-            return lopOptional;
+            setCheck=false;
+        }       
+        return setCheck;
     }
-
     
     @Override
     public boolean deleteGiaoVien(GiaoVien giaoVien) {

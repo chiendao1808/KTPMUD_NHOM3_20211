@@ -29,7 +29,12 @@ public interface GiaoVienService {
     
     public Optional<Lop> findAllLopChuNhiem(String maGiaoVien, String namHoc);
     
+     public List<String> getTaiKhoanGiaoVien(String maGiaoVien);
+    
     public boolean updateGiaoVien(GiaoVien giaoVien);
+    
+    public boolean updateMatKhauGiaoVien(String maGiaoVien, String matKhau);
+    
     
     public boolean deleteGiaoVien(GiaoVien giaoVien);
     

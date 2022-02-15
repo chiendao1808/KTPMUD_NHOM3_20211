@@ -97,4 +97,26 @@ public class LopServiceImpl implements LopService {
         return addCheck;
     }
 
+    @Override
+    public boolean updateLop(Lop lop) {
+        boolean updateCheck = true;
+        if(!findLop(lop.getTenLop(),lop.getNamHoc()).isPresent()) return false;
+        String sql_query ="update lop \n"
+                + "set si_so =? ,ma_gv_chu_nhiem=? \n"
+                + "where ten_lop =? and nam_hoc =?  and xoa =0";
+        try {
+            PreparedStatement prst =MainApp.getConnection().prepareCall(sql_query);
+            prst.setInt(1,lop.getSiSo());
+            prst.setString(2, lop.getGiaoVienChuNhiem().getMaGiaoVien());
+            prst.setString(3, lop.getTenLop());
+            prst.setString(4, lop.getNamHoc());
+            updateCheck=prst.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return updateCheck;
+    }
+    
+    
+
 }

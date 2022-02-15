@@ -22,6 +22,8 @@ public interface LopService {
    public Optional<Lop> findLop(String tenLop, String namHoc);
    
    public boolean addLop(Lop lop);
+
+public boolean updateLop(Lop lop);   
    
     
 }
