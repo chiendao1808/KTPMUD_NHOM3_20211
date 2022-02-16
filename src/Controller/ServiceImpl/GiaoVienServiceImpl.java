@@ -112,12 +112,10 @@ public class GiaoVienServiceImpl implements GiaoVienService {
             prst.close();
             rs.close();
             return giaoOptional;
-
         } catch (Exception e) {
             e.printStackTrace();
         }
         return Optional.empty();
-
     }
     
     
@@ -208,7 +206,7 @@ public class GiaoVienServiceImpl implements GiaoVienService {
         for(Day day: listDay)
             {
                 if(day.getGiaoVien().getMaGiaoVien().equals(maGiaoVien) && day.getLop().getNamHoc().equals(namHoc))
-                    lopDay.add(day.getLop());
+                lopDay.add(day.getLop());
             }
      return lopDay;
         }

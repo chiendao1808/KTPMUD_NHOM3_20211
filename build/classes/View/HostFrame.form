@@ -315,11 +315,13 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="logOut_btnMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="logOut_btnMouseExited"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logOut_btnActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="670" width="130" height="60"/>
+              <AbsoluteConstraints x="40" y="670" width="180" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1467,8 +1469,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                           <Component id="tab3_info_label" min="-2" pref="178" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="312" max="-2" attributes="0"/>
-                          <Component id="tab3_table_header" min="-2" pref="162" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="tab3_table_header" min="-2" pref="586" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -1476,7 +1478,7 @@
                               <Component id="tab3_head_label" min="-2" pref="444" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="tab3_search_textField12" pref="196" max="32767" attributes="0"/>
+                                      <Component id="tab3_search_textField" pref="196" max="32767" attributes="0"/>
                                       <Component id="tab3_search_button" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1494,9 +1496,16 @@
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="tab3_score1_label" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="tab3_score1_textField" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tab3_chooseScore_comboBox" min="-2" pref="79" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="tab3_score3_label" min="-2" pref="80" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -1514,11 +1523,6 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="tab3_score1_label" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tab3_score1_textField" min="-2" pref="195" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="tab3_score2_label" min="-2" pref="104" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -1528,10 +1532,8 @@
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tab3_add_button" min="-2" pref="125" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="tab3_update_button" min="-2" pref="182" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                          <Component id="tab3_update_button" min="-2" pref="191" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -1546,14 +1548,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="tab3_head_label" min="-2" pref="77" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="tab3_search_textField12" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="tab3_year_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tab3_semester_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="tab3_search_textField" pref="28" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tab3_search_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tab3_subject_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1580,6 +1582,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="tab3_score1_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="tab3_score1_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="tab3_chooseScore_comboBox" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1592,10 +1595,7 @@
                               <Component id="tab3_score3_label" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab3_add_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="tab3_update_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="tab3_update_button" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -1617,7 +1617,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tab3_name_textField">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p t&#xea;n"/>
+            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_name_label">
@@ -1625,7 +1625,7 @@
             <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tab3_search_textField12">
+        <Component class="javax.swing.JTextField" name="tab3_search_textField">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nh&#x1ead;p t&#xea;n l&#x1edb;p"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -1633,7 +1633,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tab3_stdID_textField">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p m&#xe3; HS"/>
+            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_info_label">
@@ -1653,9 +1653,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tab3_score1_textField">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p &#x111;i&#x1ec3;m HS 1"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_score1_label">
           <Properties>
@@ -1663,23 +1660,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tab3_score2_textField">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p &#x111;i&#x1ec3;m HS 2"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_score2_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m h&#x1ec7; s&#x1ed1; 2:"/>
+            <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m thi GK:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tab3_score3_textField">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p &#x111;i&#x1ec3;m HS 3"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_score3_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m h&#x1ec7; s&#x1ed1; 3:"/>
+            <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m thi CK:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
@@ -1696,9 +1687,9 @@
                     <Column editable="false" title="M&#xe3; HS" type="java.lang.String"/>
                     <Column editable="false" title="H&#x1ecd; v&#xe0; t&#xea;n" type="java.lang.String"/>
                     <Column editable="false" title="&#x110;i&#x1ec3;m HS 1" type="java.lang.String"/>
-                    <Column editable="false" title="&#x110;i&#x1ec3;m GK" type="java.lang.Float"/>
-                    <Column editable="false" title="&#x110;i&#x1ec3;m CK" type="java.lang.Float"/>
-                    <Column editable="false" title="TB m&#xf4;n h&#x1ecd;c" type="java.lang.Float"/>
+                    <Column editable="false" title="&#x110;i&#x1ec3;m GK" type="java.lang.String"/>
+                    <Column editable="false" title="&#x110;i&#x1ec3;m CK" type="java.lang.String"/>
+                    <Column editable="false" title="TB m&#xf4;n h&#x1ecd;c" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1715,14 +1706,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="tab3_add_button">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Th&#xea;m &#x111;i&#x1ec3;m"/>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="tab3_search_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
@@ -1737,11 +1720,17 @@
         </Component>
         <Component class="javax.swing.JButton" name="tab3_update_button">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t &#x111;i&#x1ec3;m"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tab3_update_buttonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_table_header">
           <Properties>
@@ -1751,6 +1740,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin t&#xec;m ki&#x1ebf;m"/>
           </Properties>
         </Component>
@@ -1790,7 +1780,22 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Theo m&#xf4;n"/>
-                <StringItem index="1" value=" "/>
+                <StringItem index="1" value="To&#xe1;n H&#x1ecd;c 7"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="tab3_chooseScore_comboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="L&#x1ea7;n 1"/>
+                <StringItem index="1" value="L&#x1ea7;n 2"/>
+                <StringItem index="2" value="L&#x1ea7;n 3"/>
+                <StringItem index="3" value="L&#x1ea7;n 4"/>
               </StringArray>
             </Property>
           </Properties>
@@ -2298,7 +2303,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="tab5_add_button" min="-2" pref="138" max="-2" attributes="0"/>
@@ -2406,7 +2411,7 @@
                       <Component id="tab5_password_passwordField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="tab5_showPassword_button" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="102" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

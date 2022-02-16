@@ -1,21 +1,27 @@
 package View;
 
+import Controller.Service.DiemService;
 import Controller.Service.GiaoVienService;
 import Controller.Service.HanhKiemService;
 import Controller.Service.HocService;
 import Controller.Service.HocSinhService;
 import Controller.Service.LopService;
+import Controller.Service.MonHocService;
+import Controller.ServiceImpl.DiemServiceImpl;
 import Controller.ServiceImpl.GiaoVienServiceImpl;
 import Controller.ServiceImpl.HanhKiemServiceImpl;
 import Controller.ServiceImpl.HocServiceImpl;
 import Controller.ServiceImpl.HocSinhServiceImpl;
 import Controller.ServiceImpl.LopServiceImpl;
+import Controller.ServiceImpl.MonHocServiceImpl;
 import Controller.Validation.DateAndTimeUtils;
+import Model.Diem;
 import Model.GiaoVien;
 import Model.HanhKiem;
 import Model.Hoc;
 import Model.HocSinh;
 import Model.Lop;
+import Utility.StringModifyUtils;
 import View.*;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -48,6 +54,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -57,7 +64,7 @@ import javax.swing.table.DefaultTableModel;
 public class HostFrame extends javax.swing.JFrame  {
 
     private String tenDangNhap;
-    //private GiaoVien giaoVien;
+    private GiaoVien giaoVien;
     private String chucVu;
     private DefaultTableModel tab1_student_tableModel;
     private DefaultTableModel tab2_tableModel;
@@ -69,6 +76,8 @@ public class HostFrame extends javax.swing.JFrame  {
     private GiaoVienService giaoVienService;
     private HocService hocService ;
     private HanhKiemService hanhKiemService;
+    private DiemService diemService;
+    private MonHocService monHocService;
     
     
     //
@@ -109,7 +118,9 @@ public class HostFrame extends javax.swing.JFrame  {
         hocService= new HocServiceImpl(); // injection
         lopService  = new LopServiceImpl(); // injection
         hanhKiemService= new HanhKiemServiceImpl(); // injection
-       // giaoVien= giaoVienService.findByTenDangNhap(tenDangNhap).get();
+        diemService = new DiemServiceImpl();
+        monHocService = new MonHocServiceImpl();
+     //   giaoVien= giaoVienService.findByTenDangNhap(tenDangNhap).get();
     }
 
     public void getLoginInfo(String userName, String position) {
@@ -141,7 +152,7 @@ public class HostFrame extends javax.swing.JFrame  {
                 String lopHoc = "";
                 if (hocService.findByYearHoc(hs.getMaHocSinh(), tab1_year_comboBox.getSelectedItem().toString()).isPresent())
                     lopHoc = hocService.findByYearHoc(hs.getMaHocSinh(), tab1_year_comboBox.getSelectedItem().toString()).get().getLop().getTenLop();
-               tableModel.addRow(new Object[]{hs.getMaHocSinh(),
+               tableModel.addRow(new Object[]{ hs.getMaHocSinh(),
                                                                             hs.getTenHocSinh(),
                                                                             hs.getGioiTinh(),
                                                                             DateAndTimeUtils.convertDateToStr(hs.getNgaySinh()),
@@ -152,6 +163,27 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         }
     }
+    
+    public void showScoreTab(List<HocSinh> listHocSinhLop,String maMonHoc, String namHoc, String hocKy, DefaultTableModel tableModel)
+            {
+                Optional listHocSInhOptional = Optional.ofNullable(listHocSinhLop);
+                if(!listHocSInhOptional.isPresent()|| listHocSinhLop.isEmpty() || !monHocService.findByMaMonHoc(maMonHoc).isPresent())
+                    return;
+                else {
+                       tableModel.setRowCount(0);
+                    for(HocSinh hocSinh : listHocSinhLop)
+                        {
+                            List<Diem> listDiemHocSinhMonHoc = diemService.findAllDiemByMonHoc(hocSinh.getMaHocSinh(), maMonHoc, namHoc, hocKy);
+                            tableModel.addRow(new Object[]{ hocSinh.getMaHocSinh(),
+                                                                                         hocSinh.getTenHocSinh(),
+                                                                                         StringModifyUtils.diemProcessToDisplay(listDiemHocSinhMonHoc.stream().filter(t->t.getLoaiDiem().getTrongSo()==1).toList()),
+                                                                                         StringModifyUtils.diemProcessToDisplay(listDiemHocSinhMonHoc.stream().filter(t->t.getLoaiDiem().getTrongSo()==2).toList()),      
+                                                                                         StringModifyUtils.diemProcessToDisplay(listDiemHocSinhMonHoc.stream().filter(t->t.getLoaiDiem().getTrongSo()==3).toList()),
+                                                                                         String.valueOf(diemService.processDiemTBMon(listDiemHocSinhMonHoc))
+                                                                                         });                  
+                        }
+                }
+            }
     
     public void showTeacherInfo(List<GiaoVien> listGiaoVien, DefaultTableModel tableModel)
             {
@@ -293,7 +325,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab3_head_label = new javax.swing.JLabel();
         tab3_name_textField = new javax.swing.JTextField();
         tab3_name_label = new javax.swing.JLabel();
-        tab3_search_textField12 = new javax.swing.JTextField();
+        tab3_search_textField = new javax.swing.JTextField();
         tab3_stdID_textField = new javax.swing.JTextField();
         tab3_info_label = new javax.swing.JLabel();
         tab3_stdID_label = new javax.swing.JLabel();
@@ -305,13 +337,13 @@ public class HostFrame extends javax.swing.JFrame  {
         tab3_score3_label = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tab3_table = new javax.swing.JTable();
-        tab3_add_button = new javax.swing.JButton();
         tab3_search_button = new javax.swing.JButton();
         tab3_update_button = new javax.swing.JButton();
         tab3_table_header = new javax.swing.JLabel();
         tab3_year_comboBox = new javax.swing.JComboBox<>();
         tab3_semester_comboBox = new javax.swing.JComboBox<>();
         tab3_subject_comboBox = new javax.swing.JComboBox<>();
+        tab3_chooseScore_comboBox = new javax.swing.JComboBox<>();
         tab4 = new javax.swing.JPanel();
         tab4_head_label = new javax.swing.JLabel();
         tab4_numAllow_textField = new javax.swing.JTextField();
@@ -522,12 +554,20 @@ public class HostFrame extends javax.swing.JFrame  {
         logOut_btn.setContentAreaFilled(false);
         logOut_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logOut_btn.setOpaque(true);
+        logOut_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logOut_btnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logOut_btnMouseExited(evt);
+            }
+        });
         logOut_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOut_btnActionPerformed(evt);
             }
         });
-        sidepane.add(logOut_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 130, 60));
+        sidepane.add(logOut_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 180, 60));
 
         choose5.setBackground(new java.awt.Color(0, 204, 204));
         choose5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -1082,14 +1122,14 @@ public class HostFrame extends javax.swing.JFrame  {
         tab3_head_label.setForeground(new java.awt.Color(0, 204, 204));
         tab3_head_label.setText("QUẢN LÝ ĐIỂM");
 
-        tab3_name_textField.setText("Nhập tên");
+        tab3_name_textField.setEditable(false);
 
         tab3_name_label.setText("Họ và tên:");
 
-        tab3_search_textField12.setText("Nhập tên lớp");
-        tab3_search_textField12.setToolTipText("");
+        tab3_search_textField.setText("Nhập tên lớp");
+        tab3_search_textField.setToolTipText("");
 
-        tab3_stdID_textField.setText("Nhập mã HS");
+        tab3_stdID_textField.setEditable(false);
 
         tab3_info_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tab3_info_label.setForeground(new java.awt.Color(0, 204, 204));
@@ -1097,17 +1137,11 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab3_stdID_label.setText("Mã HS:");
 
-        tab3_score1_textField.setText("Nhập điểm HS 1");
-
         tab3_score1_label.setText("Điểm hệ số 1:");
 
-        tab3_score2_textField.setText("Nhập điểm HS 2");
+        tab3_score2_label.setText("Điểm thi GK:");
 
-        tab3_score2_label.setText("Điểm hệ số 2:");
-
-        tab3_score3_textField.setText("Nhập điểm HS 3");
-
-        tab3_score3_label.setText("Điểm hệ số 3:");
+        tab3_score3_label.setText("Điểm thi CK:");
 
         tab3_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1118,7 +1152,7 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -1141,9 +1175,6 @@ public class HostFrame extends javax.swing.JFrame  {
         });
         jScrollPane4.setViewportView(tab3_table);
 
-        tab3_add_button.setText("Thêm điểm");
-        tab3_add_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         tab3_search_button.setText("Tìm kiếm");
         tab3_search_button.setToolTipText("");
         tab3_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1153,18 +1184,27 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
 
+        tab3_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tab3_update_button.setText("Cập nhật điểm");
         tab3_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tab3_update_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab3_update_buttonMouseClicked(evt);
+            }
+        });
 
         tab3_table_header.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tab3_table_header.setForeground(new java.awt.Color(0, 204, 204));
+        tab3_table_header.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tab3_table_header.setText("Thông tin tìm kiếm");
 
         tab3_year_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024" }));
 
         tab3_semester_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo học kỳ", "Học kỳ I", "Học kỳ II" }));
 
-        tab3_subject_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo môn", " " }));
+        tab3_subject_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo môn", "Toán Học 7" }));
+
+        tab3_chooseScore_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lần 1", "Lần 2", "Lần 3", "Lần 4" }));
 
         javax.swing.GroupLayout tab3Layout = new javax.swing.GroupLayout(tab3);
         tab3.setLayout(tab3Layout);
@@ -1175,15 +1215,15 @@ public class HostFrame extends javax.swing.JFrame  {
                     .addGroup(tab3Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(tab3_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(312, 312, 312)
-                        .addComponent(tab3_table_header, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(150, 150, 150)
+                        .addComponent(tab3_table_header, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tab3Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tab3_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(tab3Layout.createSequentialGroup()
                                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tab3_search_textField12, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                                    .addComponent(tab3_search_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                                     .addComponent(tab3_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1198,6 +1238,12 @@ public class HostFrame extends javax.swing.JFrame  {
                         .addGap(19, 19, 19)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab3Layout.createSequentialGroup()
+                                .addComponent(tab3_score1_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tab3_score1_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tab3_chooseScore_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tab3Layout.createSequentialGroup()
                                 .addComponent(tab3_score3_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(tab3_score3_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1210,20 +1256,14 @@ public class HostFrame extends javax.swing.JFrame  {
                                     .addComponent(tab3_name_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tab3_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(tab3Layout.createSequentialGroup()
-                                .addComponent(tab3_score1_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tab3_score1_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tab3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(tab3_score2_label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tab3_score2_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(37, 37, 37))
                     .addGroup(tab3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tab3_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88)
+                        .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(247, 247, 247))
@@ -1234,12 +1274,12 @@ public class HostFrame extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(tab3_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tab3_search_textField12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tab3_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tab3_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tab3_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tab3_search_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tab3_search_button)
                     .addComponent(tab3_subject_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1261,7 +1301,8 @@ public class HostFrame extends javax.swing.JFrame  {
                         .addGap(32, 32, 32)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab3_score1_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab3_score1_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tab3_score1_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab3_chooseScore_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab3_score2_label)
@@ -1271,9 +1312,7 @@ public class HostFrame extends javax.swing.JFrame  {
                             .addComponent(tab3_score3_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab3_score3_label))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab3_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -1713,7 +1752,7 @@ public class HostFrame extends javax.swing.JFrame  {
                                         .addComponent(tab5_password_passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tab5_showPassword_button, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(tab5Layout.createSequentialGroup()
                                 .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1797,7 +1836,7 @@ public class HostFrame extends javax.swing.JFrame  {
                     .addComponent(tab5_password_label)
                     .addComponent(tab5_password_passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tab5_showPassword_button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab5);
@@ -2130,7 +2169,43 @@ public class HostFrame extends javax.swing.JFrame  {
     }//GEN-LAST:event_tab2_tableMouseClicked
 
     private void tab3_search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3_search_buttonMouseClicked
-        
+        tab3_table_header.setText("Bảng điểm môn "+ tab3_subject_comboBox.getSelectedItem().toString()+" năm học "+tab3_year_comboBox.getSelectedItem().toString()+" học kỳ " +tab3_semester_comboBox.getSelectedItem().toString());
+        if(tab3_search_textField.getText().equals(""))
+              {
+                  new JOptionPane().showMessageDialog(null,"Vui lòng nhập tên lớp","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+                  return;
+              }
+          else {
+          if(tab3_year_comboBox.getSelectedIndex()==0)
+              {
+                    new JOptionPane().showMessageDialog(null,"Vui lòng chọn năm học","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+                  return;
+              }
+          else if(!lopService.findLop(tab3_search_textField.getText(),tab3_year_comboBox.getSelectedItem().toString()).isPresent())
+              {
+                  new JOptionPane().showMessageDialog(null,"Không tìm thấy lớp ","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+                  return;
+              }
+          }
+          if(tab3_subject_comboBox.getSelectedIndex()==0)
+              {
+                  new JOptionPane().showMessageDialog(null,"Vui lòng chọn môn học","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+                  return;
+              }
+          if(tab3_semester_comboBox.getSelectedIndex()==0)
+              {
+                    new JOptionPane().showMessageDialog(null,"Vui lòng chọn học kỳ","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+                  return;
+              }
+          List<HocSinh> listHocSinh = hocSinhService.findByLop(lopService.findLop(tab3_search_textField.getText(), tab3_year_comboBox.getSelectedItem().toString()).get());
+          System.out.println( monHocService.findByTenMonHoc(tab3_subject_comboBox.getSelectedItem().toString()).get(0).getMaMonHoc());
+          System.out.println(tab3_semester_comboBox.getSelectedIndex()==1?"I":"II");
+          showScoreTab(listHocSinh,
+                                      monHocService.findByTenMonHoc(tab3_subject_comboBox.getSelectedItem().toString()).get(0).getMaMonHoc(),
+                                                                                                                      tab3_year_comboBox.getSelectedItem().toString(),
+                                                                                                                      tab3_semester_comboBox.getSelectedIndex()==1?"I":"II",
+                                                                                                                      tab3_tableModel);
+          
     }//GEN-LAST:event_tab3_search_buttonMouseClicked
 
     // không lỗi 
@@ -2228,7 +2303,24 @@ public class HostFrame extends javax.swing.JFrame  {
                HocSinh hocSinhSelected = hocSinhService.findByMaHocSinh(maHocSinh).get();
                tab3_name_textField.setText(hocSinhSelected.getTenHocSinh());
                tab3_stdID_textField.setText(hocSinhSelected.getMaHocSinh());
-               tab3_score1_textField.setText(tab3_table.getValueAt(selectedRow,2).toString());
+               String [] score1 = tab3_table.getValueAt(selectedRow,2).toString().split("-");
+               switch (tab3_chooseScore_comboBox.getSelectedIndex()){
+                   case 0: { 
+                       if(score1.length>=1) tab3_score1_textField.setText(score1[0]);
+                       else tab3_score1_textField.setText("");
+                       break;
+                   }
+                   case 1 :{
+                       if(score1.length>=2) tab3_score1_textField.setText(score1[1]);
+                       else tab3_score1_textField.setText("");
+                       break;
+                   }
+                   case 2 : {
+                       if(score1.length>=3) tab3_score1_textField.setText(score1[2]);
+                       else tab3_score1_textField.setText("");
+                       break;
+                   } 
+               }
                tab3_score2_textField.setText(tab3_table.getValueAt(selectedRow, 3).toString());
                tab3_score3_textField.setText(tab3_table.getValueAt(selectedRow, 4).toString());
            }
@@ -2508,7 +2600,7 @@ public class HostFrame extends javax.swing.JFrame  {
                         infoCheck = false;
                     }
                 } else {
-                    new JOptionPane().showMessageDialog(null, "Vui lòng kiểm tra lại số điện thoại ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                    new JOptionPane().showMessageDialog(null, "Vui lòng nhập đúng định dạng ngày tháng (dd/MM/YYYY) ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                     infoCheck = false;
                 }
             } else {
@@ -2524,7 +2616,7 @@ public class HostFrame extends javax.swing.JFrame  {
                 if (Controller.Validation.Validator.phoneValidator(tab5_phone_textField.getText())) {
                     giaoVien.setSoDienThoai(tab5_phone_textField.getText());
                 } else {
-                    new JOptionPane().showMessageDialog(null, "Vui lòng nhập đúng định dạng ngày tháng (dd/MM/YYYY) ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                    new JOptionPane().showMessageDialog(null, "Vui lòng kiểm tra lại số điện thoại ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                     infoCheck = false;
                 }
             }
@@ -2593,7 +2685,11 @@ public class HostFrame extends javax.swing.JFrame  {
                 new JOptionPane().showMessageDialog(null,"Vui lòng chọn một giáo viên để chỉnh sửa","Thông báo",JOptionPane.INFORMATION_MESSAGE);
             }
         int selectedRow = tab5_table.getSelectedRow();
-        String maGiaoVien = tab5_table.getValueAt(selectedRow, 0).toString();
+        String maGiaoVien ="";
+        try {
+             maGiaoVien = tab5_table.getValueAt(selectedRow, 0).toString();
+        } catch (Exception e) {
+        }
         GiaoVien giaoVien = giaoVienService.findByMaGiaoVien(maGiaoVien).get();               
             if (!tab5_password_passwordField.getPassword().equals("")) {
                 matKhau = String.valueOf(tab5_password_passwordField.getPassword());
@@ -2670,6 +2766,93 @@ public class HostFrame extends javax.swing.JFrame  {
             } else new JOptionPane().showMessageDialog(null,"Vui lòng chọn một giáo viên để xóa","Thông báo",JOptionPane.INFORMATION_MESSAGE);
         tab5_search_buttonMouseClicked(evt);
     }//GEN-LAST:event_tab5_delete_buttonMouseClicked
+
+    private void logOut_btnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_btnMouseEntered
+        logOut_btn.setFont(new Font("Segoe UI",Font.BOLD,18));
+    }//GEN-LAST:event_logOut_btnMouseEntered
+
+    private void logOut_btnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_btnMouseExited
+        logOut_btn.setFont(new Font("Segoe UI",Font.BOLD,14));
+    }//GEN-LAST:event_logOut_btnMouseExited
+
+    private void tab3_update_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3_update_buttonMouseClicked
+            if(tab3_table.getSelectedRowCount()==1)
+                    {
+                        String maHocSinh = tab3_stdID_textField.getText();     
+                        String maMonHoc = monHocService.findByTenMonHoc(tab3_subject_comboBox.getSelectedItem().toString()).get(0).getMaMonHoc();
+                        String namHoc  = tab3_year_comboBox.getSelectedItem().toString();
+                        String hocKy = tab3_semester_comboBox.getSelectedIndex()==1?"I":"II";
+                        try {
+                            if(!tab3_score1_textField.getText().equals(""))
+                                {
+                                    switch (tab3_chooseScore_comboBox.getSelectedIndex()){
+                                        // Điểm hệ số một lần 1
+                                        case 0: {
+                                            if(diemService.findDiemChiTiet(maHocSinh, maMonHoc,"HS11", namHoc, hocKy).isPresent())
+                                                {
+                                                    diemService.updateDiem(maHocSinh, maMonHoc,"HS11", namHoc, hocKy,Float.parseFloat(tab3_score1_textField.getText()));
+                                                } 
+                                            else {
+                                                diemService.addDiem(maHocSinh, maMonHoc, "HS11", namHoc, hocKy,Float.parseFloat(tab3_score1_textField.getText()));
+                                            }
+                                            break;
+                                        }
+                                        // Điểm hệ số một lần 2
+                                        case 1: {
+                                            if(diemService.findDiemChiTiet(maHocSinh, maMonHoc,"HS12", namHoc, hocKy).isPresent())
+                                                {
+                                                    diemService.updateDiem(maHocSinh, maMonHoc,"HS12", namHoc, hocKy,Float.parseFloat(tab3_score1_textField.getText()));
+                                                } 
+                                            else {
+                                                diemService.addDiem(maHocSinh, maMonHoc, "HS12", namHoc, hocKy,Float.parseFloat(tab3_score1_textField.getText()));
+                                            }
+                                            break;
+                                        }
+                                        // Điểm hệ số một lần 3
+                                        case 2: {
+                                            if(diemService.findDiemChiTiet(maHocSinh, maMonHoc,"HS13", namHoc, hocKy).isPresent())
+                                                {
+                                                    diemService.updateDiem(maHocSinh, maMonHoc,"HS13", namHoc, hocKy,Float.parseFloat(tab3_score1_textField.getText()));
+                                                } 
+                                            else {
+                                                diemService.addDiem(maHocSinh, maMonHoc, "HS13", namHoc, hocKy,Float.parseFloat(tab3_score1_textField.getText()));
+                                            }
+                                            break;
+                                        }                                
+                                }
+                            }
+                            // Điểm giữa kỳ
+                            if(!tab3_score2_textField.getText().equals(""))
+                                {
+                                   if(diemService.findDiemChiTiet(maHocSinh, maMonHoc,"GK", namHoc, hocKy).isPresent())
+                                                {
+                                                    diemService.updateDiem(maHocSinh, maMonHoc,"GK", namHoc, hocKy,Float.parseFloat(tab3_score2_textField.getText()));
+                                                } 
+                                            else {
+                                                diemService.addDiem(maHocSinh, maMonHoc, "GK", namHoc, hocKy,Float.parseFloat(tab3_score2_textField.getText()));
+                                            }
+                                }
+                            // Điểm cuối kỳ
+                            if(!tab3_score3_textField.getText().equals(""))
+                                {
+                                   if(diemService.findDiemChiTiet(maHocSinh, maMonHoc,"CK", namHoc, hocKy).isPresent())
+                                                {
+                                                    diemService.updateDiem(maHocSinh, maMonHoc,"CK", namHoc, hocKy,Float.parseFloat(tab3_score3_textField.getText()));
+                                                } 
+                                            else {
+                                                diemService.addDiem(maHocSinh, maMonHoc, "CK", namHoc, hocKy,Float.parseFloat(tab3_score3_textField.getText()));
+                                            }
+                                }
+                        } catch (Exception e) {
+                            new JOptionPane().showMessageDialog(null, "Vui lòng kiểm tra lại điểm nhập ( số thực )");
+                            e.printStackTrace();
+                        }
+                    } else {
+                new JOptionPane().showMessageDialog(null,"Vui lòng chọn một học sinh để cập nhật điểm");
+                return;
+            }
+            tab3_search_buttonMouseClicked(evt);
+    }//GEN-LAST:event_tab3_update_buttonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2765,7 +2948,7 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JButton tab2_update_button;
     private javax.swing.JComboBox<String> tab2_year_comboBox;
     private javax.swing.JPanel tab3;
-    private javax.swing.JButton tab3_add_button;
+    private javax.swing.JComboBox<String> tab3_chooseScore_comboBox;
     private javax.swing.JLabel tab3_head_label;
     private javax.swing.JLabel tab3_info_label;
     private javax.swing.JLabel tab3_name_label;
@@ -2777,7 +2960,7 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JLabel tab3_score3_label;
     private javax.swing.JTextField tab3_score3_textField;
     private javax.swing.JButton tab3_search_button;
-    private javax.swing.JTextField tab3_search_textField12;
+    private javax.swing.JTextField tab3_search_textField;
     private javax.swing.JComboBox<String> tab3_semester_comboBox;
     private javax.swing.JLabel tab3_stdID_label;
     private javax.swing.JTextField tab3_stdID_textField;
