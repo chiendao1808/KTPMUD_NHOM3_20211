@@ -825,7 +825,7 @@ public class HostFrame extends javax.swing.JFrame  {
                                     .addComponent(tab1_year_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addComponent(tab1_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE))
                 .addContainerGap())
         );
         tab1Layout.setVerticalGroup(
@@ -851,7 +851,6 @@ public class HostFrame extends javax.swing.JFrame  {
         tab1.setBounds(270, 0, 1100, 780);
 
         tab2.setBackground(new java.awt.Color(255, 255, 255));
-        tab2.setOpaque(false);
         tab2.setPreferredSize(new java.awt.Dimension(702, 670));
 
         tab2_table_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -905,6 +904,7 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
 
+        tab2_name_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab2_name_label.setText("Họ và tên:");
 
         tab2_search_textField.setText("Nhập lớp");
@@ -917,19 +917,25 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
 
+        tab2_birthday_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab2_birthday_label.setText("Ngày sinh:");
 
+        tab2_sex_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab2_sex_label.setText("Giới tính:");
 
+        tab2_address_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab2_address_label.setText("Địa chỉ:");
 
+        tab2_parent_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab2_parent_label.setText("Họ tên phụ huynh:");
 
         tab2_phone_textField.setToolTipText("");
 
+        tab2_phone_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab2_phone_label.setText("SĐT liên lạc:");
 
         tab2_add_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab2_add_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_TNT.png"))); // NOI18N
         tab2_add_button.setText("Thêm học sinh");
         tab2_add_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab2_add_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -940,15 +946,18 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab2_head_label.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         tab2_head_label.setForeground(new java.awt.Color(0, 204, 204));
+        tab2_head_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_student_male_48px.png"))); // NOI18N
         tab2_head_label.setText("QUẢN LÝ HỌC SINH");
 
         tab2_info_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tab2_info_label.setForeground(new java.awt.Color(0, 204, 204));
         tab2_info_label.setText("Thông tin học sinh");
 
+        tab2_stdID_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab2_stdID_label.setText("Mã học sinh");
 
         tab2_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab2_update_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_edit_black_24dp.png"))); // NOI18N
         tab2_update_button.setText("Cập nhật thông tin");
         tab2_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab2_update_button.addActionListener(new java.awt.event.ActionListener() {
@@ -958,6 +967,7 @@ public class HostFrame extends javax.swing.JFrame  {
         });
 
         tab2_delete_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab2_delete_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_delete_black_24dp.png"))); // NOI18N
         tab2_delete_button.setText("Xóa học sinh");
         tab2_delete_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab2_delete_button.addActionListener(new java.awt.event.ActionListener() {
@@ -973,6 +983,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab2_sex_comboBox.setToolTipText("");
 
         tab2_reset_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab2_reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/baseline_refresh_black_24dp.png"))); // NOI18N
         tab2_reset_button.setText("Đặt lại");
         tab2_reset_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab2_reset_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -986,57 +997,65 @@ public class HostFrame extends javax.swing.JFrame  {
         tab2Layout.setHorizontalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(93, 93, 93)
+                .addComponent(tab2_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(284, 284, 284)
+                .addComponent(tab2_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(tab2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab2Layout.createSequentialGroup()
-                        .addComponent(tab2_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(tab2_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(tab2Layout.createSequentialGroup()
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab2Layout.createSequentialGroup()
                                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tab2_sex_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(tab2Layout.createSequentialGroup()
-                                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tab2_phone_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tab2_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(28, 28, 28))
-                                    .addGroup(tab2Layout.createSequentialGroup()
-                                        .addComponent(tab2_sex_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addComponent(tab2_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab2_phone_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab2_parent_textField)
                                     .addComponent(tab2_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tab2_sex_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(tab2Layout.createSequentialGroup()
+                                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(tab2Layout.createSequentialGroup()
+                                        .addComponent(tab2_parent_label)
+                                        .addGap(4, 4, 4))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tab2Layout.createSequentialGroup()
+                                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(tab2_stdID_label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tab2_phone_label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tab2_birthday_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab2_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab2_phone_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab2_parent_textField, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addComponent(tab2_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(35, 35, 35)
-                                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tab2_birthday_textField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tab2_name_textField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)))
-                            .addComponent(tab2_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_parent_label))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tab2_name_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(tab2Layout.createSequentialGroup()
+                                .addComponent(tab2_birthday_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tab2_birthday_textField)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(tab2Layout.createSequentialGroup()
-                                .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tab2_add_button)
+                                .addGap(46, 46, 46)
+                                .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40)
                                 .addComponent(tab2_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(553, 553, 553))))
-            .addGroup(tab2Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(tab2_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(333, 333, 333)
-                .addComponent(tab2_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(tab2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1069,46 +1088,47 @@ public class HostFrame extends javax.swing.JFrame  {
                 .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab2Layout.createSequentialGroup()
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_name_label)
-                            .addComponent(tab2_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(tab2_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_birthday_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_birthday_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tab2_birthday_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_birthday_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
                         .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab2_sex_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_sex_label))
-                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tab2_sex_label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tab2_parent_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(tab2Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(tab2_address_label))
+                                .addComponent(tab2_parent_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(16, 16, 16)))
+                        .addGap(18, 18, 18)
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab2_phone_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab2_phone_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(tab2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(tab2_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tab2Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(tab2_parent_label))
-                            .addGroup(tab2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(tab2_parent_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_phone_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_phone_label))
-                        .addGap(18, 18, 18)
-                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_stdID_label)))
+                                .addComponent(tab2_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tab2_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))))
                     .addGroup(tab2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab2_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tab2_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab2_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab2_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab2_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1120,10 +1140,12 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab3_head_label.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         tab3_head_label.setForeground(new java.awt.Color(0, 204, 204));
+        tab3_head_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_scorecard_48px.png"))); // NOI18N
         tab3_head_label.setText("QUẢN LÝ ĐIỂM");
 
         tab3_name_textField.setEditable(false);
 
+        tab3_name_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab3_name_label.setText("Họ và tên:");
 
         tab3_search_textField.setText("Nhập tên lớp");
@@ -1135,12 +1157,16 @@ public class HostFrame extends javax.swing.JFrame  {
         tab3_info_label.setForeground(new java.awt.Color(0, 204, 204));
         tab3_info_label.setText("Nhập thông tin về điểm");
 
+        tab3_stdID_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab3_stdID_label.setText("Mã HS:");
 
+        tab3_score1_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab3_score1_label.setText("Điểm hệ số 1:");
 
+        tab3_score2_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab3_score2_label.setText("Điểm thi GK:");
 
+        tab3_score3_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab3_score3_label.setText("Điểm thi CK:");
 
         tab3_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -1175,6 +1201,7 @@ public class HostFrame extends javax.swing.JFrame  {
         });
         jScrollPane4.setViewportView(tab3_table);
 
+        tab3_search_button.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab3_search_button.setText("Tìm kiếm");
         tab3_search_button.setToolTipText("");
         tab3_search_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1185,6 +1212,7 @@ public class HostFrame extends javax.swing.JFrame  {
         });
 
         tab3_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab3_update_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_edit_black_24dp.png"))); // NOI18N
         tab3_update_button.setText("Cập nhật điểm");
         tab3_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab3_update_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1212,91 +1240,87 @@ public class HostFrame extends javax.swing.JFrame  {
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab3Layout.createSequentialGroup()
                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab3Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(tab3_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150)
-                        .addComponent(tab3_table_header, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(80, 80, 80))
                     .addGroup(tab3Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tab3_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tab3Layout.createSequentialGroup()
-                                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tab3_search_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                                    .addComponent(tab3_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tab3_year_comboBox, 0, 113, Short.MAX_VALUE)
-                                    .addComponent(tab3_subject_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addComponent(tab3_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(tab3Layout.createSequentialGroup()
-                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(77, 77, 77)
+                        .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))
                     .addGroup(tab3Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab3Layout.createSequentialGroup()
-                                .addComponent(tab3_score1_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tab3_score1_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tab3_chooseScore_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tab3Layout.createSequentialGroup()
-                                .addComponent(tab3_score3_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tab3_score3_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tab3Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
                                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tab3_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tab3_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab3_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tab3_name_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab3_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tab3Layout.createSequentialGroup()
+                                    .addComponent(tab3_score1_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(tab3_score2_label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tab3_score2_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(37, 37, 37))
+                                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tab3_score2_label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab3_score3_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tab3_score2_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tab3Layout.createSequentialGroup()
+                                        .addComponent(tab3_score1_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tab3_chooseScore_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tab3_score3_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)))
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab3Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(247, 247, 247))
+                        .addGap(69, 69, 69)
+                        .addComponent(tab3_table_header, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(252, 252, 252))
+            .addGroup(tab3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tab3_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tab3_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tab3Layout.createSequentialGroup()
+                                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(tab3_search_textField)
+                                    .addComponent(tab3_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tab3_year_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tab3_subject_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tab3_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(tab3_semester_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab3Layout.setVerticalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addComponent(tab3_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tab3_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tab3_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tab3_search_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tab3_search_button)
-                    .addComponent(tab3_subject_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tab3_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tab3_table_header, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(tab3_search_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(tab3_year_comboBox, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tab3_semester_comboBox, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab3_subject_comboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab3_search_button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab3Layout.createSequentialGroup()
+                        .addComponent(tab3_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab3_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab3_name_label))
+                            .addComponent(tab3_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab3_stdID_label)
+                            .addComponent(tab3_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab3_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1305,15 +1329,19 @@ public class HostFrame extends javax.swing.JFrame  {
                             .addComponent(tab3_chooseScore_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab3_score2_label)
+                            .addComponent(tab3_score2_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab3_score2_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab3_score3_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab3_score3_label))
+                            .addComponent(tab3_score3_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab3Layout.createSequentialGroup()
+                        .addComponent(tab3_table_header, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tab3_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(87, 87, 87))
         );
 
         getContentPane().add(tab3);
@@ -1324,24 +1352,28 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab4_head_label.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         tab4_head_label.setForeground(new java.awt.Color(0, 204, 204));
+        tab4_head_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_report_card_48px_2.png"))); // NOI18N
         tab4_head_label.setText("QUẢN LÝ HẠNH KIỂM");
 
         tab4_year_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024" }));
 
-        tab4_numAllow_label.setText("Có phép:");
+        tab4_numAllow_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tab4_numAllow_label.setText("Buổi nghỉ có phép:");
 
         tab4_semester_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo học kỳ", "Học kỳ I", "Học kỳ II" }));
 
+        tab4_name_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab4_name_label.setText("Họ và tên:");
 
-        tab4_numNotAllow_label.setText("Không phép:");
+        tab4_numNotAllow_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tab4_numNotAllow_label.setText("Buổi nghỉ không phép:");
 
         tab4_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã HS", "Họ và tên", "Lỗi vi phạm", "Có phép", "Không phép", "Hạnh kiểm"
+                "Mã HS", "Họ và tên", "Lỗi vi phạm", "Nghỉ có phép", "Nghỉ không phép", "Hạnh kiểm"
             }
         ) {
             Class[] types = new Class [] {
@@ -1371,6 +1403,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab4_class_textField.setText("Nhập lớp");
 
         tab4_add_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab4_add_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_TNT.png"))); // NOI18N
         tab4_add_button.setText("Thêm thông tin HK");
         tab4_add_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab4_add_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1383,6 +1416,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab4_info_label.setForeground(new java.awt.Color(0, 204, 204));
         tab4_info_label.setText("Nhập thông tin về hạnh kiểm");
 
+        tab4_stdID_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab4_stdID_label.setText("Mã HS:");
 
         tab4_search_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1395,6 +1429,7 @@ public class HostFrame extends javax.swing.JFrame  {
         });
 
         tab4_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab4_update_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_edit_black_24dp.png"))); // NOI18N
         tab4_update_button.setText("Cập nhật thông tin HK");
         tab4_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab4_update_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1403,6 +1438,7 @@ public class HostFrame extends javax.swing.JFrame  {
             }
         });
 
+        tab4_fault_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab4_fault_label.setText("Lỗi vi phạm:");
 
         tab4_table_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1412,6 +1448,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab4_table_label.setToolTipText("");
 
         tab4_reset_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab4_reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/baseline_refresh_black_24dp.png"))); // NOI18N
         tab4_reset_button.setText("Đặt lại");
         tab4_reset_button.setToolTipText("");
         tab4_reset_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1428,119 +1465,116 @@ public class HostFrame extends javax.swing.JFrame  {
             .addGroup(tab4Layout.createSequentialGroup()
                 .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab4Layout.createSequentialGroup()
-                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addContainerGap()
+                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab4Layout.createSequentialGroup()
-                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tab4_add_button)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tab4_update_button))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
+                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(tab4Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(tab4_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(tab4Layout.createSequentialGroup()
                                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(tab4Layout.createSequentialGroup()
-                                                .addGap(17, 17, 17)
-                                                .addComponent(tab4_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(15, 15, 15)
                                                 .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(tab4_numAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(tab4_stdID_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(tab4_fault_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                        .addGap(18, 18, 18))
-                                    .addGroup(tab4Layout.createSequentialGroup()
-                                        .addGap(15, 15, 15)
-                                        .addComponent(tab4_numNotAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tab4_fault_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tab4_numAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tab4_numNotAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(tab4_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab4_name_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tab4Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(tab4_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tab4_update_button)))
-                        .addGap(38, 38, 38))
+                                                    .addComponent(tab4_numNotAllow_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addGroup(tab4Layout.createSequentialGroup()
+                                                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(tab4_fault_label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(tab4_numAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                                .addGap(18, 18, 18))
+                                            .addGroup(tab4Layout.createSequentialGroup()
+                                                .addGap(17, 17, 17)
+                                                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(tab4_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(tab4_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(tab4_stdID_textField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(tab4_fault_textField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(tab4_numAllow_textField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(tab4_name_textField)
+                                            .addComponent(tab4_numNotAllow_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(20, 20, 20)))
+                        .addGap(18, 18, 18))
                     .addGroup(tab4Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
-                        .addComponent(tab4_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tab4_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
             .addGroup(tab4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tab4_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
+            .addGroup(tab4Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab4Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(tab4_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(191, 191, 191)
-                        .addComponent(tab4_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tab4Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tab4_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tab4Layout.createSequentialGroup()
-                                .addComponent(tab4_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tab4_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tab4_class_textField)))
-                    .addGroup(tab4Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(tab4_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tab4_class_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(tab4_search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tab4Layout.createSequentialGroup()
+                            .addComponent(tab4_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(tab4_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tab4_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tab4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tab4_fault_label, tab4_name_label, tab4_numAllow_label, tab4_numNotAllow_label, tab4_stdID_label});
+        tab4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tab4_fault_label, tab4_name_label, tab4_numAllow_label, tab4_stdID_label});
 
         tab4Layout.setVerticalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tab4_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(tab4_class_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tab4_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab4_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addComponent(tab4_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tab4_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab4_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab4Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(tab4_class_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119)
                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab4_name_label)
+                            .addComponent(tab4_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab4_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab4_stdID_label)
+                            .addComponent(tab4_stdID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab4_stdID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tab4_fault_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab4_fault_label))
+                            .addComponent(tab4_fault_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab4_numAllow_label)
+                            .addComponent(tab4_numAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab4_numAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab4_numNotAllow_label)
+                            .addComponent(tab4_numNotAllow_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tab4_numNotAllow_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab4_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab4_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(tab4_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tab4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tab4_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab4_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab4_semester_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addComponent(tab4_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab4_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab4_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45)
+                        .addGroup(tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tab4_add_button, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                            .addComponent(tab4_update_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(tab4_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab4);
@@ -1550,6 +1584,7 @@ public class HostFrame extends javax.swing.JFrame  {
         tab5.setPreferredSize(new java.awt.Dimension(702, 670));
 
         tab5_add_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab5_add_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_TNT.png"))); // NOI18N
         tab5_add_button.setText("Thêm giáo viên");
         tab5_add_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab5_add_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1560,6 +1595,7 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab5_head_label.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         tab5_head_label.setForeground(new java.awt.Color(0, 204, 204));
+        tab5_head_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_teacher_60px_1.png"))); // NOI18N
         tab5_head_label.setText("QUẢN LÝ GIÁO VIÊN");
 
         tab5_info_label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1609,9 +1645,11 @@ public class HostFrame extends javax.swing.JFrame  {
         });
         jScrollPane3.setViewportView(tab5_table);
 
-        tab5_teacherID_label.setText("Mã giáo viên");
+        tab5_teacherID_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tab5_teacherID_label.setText("Mã giáo viên:");
 
         tab5_update_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab5_update_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_edit_black_24dp.png"))); // NOI18N
         tab5_update_button.setText("Cập nhật thông tin");
         tab5_update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab5_update_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1633,23 +1671,31 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab5_searchMethod_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tìm tất cả giáo viên", "Theo tên", "Theo mã GV" }));
 
-        tab5_mainClass_label.setText("Lớp chủ nhiệm");
+        tab5_mainClass_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tab5_mainClass_label.setText("Lớp chủ nhiệm:");
 
+        tab5_name_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_name_label.setText("Họ và tên:");
 
         tab5_search_textField.setText("Nhập tên, mã GV");
 
+        tab5_birtday_textField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_birtday_textField.setText("Ngày sinh:");
 
+        tab5_sex_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_sex_label.setText("Giới tính:");
 
+        tab5_address_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_address_label.setText("Địa chỉ:");
 
+        tab5_role_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_role_label.setText("Chức vụ");
 
+        tab5_phone_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_phone_label.setText("SĐT liên lạc:");
 
         tab5_delete_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab5_delete_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/New_delete_black_24dp.png"))); // NOI18N
         tab5_delete_button.setText("Xóa giáo viên");
         tab5_delete_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab5_delete_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1662,13 +1708,16 @@ public class HostFrame extends javax.swing.JFrame  {
 
         tab5_year_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo năm học", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024" }));
 
+        tab5_account_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_account_label.setText("Tài khoản:");
 
+        tab5_password_label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tab5_password_label.setText("Mật khẩu:");
 
         tab5_role_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giáo viên giảng dạy", "Hiệu phó", "Hiệu trưởng" }));
 
         tab5_reset_button.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tab5_reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/baseline_refresh_black_24dp.png"))); // NOI18N
         tab5_reset_button.setText("Đặt lại ");
         tab5_reset_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1679,7 +1728,6 @@ public class HostFrame extends javax.swing.JFrame  {
         tab5_showPassword_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_eye_24px.png"))); // NOI18N
         tab5_showPassword_button.setBorder(null);
         tab5_showPassword_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tab5_showPassword_button.setOpaque(true);
         tab5_showPassword_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tab5_showPassword_buttonMouseEntered(evt);
@@ -1695,26 +1743,23 @@ public class HostFrame extends javax.swing.JFrame  {
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tab5_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(620, 620, 620))
+                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tab5Layout.createSequentialGroup()
                         .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tab5_searchMethod_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab5_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab5Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(tab5_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tab5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tab5_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(167, 167, 167)
-                        .addComponent(tab5_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tab5_searchMethod_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_search_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tab5Layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addComponent(tab5_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(tab5Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tab5_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(tab5_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                    .addGroup(tab5Layout.createSequentialGroup()
                         .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tab5Layout.createSequentialGroup()
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1724,98 +1769,70 @@ public class HostFrame extends javax.swing.JFrame  {
                                     .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(tab5_role_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(tab5_address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tab5_birthday_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                    .addComponent(tab5_name_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                    .addComponent(tab5_address_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                    .addComponent(tab5_sex_comboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tab5_role_comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(29, 29, 29)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tab5_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tab5_birthday_textField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(tab5_sex_comboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tab5_address_textField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(tab5_role_comboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 170, Short.MAX_VALUE))))
                             .addGroup(tab5Layout.createSequentialGroup()
                                 .addGap(61, 61, 61)
                                 .addComponent(tab5_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(tab5Layout.createSequentialGroup()
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tab5_phone_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab5_mainClass_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tab5_teacherID_label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tab5_account_label, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab5_password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30)
+                                    .addComponent(tab5_password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_mainClass_label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(tab5_account_textField)
-                                        .addComponent(tab5_teacherID_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                        .addComponent(tab5_mainClass_textfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                        .addComponent(tab5_phone_textField))
                                     .addGroup(tab5Layout.createSequentialGroup()
-                                        .addComponent(tab5_password_passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tab5_password_passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tab5_showPassword_button, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(tab5_showPassword_button, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tab5_phone_textField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                        .addComponent(tab5_teacherID_textField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(tab5_mainClass_textfield, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(tab5_account_textField)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tab5Layout.createSequentialGroup()
-                                .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
+                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                                .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
                                 .addComponent(tab5_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
+                                .addGap(26, 26, 26)
                                 .addComponent(tab5_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(53, 53, 53))))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tab5Layout.createSequentialGroup()
+                                .addGap(143, 143, 143)
+                                .addComponent(tab5_table_label, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(58, 58, 58))))
         );
         tab5Layout.setVerticalGroup(
             tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tab5_head_label, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(tab5_search_textField)
+                    .addComponent(tab5_year_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tab5_searchMethod_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tab5_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tab5Layout.createSequentialGroup()
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tab5_search_textField, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                            .addComponent(tab5_year_comboBox))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_searchMethod_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab5_search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tab5_info_label)
-                        .addGap(20, 20, 20)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_name_label)
-                            .addComponent(tab5_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_birtday_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab5_birthday_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_sex_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab5_sex_label))
-                        .addGap(18, 18, 18)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab5_address_label))
-                        .addGap(53, 53, 53)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_phone_label)
-                            .addComponent(tab5_phone_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tab5_mainClass_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tab5_mainClass_label))
-                        .addGap(132, 132, 132))
-                    .addGroup(tab5Layout.createSequentialGroup()
-                        .addComponent(tab5_table_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(tab5Layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(88, 88, 88))
+                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
-                                .addGap(236, 236, 236)
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(tab5_role_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tab5_role_label))
@@ -1823,20 +1840,57 @@ public class HostFrame extends javax.swing.JFrame  {
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(tab5_teacherID_label)
                                     .addComponent(tab5_teacherID_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(20, 20, 20)
                                 .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tab5_account_label)
-                                    .addComponent(tab5_account_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab5_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tab5_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)))))
-                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tab5_password_label)
-                    .addComponent(tab5_password_passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tab5_showPassword_button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(tab5_account_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                                .addComponent(tab5_info_label)
+                                .addGap(20, 20, 20)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_name_label)
+                                    .addComponent(tab5_name_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_birtday_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_birthday_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_sex_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_sex_label))
+                                .addGap(18, 18, 18)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_address_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_address_label))
+                                .addGap(53, 53, 53)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_phone_label)
+                                    .addComponent(tab5_phone_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_mainClass_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_mainClass_label))
+                                .addGap(132, 132, 132)))
+                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tab5_password_label)
+                            .addComponent(tab5_password_passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tab5_showPassword_button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tab5Layout.createSequentialGroup()
+                        .addComponent(tab5_table_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tab5Layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                                .addGap(437, 437, 437)
+                                .addGroup(tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tab5_update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tab5_reset_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         getContentPane().add(tab5);
