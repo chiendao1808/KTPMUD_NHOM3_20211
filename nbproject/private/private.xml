@@ -5,12 +5,14 @@
         <group>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Controller/ServiceImpl/DayServiceImpl.java</file>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/View/HostFrame.java</file>
+            <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Utility/StringModifyUtils.java</file>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Controller/ServiceImpl/DiemServiceImpl.java</file>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/App/MainApp.java</file>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Controller/Service/HocService.java</file>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Controller/Service/MonHocService.java</file>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Controller/ServiceImpl/HocSinhServiceImpl.java</file>
             <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Controller/ServiceImpl/MonHocServiceImpl.java</file>
+            <file>file:/C:/Users/leope/Documents/NetBeansProjects/KTPMUD_BTL_Nhom3_20211/src/Controller/ServiceImpl/GiaoVienServiceImpl.java</file>
         </group>
     </open-files>
 </project-private>
