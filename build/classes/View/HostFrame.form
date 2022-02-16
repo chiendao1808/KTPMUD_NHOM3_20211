@@ -847,7 +847,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" alignment="0" pref="1094" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" pref="1090" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -988,7 +988,6 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="opaque" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[702, 670]"/>
         </Property>
@@ -1002,57 +1001,75 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                  <Component id="tab2_info_label" min="-2" pref="171" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
+                  <Component id="tab2_table_label" min="-2" pref="332" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="tab2_head_label" min="-2" pref="347" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="tab2_head_label" min="-2" pref="410" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="tab2_phone_label" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="tab2_stdID_label" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="tab2_sex_label" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="tab2_sex_label" max="32767" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tab2_address_label" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tab2_stdID_textField" linkSize="2" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                                      <Component id="tab2_phone_textField" linkSize="2" min="-2" pref="197" max="-2" attributes="0"/>
-                                      <Component id="tab2_parent_textField" linkSize="2" alignment="0" max="32767" attributes="0"/>
                                       <Component id="tab2_address_textField" linkSize="2" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
                                       <Component id="tab2_sex_comboBox" linkSize="2" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tab2_birthday_label" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="tab2_name_label" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="tab2_parent_label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="tab2_stdID_label" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="tab2_phone_label" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="tab2_birthday_textField" linkSize="2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="tab2_name_textField" linkSize="2" alignment="0" pref="197" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tab2_stdID_textField" linkSize="2" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
+                                      <Component id="tab2_phone_textField" linkSize="2" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
+                                      <Component id="tab2_parent_textField" linkSize="2" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="tab2_address_label" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                              <Component id="tab2_parent_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="tab2_name_label" min="-2" pref="73" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="tab2_name_textField" linkSize="2" pref="197" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="tab2_birthday_label" min="-2" pref="73" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="tab2_birthday_textField" linkSize="2" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="tab2_add_button" min="-2" pref="123" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="tab2_update_button" min="-2" pref="163" max="-2" attributes="0"/>
+                                  <Component id="tab2_add_button" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="tab2_update_button" min="-2" pref="176" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="tab2_delete_button" min="-2" pref="141" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
@@ -1063,13 +1080,6 @@
                           <EmptySpace min="-2" pref="553" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                  <Component id="tab2_info_label" min="-2" pref="171" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="333" max="-2" attributes="0"/>
-                  <Component id="tab2_table_label" min="-2" pref="332" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -1106,60 +1116,60 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab2_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tab2_name_textField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="tab2_name_label" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="tab2_name_textField" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab2_birthday_label" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="tab2_birthday_textField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="tab2_birthday_textField" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="tab2_birthday_label" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="tab2_sex_comboBox" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="tab2_sex_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab2_sex_label" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="tab2_address_label" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tab2_address_textField" min="-2" pref="28" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="tab2_parent_label" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Component id="tab2_parent_textField" min="-2" pref="28" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab2_phone_textField" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="tab2_phone_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab2_address_label" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="tab2_address_textField" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="tab2_parent_textField" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="tab2_parent_label" max="32767" attributes="0"/>
+                                  <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab2_stdID_textField" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="tab2_stdID_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab2_phone_textField" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="tab2_phone_label" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="tab2_stdID_label" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="tab2_stdID_textField" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jScrollPane2" min="-2" pref="416" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="442" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab2_reset_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="tab2_delete_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="tab2_update_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="tab2_add_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tab2_reset_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="tab2_delete_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="tab2_update_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="tab2_add_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -1276,6 +1286,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab2_name_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n:"/>
           </Properties>
         </Component>
@@ -1292,11 +1305,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab2_birthday_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab2_sex_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gi&#x1edb;i t&#xed;nh:"/>
           </Properties>
         </Component>
@@ -1304,6 +1323,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab2_address_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;:"/>
           </Properties>
         </Component>
@@ -1311,6 +1333,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab2_parent_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="H&#x1ecd; t&#xea;n ph&#x1ee5; huynh:"/>
           </Properties>
         </Component>
@@ -1321,6 +1346,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab2_phone_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="S&#x110;T li&#xea;n l&#x1ea1;c:"/>
           </Properties>
         </Component>
@@ -1328,6 +1356,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_TNT.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Th&#xea;m h&#x1ecd;c sinh"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1345,6 +1376,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/icons8_student_male_48px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; H&#x1ecc;C SINH"/>
           </Properties>
@@ -1364,6 +1398,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab2_stdID_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3; h&#x1ecd;c sinh"/>
           </Properties>
         </Component>
@@ -1371,6 +1408,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_edit_black_24dp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t th&#xf4;ng tin"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1385,6 +1425,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_delete_black_24dp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="X&#xf3;a h&#x1ecd;c sinh"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1435,6 +1478,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/baseline_refresh_black_24dp.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t l&#x1ea1;i"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
@@ -1466,116 +1512,112 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="tab3_info_label" min="-2" pref="178" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="tab3_update_button" min="-2" pref="191" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tab3_stdID_label" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Component id="tab3_name_label" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="tab3_score1_label" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tab3_score2_label" min="-2" pref="104" max="-2" attributes="0"/>
+                                      <Component id="tab3_score3_label" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tab3_score2_textField" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="tab3_score1_textField" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="tab3_chooseScore_comboBox" min="-2" pref="79" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="tab3_score3_textField" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           <Component id="tab3_table_header" min="-2" pref="586" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jScrollPane4" alignment="0" min="-2" pref="710" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="252" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="tab3_head_label" alignment="0" min="-2" pref="444" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="tab3_head_label" min="-2" pref="444" max="-2" attributes="0"/>
+                              <Component id="tab3_name_textField" min="-2" pref="195" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="tab3_search_textField" pref="196" max="32767" attributes="0"/>
-                                      <Component id="tab3_search_button" max="32767" attributes="0"/>
+                                      <Component id="tab3_search_textField" max="32767" attributes="0"/>
+                                      <Component id="tab3_search_button" min="-2" pref="196" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tab3_year_comboBox" pref="113" max="32767" attributes="0"/>
-                                      <Component id="tab3_subject_comboBox" max="32767" attributes="0"/>
+                                      <Component id="tab3_year_comboBox" max="32767" attributes="0"/>
+                                      <Component id="tab3_subject_comboBox" min="-2" pref="113" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tab3_semester_comboBox" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="tab3_stdID_textField" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="tab3_semester_comboBox" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="tab3_score1_label" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tab3_score1_textField" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tab3_chooseScore_comboBox" min="-2" pref="79" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="tab3_score3_label" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="tab3_score3_textField" min="-2" pref="195" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tab3_name_label" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="tab3_stdID_label" min="-2" pref="84" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tab3_name_textField" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="tab3_stdID_textField" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="tab3_score2_label" min="-2" pref="104" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tab3_score2_textField" min="-2" pref="195" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                          <Component id="tab3_update_button" min="-2" pref="191" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="jScrollPane4" min="-2" pref="716" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="tab3_head_label" min="-2" pref="77" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tab3_year_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tab3_semester_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="tab3_search_textField" pref="28" max="32767" attributes="0"/>
+                      <Component id="tab3_search_textField" pref="36" max="32767" attributes="0"/>
+                      <Component id="tab3_year_comboBox" alignment="1" max="32767" attributes="0"/>
+                      <Component id="tab3_semester_comboBox" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tab3_search_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tab3_subject_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tab3_info_label" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="tab3_table_header" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane4" min="-2" pref="410" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Component id="tab3_subject_comboBox" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="tab3_search_button" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="tab3_info_label" min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="tab3_name_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="tab3_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab3_name_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab3_stdID_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab3_stdID_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="tab3_stdID_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -1586,19 +1628,24 @@
                           </Group>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab3_score2_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab3_score2_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="tab3_score2_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="tab3_score3_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="tab3_score3_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab3_score3_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tab3_update_button" min="-2" pref="48" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="tab3_table_header" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="tab3_update_button" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" pref="434" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1612,6 +1659,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="0" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/icons8_scorecard_48px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; &#x110;I&#x1ec2;M"/>
           </Properties>
         </Component>
@@ -1622,6 +1672,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_name_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n:"/>
           </Properties>
         </Component>
@@ -1649,6 +1702,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_stdID_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3; HS:"/>
           </Properties>
         </Component>
@@ -1656,6 +1712,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_score1_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m h&#x1ec7; s&#x1ed1; 1:"/>
           </Properties>
         </Component>
@@ -1663,6 +1722,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_score2_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m thi GK:"/>
           </Properties>
         </Component>
@@ -1670,6 +1732,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab3_score3_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m thi CK:"/>
           </Properties>
         </Component>
@@ -1708,6 +1773,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="tab3_search_button">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1722,6 +1790,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_edit_black_24dp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t &#x111;i&#x1ec3;m"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1823,90 +1894,88 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                                  <Component id="tab4_name_label" linkSize="1" min="-2" pref="73" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="tab4_numAllow_label" linkSize="1" min="-2" pref="104" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="tab4_stdID_label" linkSize="1" alignment="1" min="-2" pref="84" max="-2" attributes="0"/>
-                                                          <Component id="tab4_fault_label" linkSize="1" alignment="1" min="-2" pref="84" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                          <Component id="tab4_numNotAllow_label" linkSize="1" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="tab4_fault_textField" min="-2" pref="195" max="-2" attributes="0"/>
-                                          <Component id="tab4_numAllow_textField" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                          <Component id="tab4_numNotAllow_textField" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="tab4_stdID_textField" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="tab4_name_textField" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Component id="tab4_add_button" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="tab4_update_button" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="tab4_reset_button" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="jScrollPane5" min="-2" pref="682" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="tab4_info_label" min="-2" pref="255" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                          <Component id="tab4_table_label" min="-2" pref="484" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="tab4_add_button" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="tab4_update_button" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="tab4_info_label" min="-2" pref="255" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="tab4_numNotAllow_label" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="tab4_fault_label" linkSize="1" min="-2" pref="84" max="-2" attributes="0"/>
+                                                              <Component id="tab4_numAllow_label" linkSize="1" min="-2" pref="104" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="tab4_stdID_label" linkSize="1" min="-2" pref="84" max="-2" attributes="0"/>
+                                                      <Component id="tab4_name_label" linkSize="1" min="-2" pref="73" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="tab4_stdID_textField" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="tab4_fault_textField" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="tab4_numAllow_textField" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="tab4_name_textField" max="32767" attributes="0"/>
+                                              <Component id="tab4_numNotAllow_textField" alignment="1" min="-2" pref="184" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="tab4_search_button" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="tab4_year_comboBox" min="-2" pref="113" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tab4_semester_comboBox" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="tab4_class_textField" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="tab4_reset_button" min="-2" pref="126" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jScrollPane5" min="-2" pref="698" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="76" max="32767" attributes="0"/>
+                  <Component id="tab4_table_label" min="-2" pref="484" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="tab4_class_textField" min="-2" pref="236" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="tab4_search_button" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="tab4_year_comboBox" min="-2" pref="113" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tab4_semester_comboBox" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="tab4_head_label" min="-2" pref="412" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="tab4_head_label" min="-2" pref="459" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -1915,63 +1984,60 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="tab4_head_label" min="-2" pref="61" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="tab4_class_textField" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tab4_year_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tab4_semester_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <Component id="tab4_search_button" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                          <Component id="tab4_class_textField" min="-2" pref="35" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                      <Component id="tab4_table_label" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="tab4_info_label" min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab4_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab4_name_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="tab4_name_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab4_stdID_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab4_stdID_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="tab4_stdID_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="tab4_fault_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="tab4_fault_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab4_fault_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab4_numAllow_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab4_numAllow_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="tab4_numAllow_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab4_numNotAllow_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab4_numNotAllow_label" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="tab4_numNotAllow_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab4_update_button" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="tab4_add_button" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="tab4_reset_button" min="-2" pref="38" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tab4_head_label" min="-2" pref="61" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab4_year_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tab4_semester_comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="tab4_search_button" min="-2" pref="28" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab4_info_label" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="tab4_table_label" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="tab4_add_button" pref="44" max="32767" attributes="0"/>
+                              <Component id="tab4_update_button" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jScrollPane5" min="-2" pref="410" max="-2" attributes="0"/>
+                          <Component id="tab4_reset_button" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jScrollPane5" alignment="0" min="-2" pref="472" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1984,6 +2050,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/icons8_report_card_48px_2.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; H&#x1ea0;NH KI&#x1ec2;M"/>
           </Properties>
@@ -2011,7 +2080,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab4_numAllow_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C&#xf3; ph&#xe9;p:"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Bu&#x1ed5;i ngh&#x1ec9; c&#xf3; ph&#xe9;p:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="tab4_semester_comboBox">
@@ -2032,12 +2104,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab4_name_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab4_numNotAllow_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Kh&#xf4;ng ph&#xe9;p:"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Bu&#x1ed5;i ngh&#x1ec9; kh&#xf4;ng ph&#xe9;p:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane5">
@@ -2054,8 +2132,8 @@
                     <Column editable="false" title="M&#xe3; HS" type="java.lang.String"/>
                     <Column editable="false" title="H&#x1ecd; v&#xe0; t&#xea;n" type="java.lang.String"/>
                     <Column editable="false" title="L&#x1ed7;i vi ph&#x1ea1;m" type="java.lang.String"/>
-                    <Column editable="false" title="C&#xf3; ph&#xe9;p" type="java.lang.Integer"/>
-                    <Column editable="false" title="Kh&#xf4;ng ph&#xe9;p" type="java.lang.Integer"/>
+                    <Column editable="false" title="Ngh&#x1ec9; c&#xf3; ph&#xe9;p" type="java.lang.Integer"/>
+                    <Column editable="false" title="Ngh&#x1ec9; kh&#xf4;ng ph&#xe9;p" type="java.lang.Integer"/>
                     <Column editable="false" title="H&#x1ea1;nh ki&#x1ec3;m" type="java.lang.String"/>
                   </Table>
                 </Property>
@@ -2119,6 +2197,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_TNT.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Th&#xea;m th&#xf4;ng tin HK"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
@@ -2141,6 +2222,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab4_stdID_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3; HS:"/>
           </Properties>
         </Component>
@@ -2165,6 +2249,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_edit_black_24dp.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t th&#xf4;ng tin HK"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
@@ -2176,6 +2263,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab4_fault_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="L&#x1ed7;i vi ph&#x1ea1;m:"/>
           </Properties>
         </Component>
@@ -2196,6 +2286,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/baseline_refresh_black_24dp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t l&#x1ea1;i"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -2229,29 +2322,27 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="tab5_head_label" min="-2" pref="382" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="620" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tab5_searchMethod_comboBox" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                              <Component id="tab5_search_textField" min="-2" pref="195" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Component id="tab5_year_comboBox" min="-2" pref="121" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="tab5_search_button" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tab5_searchMethod_comboBox" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="tab5_search_textField" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          <Component id="tab5_year_comboBox" min="-2" pref="121" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="tab5_search_button" min="-2" pref="103" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
+                              <Component id="tab5_head_label" alignment="0" min="-2" pref="438" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
-                          <Component id="tab5_table_label" min="-2" pref="427" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -2266,13 +2357,15 @@
                                           <Component id="tab5_address_label" min="-2" pref="64" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tab5_birthday_textField" pref="195" max="32767" attributes="0"/>
-                                      <Component id="tab5_name_textField" pref="195" max="32767" attributes="0"/>
-                                      <Component id="tab5_address_textField" alignment="1" pref="195" max="32767" attributes="0"/>
-                                      <Component id="tab5_sex_comboBox" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="tab5_role_comboBox" alignment="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tab5_name_textField" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="tab5_birthday_textField" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="tab5_sex_comboBox" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="tab5_address_textField" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="tab5_role_comboBox" alignment="1" pref="170" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -2282,41 +2375,46 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="tab5_phone_label" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="tab5_mainClass_label" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                                       <Component id="tab5_teacherID_label" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                                       <Component id="tab5_account_label" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
                                       <Component id="tab5_password_label" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                                      <Component id="tab5_mainClass_label" min="-2" pref="96" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="tab5_account_textField" max="32767" attributes="0"/>
-                                          <Component id="tab5_teacherID_textField" alignment="1" pref="195" max="32767" attributes="0"/>
-                                          <Component id="tab5_mainClass_textfield" alignment="0" pref="195" max="32767" attributes="0"/>
-                                          <Component id="tab5_phone_textField" alignment="1" max="32767" attributes="0"/>
-                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="tab5_password_passwordField" min="-2" pref="166" max="-2" attributes="0"/>
+                                          <Component id="tab5_password_passwordField" min="-2" pref="143" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="tab5_showPassword_button" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="tab5_phone_textField" alignment="1" pref="172" max="32767" attributes="0"/>
+                                          <Component id="tab5_teacherID_textField" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="tab5_mainClass_textfield" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="tab5_account_textField" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="tab5_add_button" min="-2" pref="138" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="tab5_update_button" min="-2" pref="158" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tab5_add_button" min="-2" pref="154" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="tab5_update_button" min="-2" pref="183" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="tab5_delete_button" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="tab5_reset_button" min="-2" pref="104" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane3" min="-2" pref="665" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="1" min="-2" pref="665" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="143" pref="143" max="-2" attributes="0"/>
+                                  <Component id="tab5_table_label" min="-2" pref="427" max="-2" attributes="0"/>
+                                  <EmptySpace pref="95" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -2327,62 +2425,21 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="tab5_head_label" min="-2" pref="72" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="tab5_search_textField" max="32767" attributes="0"/>
+                      <Component id="tab5_year_comboBox" min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tab5_searchMethod_comboBox" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="tab5_search_button" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="tab5_search_textField" pref="37" max="32767" attributes="0"/>
-                              <Component id="tab5_year_comboBox" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab5_searchMethod_comboBox" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="tab5_search_button" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="tab5_info_label" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab5_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tab5_name_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab5_birtday_textField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="tab5_birthday_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab5_sex_comboBox" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="tab5_sex_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab5_address_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="tab5_address_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab5_phone_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tab5_phone_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab5_mainClass_textfield" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="tab5_mainClass_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="tab5_table_label" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jScrollPane3" min="-2" pref="406" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="tab5_role_comboBox" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="tab5_role_label" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2392,26 +2449,75 @@
                                       <Component id="tab5_teacherID_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="tab5_teacherID_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="tab5_update_button" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="tab5_add_button" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                                       <Component id="tab5_account_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="tab5_account_textField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="tab5_delete_button" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="tab5_reset_button" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tab5_info_label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tab5_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tab5_name_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tab5_birtday_textField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="tab5_birthday_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tab5_sex_comboBox" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="tab5_sex_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tab5_address_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="tab5_address_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tab5_phone_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tab5_phone_textField" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tab5_mainClass_textfield" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="tab5_mainClass_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="tab5_password_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tab5_password_passwordField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="tab5_showPassword_button" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="tab5_table_label" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jScrollPane3" min="-2" pref="406" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="437" pref="437" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tab5_update_button" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="tab5_add_button" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="tab5_delete_button" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="tab5_reset_button" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tab5_password_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tab5_password_passwordField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="tab5_showPassword_button" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="65" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2421,6 +2527,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_TNT.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Th&#xea;m gi&#xe1;o vi&#xea;n"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2438,6 +2547,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/icons8_teacher_60px_1.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; GI&#xc1;O VI&#xca;N"/>
           </Properties>
@@ -2551,13 +2663,19 @@
         </Container>
         <Component class="javax.swing.JLabel" name="tab5_teacherID_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="M&#xe3; gi&#xe1;o vi&#xea;n"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="M&#xe3; gi&#xe1;o vi&#xea;n:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="tab5_update_button">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_edit_black_24dp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t th&#xf4;ng tin"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2603,13 +2721,19 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_mainClass_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="L&#x1edb;p ch&#x1ee7; nhi&#x1ec7;m"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="L&#x1edb;p ch&#x1ee7; nhi&#x1ec7;m:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tab5_name_textField">
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_name_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n:"/>
           </Properties>
         </Component>
@@ -2622,11 +2746,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_birtday_textField">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_sex_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gi&#x1edb;i t&#xed;nh:"/>
           </Properties>
         </Component>
@@ -2634,11 +2764,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_address_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_role_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ch&#x1ee9;c v&#x1ee5;"/>
           </Properties>
         </Component>
@@ -2646,6 +2782,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_phone_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="S&#x110;T li&#xea;n l&#x1ea1;c:"/>
           </Properties>
         </Component>
@@ -2653,6 +2792,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/New_delete_black_24dp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="X&#xf3;a gi&#xe1;o vi&#xea;n"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -2695,6 +2837,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_account_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n:"/>
           </Properties>
         </Component>
@@ -2702,6 +2847,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="tab5_password_label">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="M&#x1ead;t kh&#x1ea9;u:"/>
           </Properties>
         </Component>
@@ -2726,6 +2874,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/icons/baseline_refresh_black_24dp.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t l&#x1ea1;i "/>
           </Properties>
           <Events>
@@ -2743,7 +2894,6 @@
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
-            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tab5_showPassword_buttonMouseEntered"/>
