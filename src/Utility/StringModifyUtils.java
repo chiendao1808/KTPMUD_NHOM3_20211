@@ -26,4 +26,12 @@ public class StringModifyUtils {
                  sb.append(listDiem.get(size-1).getDiemSo());
                  return sb.toString();
             }
+    
+   public static String generateMaMonHoc(String tenMon, String khoi)
+           {
+               String [] monHocChar  = tenMon.split(" ");
+               StringBuilder sb = new StringBuilder();
+               sb.append(monHocChar[0].charAt(0)).append(monHocChar[1].charAt(0)).append(khoi);
+               return sb.toString();
+           }
 }

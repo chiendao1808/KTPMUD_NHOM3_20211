@@ -29,6 +29,7 @@ import Model.HocSinh;
 import Model.LoaiDiem;
 import Model.Lop;
 import Model.MonHoc;
+import Utility.StringModifyUtils;
 import java.util.Date;
 import javax.swing.text.DateFormatter;
 import java.sql.*;
@@ -64,9 +65,11 @@ public class TestApp {
 ////            hocSinh.setSoDienThoai("0937123983");
 ////            hocSinh.setXoa(false);
 //          
-                HanhKiemService hanhKiemService = new HanhKiemServiceImpl();
-                HanhKiem  hanhKiemFind  = hanhKiemService.findHanhKiem("HS000003","2020-2021","I").get();
-                System.out.println(hanhKiemService.proccessHanhKiem(hanhKiemFind));
+//                HanhKiemService hanhKiemService = new HanhKiemServiceImpl();
+//                HanhKiem  hanhKiemFind  = hanhKiemService.findHanhKiem("HS000003","2020-2021","I").get();
+//                System.out.println(hanhKiemService.proccessHanhKiem(hanhKiemFind));
+                
+                
             
             
         //asdf

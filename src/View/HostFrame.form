@@ -829,10 +829,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="tab1_Header" min="-2" pref="435" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -847,18 +843,23 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" alignment="0" pref="1090" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" pref="1094" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="tab1_Header" min="-2" pref="390" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="tab1_Header" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="tab1_Header" min="-2" pref="86" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                   <Component id="tab1_search_textField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -871,7 +872,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="401" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="98" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -953,7 +954,7 @@
         <Component class="javax.swing.JLabel" name="tab1_Header">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="36" style="1"/>
+              <Font name="Segoe UI" size="30" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="0" type="rgb"/>
@@ -961,7 +962,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/View/icons/icons8_search_100px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
+            <Property name="text" type="java.lang.String" value="T&#xcc;M KI&#x1ebe;M"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="tab1_year_comboBox">
@@ -1135,16 +1136,13 @@
                               <Component id="tab2_address_textField" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="tab2_parent_textField" min="-2" pref="45" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="tab2_parent_label" max="32767" attributes="0"/>
-                                  <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tab2_parent_label" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="tab2_parent_textField" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tab2_phone_textField" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="tab2_phone_textField" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="tab2_phone_label" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1512,45 +1510,49 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="tab3_info_label" min="-2" pref="178" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                          <Component id="tab3_update_button" min="-2" pref="191" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                                  <Component id="tab3_update_button" min="-2" pref="191" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="tab3_stdID_label" min="-2" pref="84" max="-2" attributes="0"/>
                                       <Component id="tab3_name_label" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="tab3_score1_label" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tab3_score2_label" min="-2" pref="104" max="-2" attributes="0"/>
-                                      <Component id="tab3_score3_label" min="-2" pref="80" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tab3_score2_textField" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="tab3_score1_textField" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="tab3_chooseScore_comboBox" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Component id="tab3_score1_label" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="tab3_score2_label" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="tab3_score2_textField" min="-2" pref="195" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="tab3_score3_textField" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tab3_info_label" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tab3_score3_label" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="tab3_score1_textField" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tab3_chooseScore_comboBox" min="-2" pref="76" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="tab3_score3_textField" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1848,10 +1850,20 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="tab3_subject_comboBox">
           <Properties>
+            <Property name="maximumRowCount" type="int" value="11"/>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
+              <StringArray count="11">
                 <StringItem index="0" value="Theo m&#xf4;n"/>
-                <StringItem index="1" value="To&#xe1;n H&#x1ecd;c 7"/>
+                <StringItem index="1" value="Ng&#x1eef; V&#x103;n"/>
+                <StringItem index="2" value="To&#xe1;n H&#x1ecd;c"/>
+                <StringItem index="3" value="Ti&#x1ebf;ng Anh"/>
+                <StringItem index="4" value="H&#xf3;a H&#x1ecd;c"/>
+                <StringItem index="5" value="V&#x1ead;t L&#xfd;"/>
+                <StringItem index="6" value="L&#x1ecb;ch S&#x1eed;"/>
+                <StringItem index="7" value="&#x110;&#x1ecb;a L&#xfd;"/>
+                <StringItem index="8" value="C&#xf4;ng D&#xe2;n "/>
+                <StringItem index="9" value="M&#x1ef9; Thu&#x1ead;t"/>
+                <StringItem index="10" value="Th&#x1ec3; D&#x1ee5;c"/>
               </StringArray>
             </Property>
           </Properties>
@@ -1862,11 +1874,10 @@
         <Component class="javax.swing.JComboBox" name="tab3_chooseScore_comboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="3">
                 <StringItem index="0" value="L&#x1ea7;n 1"/>
                 <StringItem index="1" value="L&#x1ea7;n 2"/>
                 <StringItem index="2" value="L&#x1ea7;n 3"/>
-                <StringItem index="3" value="L&#x1ea7;n 4"/>
               </StringArray>
             </Property>
           </Properties>
@@ -2037,7 +2048,7 @@
                       </Group>
                       <Component id="jScrollPane5" alignment="0" min="-2" pref="472" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
