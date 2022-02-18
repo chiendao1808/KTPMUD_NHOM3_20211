@@ -67,6 +67,7 @@ public class HostFrame extends javax.swing.JFrame  {
     private String tenDangNhap;
     private GiaoVien giaoVien;
     private String chucVu;
+    private String matKhau;
     private DefaultTableModel tab1_student_tableModel;
     private DefaultTableModel tab2_tableModel;
     private DefaultTableModel tab3_tableModel;
@@ -219,6 +220,9 @@ public class HostFrame extends javax.swing.JFrame  {
         infoTab_phone_textField.setText(giaoVien.getSoDienThoai());
         infoTab_position_Textfield.setText(giaoVien.getChucVu());
         infoTab_label.setText(giaoVien.getTenGiaoVien());
+        infoTab_account_textField.setText(tenDangNhap);
+        infoTab_password_passwordField.setText(giaoVienService.getTaiKhoanGiaoVien(giaoVien.getMaGiaoVien()).get(1));
+        
     }
     
     //public void showScoreInfoTab(){}
@@ -287,6 +291,11 @@ public class HostFrame extends javax.swing.JFrame  {
         infoTab_save_button = new javax.swing.JButton();
         infoTab_id_label = new javax.swing.JLabel();
         infoTab_id_textfield = new javax.swing.JTextField();
+        infoTab_account_textField = new javax.swing.JTextField();
+        infoTab_password_label = new javax.swing.JLabel();
+        infoTab_account_label2 = new javax.swing.JLabel();
+        infoTab_password_passwordField = new javax.swing.JPasswordField();
+        infoTab_showPassWord_button = new javax.swing.JButton();
         tab1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab1_student_table = new javax.swing.JTable();
@@ -705,26 +714,26 @@ public class HostFrame extends javax.swing.JFrame  {
         infoTab_schoolYear_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_schoolYear_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_schoolYear_label.setText("Năm học:");
-        infoTab.add(infoTab_schoolYear_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 80, 30));
+        infoTab.add(infoTab_schoolYear_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 80, 30));
 
         infoTab_schoolYear_textField.setEditable(false);
         infoTab_schoolYear_textField.setBackground(new java.awt.Color(255, 255, 255));
         infoTab_schoolYear_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_schoolYear_textField.setText("2021-2022");
         infoTab_schoolYear_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        infoTab.add(infoTab_schoolYear_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+        infoTab.add(infoTab_schoolYear_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
         infoTab_semester_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         infoTab_semester_label.setForeground(new java.awt.Color(0, 204, 204));
         infoTab_semester_label.setText("Học kỳ :");
-        infoTab.add(infoTab_semester_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+        infoTab.add(infoTab_semester_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, 30));
 
         infoTab_semeter_textField.setEditable(false);
         infoTab_semeter_textField.setBackground(new java.awt.Color(255, 255, 255));
         infoTab_semeter_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         infoTab_semeter_textField.setText("I");
         infoTab_semeter_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        infoTab.add(infoTab_semeter_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
+        infoTab.add(infoTab_semeter_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
 
         infoTab_save_button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         infoTab_save_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_save_24px.png"))); // NOI18N
@@ -750,6 +759,40 @@ public class HostFrame extends javax.swing.JFrame  {
         infoTab_id_textfield.setText("GV0001");
         infoTab_id_textfield.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         infoTab.add(infoTab_id_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, -1, -1));
+
+        infoTab_account_textField.setEditable(false);
+        infoTab_account_textField.setBackground(new java.awt.Color(255, 255, 255));
+        infoTab_account_textField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        infoTab_account_textField.setText("chiendao");
+        infoTab_account_textField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        infoTab.add(infoTab_account_textField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, 30));
+
+        infoTab_password_label.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        infoTab_password_label.setForeground(new java.awt.Color(0, 204, 204));
+        infoTab_password_label.setText("Mật khẩu:");
+        infoTab.add(infoTab_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 130, 30));
+
+        infoTab_account_label2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        infoTab_account_label2.setForeground(new java.awt.Color(0, 204, 204));
+        infoTab_account_label2.setText("Tên đăng nhập:");
+        infoTab.add(infoTab_account_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 130, 30));
+
+        infoTab_password_passwordField.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        infoTab_password_passwordField.setText("chiendao1808");
+        infoTab_password_passwordField.setBorder(null);
+        infoTab.add(infoTab_password_passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 150, 30));
+
+        infoTab_showPassWord_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/icons8_eye_24px.png"))); // NOI18N
+        infoTab_showPassWord_button.setBorder(null);
+        infoTab_showPassWord_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                infoTab_showPassWord_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                infoTab_showPassWord_buttonMouseExited(evt);
+            }
+        });
+        infoTab.add(infoTab_showPassWord_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 30, 30));
 
         getContentPane().add(infoTab);
         infoTab.setBounds(270, 0, 1100, 780);
@@ -1258,7 +1301,7 @@ public class HostFrame extends javax.swing.JFrame  {
                                         .addComponent(tab3_score2_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
-                        .addContainerGap(24, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
                                 .addComponent(tab3_info_label, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2023,6 +2066,10 @@ public class HostFrame extends javax.swing.JFrame  {
         infoTab_phone_textField.setEditable(true);
         infoTab_address_textField.setBorder(new FlatTextBorder());
         infoTab_address_textField.setEditable(true);  
+        infoTab_account_textField.setEditable(false);
+        infoTab_password_passwordField.setEditable(true);
+        infoTab_password_passwordField.setBorder(new FlatTextBorder());
+        
     }//GEN-LAST:event_infoTab_edit_buttonActionPerformed
 
     private void infoTab_save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoTab_save_buttonActionPerformed
@@ -2041,6 +2088,8 @@ public class HostFrame extends javax.swing.JFrame  {
             infoTab_phone_textField.setEditable(false);
             infoTab_address_textField.setBorder(BorderFactory.createEmptyBorder());
             infoTab_address_textField.setEditable(false);
+            infoTab_password_passwordField.setEditable(false);
+            infoTab_password_passwordField.setBorder(BorderFactory.createEmptyBorder());
             //  infoTab_saving_Option.showMessageDialog(null, "Bạn đã lưu thông tin thành công !");
             GiaoVien giaoVienUpdate = giaoVienService.findByTenDangNhap(tenDangNhap).get();
             if (!infoTab_name_textField.equals("")) {
@@ -2062,6 +2111,8 @@ public class HostFrame extends javax.swing.JFrame  {
                     showTeacherInfoTab();
                 }
             }
+            if(!infoTab_password_passwordField.getPassword().equals(""))
+            giaoVienService.updateMatKhauGiaoVien(giaoVienUpdate.getMaGiaoVien(),String.valueOf(infoTab_password_passwordField.getPassword()));
             giaoVienService.updateGiaoVien(giaoVienUpdate);
         } else {
             infoTab_saving_Option.showMessageDialog(null, "Vui lòng xác nhận lại", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
@@ -2923,6 +2974,17 @@ public class HostFrame extends javax.swing.JFrame  {
             tab3_search_buttonMouseClicked(evt);
     }//GEN-LAST:event_tab3_update_buttonMouseClicked
 
+    private void infoTab_showPassWord_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoTab_showPassWord_buttonMouseEntered
+        if(infoTab_password_passwordField.getPassword().length!=0)
+           {
+            infoTab_password_passwordField.setEchoChar((char)0); 
+           }
+    }//GEN-LAST:event_infoTab_showPassWord_buttonMouseEntered
+
+    private void infoTab_showPassWord_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoTab_showPassWord_buttonMouseExited
+        infoTab_password_passwordField.setEchoChar('\u2022');
+    }//GEN-LAST:event_infoTab_showPassWord_buttonMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -2950,6 +3012,8 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JLabel choose5;
     private javax.swing.JPanel infoTab;
     private javax.swing.JLabel infoTabHeader;
+    private javax.swing.JLabel infoTab_account_label2;
+    private javax.swing.JTextField infoTab_account_textField;
     private javax.swing.JLabel infoTab_address_label;
     private javax.swing.JTextField infoTab_address_textField;
     private javax.swing.JLabel infoTab_birthday_label;
@@ -2960,6 +3024,8 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JLabel infoTab_label;
     private javax.swing.JLabel infoTab_name_label;
     private javax.swing.JTextField infoTab_name_textField;
+    private javax.swing.JLabel infoTab_password_label;
+    private javax.swing.JPasswordField infoTab_password_passwordField;
     private javax.swing.JLabel infoTab_phone_label;
     private javax.swing.JTextField infoTab_phone_textField;
     private javax.swing.JTextField infoTab_position_Textfield;
@@ -2971,6 +3037,7 @@ public class HostFrame extends javax.swing.JFrame  {
     private javax.swing.JTextField infoTab_semeter_textField;
     private javax.swing.JLabel infoTab_sex_label;
     private javax.swing.JTextField infoTab_sex_textField;
+    private javax.swing.JButton infoTab_showPassWord_button;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
