@@ -40,7 +40,6 @@ public class MainApp {
             }
     
     public static void main(String[] args) {
-       //  TODO code application logic here
       Thread thread=  new Thread(new Runnable() {
             @Override
             public void run() {                       
@@ -48,11 +47,7 @@ public class MainApp {
             }
         });
       thread.start();
-//   HocSinhService hsService = new HocSinhServiceImpl();
-//   List<HocSinh> list = hsService.findAll();
-//   //list.stream().forEach(System.out::println);
-//        System.out.println(list);
-//                 
+
     }
     
 }

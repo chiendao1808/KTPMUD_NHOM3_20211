@@ -33,7 +33,7 @@ import org.codehaus.griffon.runtime.lookandfeel.synthetica.SyntheticaLookAndFeel
 public class LoginFrame extends javax.swing.JFrame implements ActionListener, KeyListener, MouseListener {
 
     
-    private GiaoVienService giaoVienService;  
+    private GiaoVienService giaoVienService;
     /**
      * Creates new form LoginForm
      * 
@@ -271,7 +271,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener, Ke
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            new TeacherFrame().setVisible(true);       
+            new HostFrame().setVisible(true);       
         }
     }//GEN-LAST:event_formKeyPressed
 
